@@ -23,5 +23,5 @@ Route::post('custom-registration', [AuthController::class, 'submit_registration'
 Route::get('signout', [AuthController::class, 'signout'])->name('signout');
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.pages.dashboard.dashboard');
 });
