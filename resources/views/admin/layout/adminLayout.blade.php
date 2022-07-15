@@ -48,7 +48,7 @@
             @include('admin.include.sidebar')
             @yield('content')
             @include('admin.assets.js')
-            @include('admin.include.footer')
+
             <!--end::Footer-->
         </div>
         <!--end::Wrapper-->
@@ -1267,7 +1267,10 @@
     </div>
     <!--end::Chat Panel-->
 
-  
+    @include('admin.include.footer')
+
+
 </body>
 
 </html>
+
