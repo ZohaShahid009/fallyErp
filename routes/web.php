@@ -23,10 +23,11 @@ Route::get('registration', [AuthController::class, 'registration'])->name('regis
 Route::post('custom-registration', [AuthController::class, 'submit_registration'])->name('register.custom');
 Route::get('signout', [AuthController::class, 'signout'])->name('signout');
 
+Route::get('/', [AuthController::class, 'dashboard'])->middleware('isLogged');
 
-Route::get('/', function () {
-    return view('admin.pages.dashboard.dashboard');
-});
+// Route::get('/', function () {
+//     return view('admin.pages.dashboard.dashboard');
+// });
 
 // Company Routes
 Route::get('company-list', [AdminController::class, 'companylist']);
