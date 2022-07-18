@@ -3,6 +3,9 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SubscriptionController;
+use App\Models\Plan;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +25,6 @@ Route::post('custom-login', [AuthController::class, 'login'])->name('login.custo
 Route::get('registration', [AuthController::class, 'registration'])->name('register-user');
 Route::post('custom-registration', [AuthController::class, 'submit_registration'])->name('register.custom');
 Route::get('signout', [AuthController::class, 'signout'])->name('signout');
-
 Route::get('/', [AuthController::class, 'dashboard'])->middleware('isLogged');
 
 // Route::get('/', function () {
@@ -40,3 +42,26 @@ Route::post('delete-company/{id}', [AdminController::class, 'deleteCompany']);
 Route::get('show-company/{id}', [AdminController::class, 'showCompany']);
 Route::get('edit-company/{id}', [AdminController::class, 'editCompany']);
 // End Company routes
+// new zoI RFFF
+
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+Route::post('single-charge', [HomeController::class, 'singleCharge'])->name('single.charge');
+Route::get('plans/create', [SubscriptionController::class, 'showPlanForm'])->name('plans.create');
+Route::post('plans/store', [SubscriptionController::class, 'savePlan'])->name('plans.store');
+
+
+Route::get('plans', [SubscriptionController::class, 'allPlans'])->name('plans.all');
+Route::get('plans/checkout/{planId}', [SubscriptionController::class, 'checkout'])->name('plans.checkout');
+Route::post('plans/process', [SubscriptionController::class, 'processPlan'])->name('plan.process');
+
+Route::get('subscriptions/all', [SubscriptionController::class, 'allSubscriptions'])->name('subscriptions.all');
+
+// RFF END
