@@ -45,7 +45,6 @@ Route::post('company/detail', [AdminController::class, 'company_detail'])->name(
 
 
 // End Company routes
-<<<<<<< HEAD
 // new zoI RFFF
 
 
@@ -69,7 +68,6 @@ Route::post('plans/process', [SubscriptionController::class, 'processPlan'])->na
 Route::get('subscriptions/all', [SubscriptionController::class, 'allSubscriptions'])->name('subscriptions.all');
 
 // RFF END
-=======
 
 // Staff Routes
 Route::get('add-staff-form', function () {
@@ -82,4 +80,3 @@ Route::delete('staffs/{id}', [AdminController::class, 'deletestaff'])->name('del
 Route::post('update-staff/{id}', [AdminController::class, 'updatestaff']);
 
 
->>>>>>> 8c1d771ce1d3e28a39a5c908fcd878588906ec3a
