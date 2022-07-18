@@ -8,7 +8,7 @@
             <!--end::Aside-->
             <!--begin::Wrapper-->
             <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-11">
                             <h2>Update Company</h2>

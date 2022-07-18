@@ -339,6 +339,16 @@ h5, .h5 {
 h6, .h6 {
   font-size: 1.175rem; }
 
+
+  .detail-close-btn{
+    background: #3699ff;
+    height: 35px;
+    border-radius: 50%;
+    color: #fffcf7;
+    width: 32px;
+    padding: 2px 10px 4px 10px;
+    font-size: 20px;
+  }
 .lead {
   font-size: 1.25rem;
   font-weight: 300; }

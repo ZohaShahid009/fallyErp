@@ -228,7 +228,7 @@
     </div> --}}
 
     <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
-        <div class="container mb-5">
+        <div class="container-fluid mb-5">
 
             <div class="card card-custom example example-compact">
                 <div class="container mt-4">

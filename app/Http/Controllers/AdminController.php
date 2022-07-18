@@ -61,12 +61,19 @@ class AdminController extends Controller
             'Pinterest_url'=> $request->get('Pinterest_url'),
         ]);
         $company->save();
-        return redirect()->back()->with('message', 'company has been added');
+        return redirect('/company-list')->with('message', 'company has been added');
     }
     // View company Details
     public function showCompany(Request $request, $id){
         $company =  Company::find($id);
         return view('admin.pages.company.view', compact('company'));
+    }
+
+    public function company_detail(Request $request){
+        $id = $request->id;
+        $company =  Company::find($id);
+
+        echo view('admin.pages.company.view', compact('company'));
     }
     // Show Copmany edit Form
     public function editCompany(Request $request, $id){
@@ -99,7 +106,7 @@ class AdminController extends Controller
         $company->Pinterest_url = $request->get('Pinterest_url');
 
         $company->update();
-        return redirect()->back()->with('info', 'company updated successfully');
+        return redirect('/company-list')->with('info', 'company updated successfully');
     }
 
     // Delete company by id

@@ -39,6 +39,9 @@ Route::post('update-company/{id}', [AdminController::class, 'updateCompany']);
 Route::get('show-company/{id}', [AdminController::class, 'showCompany']);
 Route::get('edit-company/{id}', [AdminController::class, 'editCompany']);
 Route::delete('companies/{id}', [AdminController::class, 'delete'])->name('delete-company');
+Route::post('company/detail', [AdminController::class, 'company_detail'])->name('company.detail');
+
+
 // End Company routes
 
 // Staff Routes
