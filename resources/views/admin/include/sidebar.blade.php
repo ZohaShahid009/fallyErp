@@ -4,7 +4,7 @@
      <div class="brand flex-column-auto" id="kt_brand">
          <!--begin::Logo-->
          <a href="index.html" class="brand-logo">
-             <img alt="Logo" src="assets/media/logos/logo-light.png" />
+             <img alt="Logo" src="{{asset('/')}}assets/media/logos/logo-light.png" />
          </a>
          <!--end::Logo-->
          <!--begin::Toggle-->
@@ -80,7 +80,7 @@
                              </svg>
                              <!--end::Svg Icon-->
                          </span>
-                         <span class="menu-text">Companies</span>
+                         <span class="menu-text">Tables</span>
                          <i class="menu-arrow"></i>
                      </a>
                      <div class="menu-submenu">
@@ -88,7 +88,7 @@
                          <ul class="menu-subnav">
                              <li class="menu-item menu-item-parent" aria-haspopup="true">
                                  <span class="menu-link">
-                                     <span class="menu-text">Companies</span>
+                                     <span class="menu-text">Tables</span>
                                  </span>
                              </li>
                              <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
@@ -97,6 +97,13 @@
                                         <span></span>
                                     </i>
                                     <span class="menu-text">All Companies</span>
+                                    <i class="menu-arrow"></i>
+                                </a>
+                                <a href="{{url('staff-list')}}" class="menu-link menu-toggle">
+                                    <i class="menu-bullet menu-bullet-line">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">All Staff</span>
                                     <i class="menu-arrow"></i>
                                 </a>
                              </li>

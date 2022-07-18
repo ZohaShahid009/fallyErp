@@ -16,5 +16,7 @@
         <script src="{{asset('/')}}assets/plugins/custom/datatables/datatables.bundle.js"></script>
 
         <script src="{{asset('/')}}assets/js/pages/crud/datatables/advanced/column-rendering.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 
 		<!--end::Page Scripts-->

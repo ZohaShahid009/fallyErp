@@ -37,7 +37,7 @@
                 <div class="card card-custom">
                     <div class="card-header flex-wrap py-5">
                         <div class="card-title">
-                            <h3 class="card-label">Companies
+                            <h3 class="card-label">Staff
                         </div>
                         <div class="card-toolbar">
                             <!--begin::Dropdown-->
@@ -114,7 +114,7 @@
                             </div>
                             <!--end::Dropdown-->
                             <!--begin::Button-->
-                            <a href="{{ url('add-company-form') }}" class="btn btn-primary font-weight-bolder">
+                            <a href="{{ url('add-staff-form') }}" class="btn btn-primary font-weight-bolder">
                                 <span class="svg-icon svg-icon-md">
                                     <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -138,9 +138,10 @@
                             <thead>
                                 <tr>
                                     <th>SR#</th>
-                                    <th>Company Name</th>
-                                    <th>Company Email</th>
-                                    <th>Company Phone No</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Email</th>
+                                    <th>Phone No</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -149,12 +150,13 @@
                                 @php
                                     $i = 0;
                                 @endphp
-                                @foreach ($companies as $company)
+                                @foreach ($staff as $staffs)
                                     <tr>
                                         <td>{{ ++$i }}</td>
-                                        <td>{{ $company->company_name }}</td>
-                                        <td>{{ $company->company_email }}</td>
-                                        <td>{{ $company->company_phone }}</td>
+                                        <td>{{ $staffs->first_name }}</td>
+                                        <td>{{ $staffs->last_name }}</td>
+                                        <td>{{ $staffs->email }}</td>
+                                        <td>{{ $staffs->phone }}</td>
                                         <td>
                                             <div class="dropdown dropdown-inline">
                                                 <a href="javascript:;" class="btn btn-sm btn-clean btn-icon"
@@ -164,7 +166,7 @@
                                                 <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
                                                     <ul class="nav nav-hoverable flex-column">
                                                         <li class="nav-item"><a class="nav-link"
-                                                                href="{{ url('edit-company', $company->id) }}"><i
+                                                                href="{{ url('edit-staff', $staffs->id) }}"><i
                                                                     class="nav-icon la la-edit"></i><span
                                                                     class="nav-text">View and Update</span></a></li>
                                                         <li class="nav-item"><a class="nav-link" href="#"><i
@@ -177,12 +179,12 @@
                                                 </div>
                                             </div>
 
-                                            <a href="{{ url('edit-company', $company->id) }}"
+                                            <a href="{{ url('edit-staff', $staffs->id) }}"
                                                 class="btn btn-sm btn-clean btn-icon" title="Edit details">
                                                 <i class="la la-edit"></i>
                                             </a>
                                             <form class="btn btn-sm btn-clean btn-icon" method="POST"
-                                                action="{{ route('delete-company', $company->id) }}">
+                                                action="{{ route('delete-staff', $staffs->id) }}">
                                                 @csrf
                                                 <input name="_method" type="hidden" value="DELETE">
                                                 <button type="submit" class="btn btn-sm btn-clean btn-icon show_confirm"

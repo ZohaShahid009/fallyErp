@@ -36,7 +36,19 @@ Route::get('add-company-form', function () {
 });
 Route::post('add-company', [AdminController::class, 'addcompany']);
 Route::post('update-company/{id}', [AdminController::class, 'updateCompany']);
-Route::post('delete-company/{id}', [AdminController::class, 'deleteCompany']);
 Route::get('show-company/{id}', [AdminController::class, 'showCompany']);
 Route::get('edit-company/{id}', [AdminController::class, 'editCompany']);
+Route::delete('companies/{id}', [AdminController::class, 'delete'])->name('delete-company');
 // End Company routes
+
+// Staff Routes
+Route::get('add-staff-form', function () {
+    return view('admin.pages.staff.create');
+});
+Route::get('staff-list', [AdminController::class, 'stafflist']);
+Route::post('add-staff', [AdminController::class, 'addstaff']);
+Route::get('edit-staff/{id}', [AdminController::class, 'editstaff']);
+Route::delete('staffs/{id}', [AdminController::class, 'deletestaff'])->name('delete-staff');
+Route::post('update-staff/{id}', [AdminController::class, 'updatestaff']);
+
+
