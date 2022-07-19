@@ -18,6 +18,8 @@
         <script src="{{asset('/')}}assets/plugins/custom/datatables/datatables.bundle.js"></script>
 
         <script src="{{asset('/')}}assets/js/pages/crud/datatables/advanced/column-rendering.js"></script>
+        <script src="{{asset('/')}}assets/js/pages/features/miscellaneous/sweetalert2.js"></script>
+
 
 
 		<!--end::Page Scripts-->
