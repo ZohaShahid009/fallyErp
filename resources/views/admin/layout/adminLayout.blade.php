@@ -52,6 +52,7 @@
         <!--begin::Page-->
         <div class="d-flex flex-row flex-column-fluid page">
             @include('admin.include.sidebar')
+            @include('admin.include.topnavbar')
             @yield('content')
             @include('admin.assets.js')
 

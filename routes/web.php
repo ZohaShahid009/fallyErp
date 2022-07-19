@@ -80,3 +80,4 @@ Route::delete('staffs/{id}', [AdminController::class, 'deletestaff'])->name('del
 Route::post('update-staff/{id}', [AdminController::class, 'updatestaff']);
 
 
+

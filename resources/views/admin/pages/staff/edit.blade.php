@@ -1,60 +1,51 @@
 @extends('admin.layout.adminLayout')
 @section('content')
-    {{-- <div class="container">
-    @foreach ($images as $image)
-    <div class="container">
-        <img class="img-thumbnail" src="{{url('storage/images/', $image->image)}}">
-    </div>
-
-    @endforeach
-</div> --}}
     <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
         <div class="container mb-5">
-
             <div class="card card-custom example example-compact">
                 <div class="container mt-4">
-                    {{-- @if ($errors->any())
-                <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif --}}
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                 </div>
                 <div class="card-header">
                     <h3 class="card-title">Update Staff details</h3>
-                    {{-- <div class="card-toolbar">
-                    <div class="example-tools justify-content-center">
-                        <span class="example-toggle" data-toggle="tooltip" title="View code"></span>
-                        <span class="example-copy" data-toggle="tooltip" title="Copy code"></span>
-                    </div>
-                </div> --}}
-
-
                 </div>
-
                 <form class="form" action="{{ url('update-staff', $staff->id) }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
-                        <h3 class="font-size-lg text-dark font-weight-bold mb-6">1. Customer Image:</h3>
-                        <div class="form-group row">
-                            {{-- <div class="image-input image-input-outline image-input-circle" id="kt_image_3">
-                            <div class="image-input-wrapper" style="background-image: url({{asset('/')}}assets/media/users/100_3.jpg)"></div>
+                        <h3 class="font-size-lg text-dark font-weight-bold mb-6">1. Profile Image:</h3>
+                        <div class="mb-15">
+                            <div class="form-group row">
+                                <div class="col-lg-3"></div>
+                                <div class=" mt-5 mb-5 image-input image-input-outline image-input-circle" id="kt_image_3">
+                                    <div class="image-input-wrapper"
+                                        style="background-image: url({{ asset('/') }}staff_images/{{ $staff->image }})">
+                                    </div>
 
-                            <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
-                             <i class="fa fa-pen icon-sm text-muted"></i>
-                             <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg"/>
-                             <input type="hidden" name="profile_avatar_remove"/>
-                            </label>
+                                    <label
+                                        class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
+                                        data-action="change" data-toggle="tooltip" title=""
+                                        data-original-title="Change avatar">
+                                        <i class="fa fa-pen icon-sm text-muted"></i>
+                                        <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg" />
+                                        <input type="hidden" name="profile_avatar_remove" />
+                                    </label>
 
-                            <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
-                             <i class="ki ki-bold-close icon-xs text-muted"></i>
-                            </span>
-                           </div> --}}
+                                    <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
+                                        data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
+                                        <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
                         <h3 class="font-size-lg text-dark font-weight-bold mb-6">2. Customer Info:</h3>
                         <div class="mb-15">
@@ -79,7 +70,8 @@
                                 <div class="col-lg-6">
                                     <input id="email" name="email" type="email" class="form-control"
                                         value="{{ $staff->email }}" />
-                                    <span class="form-text text-muted">We'll never share your email with anyone else</span>
+                                    <span class="form-text text-muted">We'll never share your email with anyone
+                                        else</span>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -87,7 +79,8 @@
                                 <div class="col-lg-6">
                                     <input id="phone" name="phone" type="phone" class="form-control"
                                         value="{{ $staff->phone }}" />
-                                    <span class="form-text text-muted">We'll never share your phone with anyone else</span>
+                                    <span class="form-text text-muted">We'll never share your phone with anyone
+                                        else</span>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -135,6 +128,7 @@
                             </div>
                         </div>
                     </div>
+
                 </form>
             </div>
         </div>

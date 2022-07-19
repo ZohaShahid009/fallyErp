@@ -166,21 +166,13 @@ class AdminController extends Controller
     // Update Staff
     public function updatestaff(Request $request,$id)
     {
-            if($request->hasFile('profile_avatar')){
-                $img_tmp = $request->file('profile_avatar');
-                    if($img_tmp->isValid()){
-                        $extension = $img_tmp->getClientOriginalExtension();
-                        $imageName = rand(111,99999).'.'.$extension;
-                        $imagePath = 'staff_images/'.$imageName;
-                        Image::make($img_tmp)->save($imagePath);
-                        }
-            }
+
         $request->validate([
             'email'=> 'email',
         ]);
 
         $staff = Staff::find($id);
-        // $staff->image = $imageName;
+        //
         $staff->first_name = $request->get('first_name');
         $staff->last_name = $request->get('last_name');
         $staff->email = $request->get('email');
@@ -189,6 +181,16 @@ class AdminController extends Controller
         $staff->facebook_url = $request->get('facebook_url');
         $staff->linkedin_url = $request->get('linkedin_url');
         $staff->skype_url = $request->get('skype_url');
+        if($request->hasFile('profile_avatar')){
+            $img_tmp = $request->file('profile_avatar');
+                if($img_tmp->isValid()){
+                    $extension = $img_tmp->getClientOriginalExtension();
+                    $imageName = rand(111,99999).'.'.$extension;
+                    $imagePath = 'staff_images/'.$imageName;
+                    Image::make($img_tmp)->save($imagePath);
+                    }
+                    $staff->image = $imageName;
+                }
         $staff->update();
         return redirect()->back()->with('info', 'staff updated successfully');
     }
