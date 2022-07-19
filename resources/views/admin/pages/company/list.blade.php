@@ -14,9 +14,9 @@
         <!--begin::Entry-->
         <div class="d-flex flex-column-fluid">
             <!--begin::Container-->
-            <div class="container-fluid">
+            <div class="container">
                 <!--begin::Notice-->
-              
+
                 <!--end::Notice-->
                 <!--begin::Card-->
                 <div class="row">
@@ -128,6 +128,8 @@
                                         <th>Company Name</th>
                                         <th>Company Email</th>
                                         <th>Company Phone No</th>
+                                        <th>Test</th>
+
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -142,6 +144,7 @@
                                             <td>{{ $company->company_name }}</td>
                                             <td>{{ $company->company_email }}</td>
                                             <td>{{ $company->company_phone }}</td>
+                                            <td>sdsd</td>
                                             <td>
                                                 <div class="dropdown dropdown-inline">
                                                     <a href="javascript:;" class="btn btn-sm btn-clean btn-icon"
@@ -194,7 +197,7 @@
                     </div>
                 </div>
                 <div id="detail-tab" class="col-6 border" style="display:none">
-								
+
 				</div>
                 <!--end::Card-->
                 </div>
@@ -222,18 +225,9 @@
 				$('#detail-tab').css('display','block')
                 }
             })
-        })
-
-
-
-
-        
-
-
-
-        
+        });
 			function divHider() {
-				
+
 				$('#listing-tab').addClass('col-12')
 				$('#detail-tab').css('display','none')
 
