@@ -9,12 +9,14 @@
   width: 60px;
   height: 34px;
 }
+
 /* Hide default HTML checkbox */
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
+
 /* The slider */
 .slider {
   position: absolute;
@@ -27,6 +29,7 @@
   -webkit-transition: .4s;
   transition: .4s;
 }
+
 .slider:before {
   position: absolute;
   content: "";
@@ -38,27 +41,32 @@
   -webkit-transition: .4s;
   transition: .4s;
 }
+
 input:checked + .slider {
   background-color: #2196F3;
 }
+
 input:focus + .slider {
   box-shadow: 0 0 1px #2196F3;
 }
+
 input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
+
 /* Rounded sliders */
 .slider.round {
   border-radius: 34px;
 }
+
 .slider.round:before {
   border-radius: 50%;
 }
 </style>
-@endsection
 
+@endsection
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -83,7 +91,8 @@ input:checked + .slider:before {
                             <th scope="col">Price</th>
                             <th scope="col">Quantity</th>
                             <th scope="col">Trial Start At</th>
-                            <th>Auto Renew</th>
+                            <th scope="col">Trial Ends At</th>
+                            <th scope="col">Auto Renew</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -93,17 +102,13 @@ input:checked + .slider:before {
                                     <td>{{ $subscription->name }}</td>
                                     <td>{{ $subscription->plan->price }}</td>
                                     <td>{{ $subscription->quantity }}</td>
+                                    <td>{{ $subscription->trial_ends_at }}</td>
                                     <td>{{ $subscription->created_at }}</td>
                                     <td>
-                                        <label class="switch">
-                                            @if ($subscription->ends_at == null)
-                                                <input type="checkbox" id="switcher" checked value="{{ $subscription->name }}">
-                                            @else
-                                                <input type="checkbox" id="switcher" value="{{ $subscription->name }}">
-                                            @endif
-
-                                            <span class="slider round"></span>
-                                        </label>
+                                    <label class="switch">
+                                        <input type="checkbox" id="switcher">
+                                        <span class="slider round"></span>
+                                      </label>
                                     </td>
                                 </tr>
                             @endforeach
@@ -120,41 +125,30 @@ input:checked + .slider:before {
     </div>
 </div>
 @endsection
-
 @section('scripts')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $('#switcher').click(function() {
-            var subscriptionName = $('#switcher').val();
+    $(document).ready(function(){
+
+        $('#switcher').click(function()
+        {
             if($(this).is(':checked')){
-                $.ajax({
-                    url:'{{ route("subscriptions.resume") }}',
-                    data: { subscriptionName },
-                    type:"GET",
-                    success:function( response )
-                    {
-                    },
-                    error: function(response)
-                    {
-                    }
-                });
+                console.log('chacked')
             }
             else {
-                $.ajax({
-                    url:'{{ route("subscriptions.cancel") }}',
-                    data: { subscriptionName },
-                    type:"GET",
-                    success:function( response )
-                    {
-                        console.log(response)
-                    },
-                    error: function(response)
-                    {
-                    }
-                });
+                console.log('not chacked')
             }
         });
-    });
+
+        });
+
+
+        // <div class="alert">
+        //     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        //     <strong>Title!</strong> Alert body ...
+        // </div>
+
+
 </script>
 @endsection
+
