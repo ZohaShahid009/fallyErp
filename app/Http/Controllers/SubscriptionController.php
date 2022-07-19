@@ -109,4 +109,13 @@ class SubscriptionController extends Controller
         $subscriptions = Subscription::where('user_id', auth()->id())->get();
         return view('stripe.subscriptions.index', compact('subscriptions'));
     }
+    public function cancelSubscriptions(Request $request){
+        $subscrptionName= $request->subscrptionName;
+        if($subscrptionName){
+            $user = auth()->user();
+            $user->subscrption($subscrptionName)->cancel();
+            return 'subs is canceld';
+        }
+    }
+
 }
