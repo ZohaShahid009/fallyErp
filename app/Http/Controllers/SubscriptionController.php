@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Plan as ModelsPlan;
 use Exception;
+use Illuminate\Http\Request;
 use Laravel\Cashier\Subscription;
 use Stripe\Plan;
 
-
-
 class SubscriptionController extends Controller
 {
-    //
     public function showPlanForm()
     {
         return view('stripe.plans.create');
@@ -32,7 +29,6 @@ class SubscriptionController extends Controller
                 'product' => [
                     'name' => $request->name
                 ]
-
             ]);
 
             ModelsPlan::create([
@@ -44,7 +40,6 @@ class SubscriptionController extends Controller
                 'interval_count' => $plan->interval_count
             ]);
 
-
         }
         catch(Exception $ex){
             dd($ex->getMessage());
@@ -54,12 +49,9 @@ class SubscriptionController extends Controller
     }
     public function allPlans()
     {
-
         $basic = ModelsPlan::where('name', 'basic')->first();
-         $professional = ModelsPlan::where('name', 'professional')->first();
-         $enterprise = ModelsPlan::where('name', 'enterprise')->first();
-        // dd($enterprise);
-
+        $professional = ModelsPlan::where('name', 'professional')->first();
+        $enterprise = ModelsPlan::where('name', 'enterprise')->first();
         return view('stripe.plans', compact( 'basic', 'professional', 'enterprise'));
     }
     public function checkout($planId)
@@ -90,8 +82,7 @@ class SubscriptionController extends Controller
         try {
             $user->newSubscription(
                 'default', $plan
-                )->create( $paymentMethod != null ? $paymentMethod->id: '');
-            // )->trialDays(30)->create( $paymentMethod != null ? $paymentMethod->id: '');
+            )->create( $paymentMethod != null ? $paymentMethod->id: '');
         }
         catch(Exception $ex){
             return back()->withErrors([
@@ -100,33 +91,33 @@ class SubscriptionController extends Controller
         }
 
         $request->session()->flash('alert-success', 'You are subscribed to this plan');
+        // return to_route('plans.checkout', $plan);
         return redirect('/subscriptions/all' )->with(compact('plan'));
     }
     public function allSubscriptions()
     {
         if (auth()->user()->onTrial('default')) {
-            // dd('trial');
+            dd('trial');
         }
         $subscriptions = Subscription::where('user_id', auth()->id())->get();
         return view('stripe.subscriptions.index', compact('subscriptions'));
     }
-    public function cancelSubscriptions(Request $request){
-        $subscrptionName= $request->subscrptionName;
-        if($subscrptionName){
+    public function cancelSubscriptions(Request $request)
+    {
+        $subscriptionName = $request->subscriptionName;
+        if($subscriptionName){
             $user = auth()->user();
-            $user->subscrption($subscrptionName)->cancel();
-            return 'subs is canceld';
+            $user->subscription($subscriptionName)->cancel();
+            return 'subsc is canceled';
         }
     }
-
-    public function resumeSubscriptions(Request $request){
+    public function resumeSubscriptions(Request $request)
+    {
         $user = auth()->user();
-        $subscrptionName= $request->subscrptionName;
-        if($subscrptionName){
-            $user->subscrption($subscrptionName)->resume();
-            return 'subs is Resume';
+        $subscriptionName = $request->subscriptionName;
+        if($subscriptionName){
+            $user->subscription($subscriptionName)->resume();
+            return 'subsc is resumed';
         }
     }
-
-
 }
