@@ -90,7 +90,8 @@ class SubscriptionController extends Controller
         try {
             $user->newSubscription(
                 'default', $plan
-            )->trialDays(30)->create( $paymentMethod != null ? $paymentMethod->id: '');
+                )->create( $paymentMethod != null ? $paymentMethod->id: '');
+            // )->trialDays(30)->create( $paymentMethod != null ? $paymentMethod->id: '');
         }
         catch(Exception $ex){
             return back()->withErrors([
@@ -117,5 +118,15 @@ class SubscriptionController extends Controller
             return 'subs is canceld';
         }
     }
+
+    public function resumeSubscriptions(Request $request){
+        $user = auth()->user();
+        $subscrptionName= $request->subscrptionName;
+        if($subscrptionName){
+            $user->subscrption($subscrptionName)->resume();
+            return 'subs is Resume';
+        }
+    }
+
 
 }
