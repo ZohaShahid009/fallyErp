@@ -50,7 +50,7 @@ Route::post('company/detail', [AdminController::class, 'company_detail'])->name(
 
 
 
-Auth::routes();
+// Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
