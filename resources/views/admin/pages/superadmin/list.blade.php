@@ -1,7 +1,6 @@
 @extends('admin.layout.adminLayout')
 @section('content')
     <!--begin::Page-->
-
     <!--begin::Content-->
     <div class="content d-flex flex-column flex-column-fluid wrapper" id="kt_content">
         <!--begin::Subheader-->
@@ -10,8 +9,8 @@
         <!--begin::Entry-->
         <div class="d-flex flex-column-fluid">
             <!--begin::Container-->
-                        <div class="container-fluid">
-        <!--begin::Card-->
+            <div class="container-fluid">
+                <!--begin::Card-->
                 <div class="card card-custom">
                     <div class="card-header flex-wrap py-5">
                         <div class="card-title">
@@ -92,7 +91,7 @@
                             </div>
                             <!--end::Dropdown-->
                             <!--begin::Button-->
-                            <a href="{{ url('add-staff-form') }}" class="btn btn-primary font-weight-bolder">
+                            <a href="{{ url('add-superadmin-form') }}" class="btn btn-primary font-weight-bolder">
                                 <span class="svg-icon svg-icon-md">
                                     <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -116,25 +115,20 @@
                             <thead>
                                 <tr>
                                     <th>SR#</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
+                                    <th>Full Name</th>
                                     <th>Email</th>
-                                    <th>Phone No</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-
                                 @php
                                     $i = 0;
                                 @endphp
-                                @foreach ($staff as $staffs)
+                                @foreach ($superadmin as $superadmins)
                                     <tr>
                                         <td>{{ ++$i }}</td>
-                                        <td>{{ $staffs->first_name }}</td>
-                                        <td>{{ $staffs->last_name }}</td>
-                                        <td>{{ $staffs->email }}</td>
-                                        <td>{{ $staffs->phone }}</td>
+                                        <td>{{ $superadmins->name }}</td>
+                                        <td>{{ $superadmins->email }}</td>
                                         <td>
                                             <div class="dropdown dropdown-inline">
                                                 <a href="javascript:;" class="btn btn-sm btn-clean btn-icon"
@@ -144,7 +138,7 @@
                                                 <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
                                                     <ul class="nav nav-hoverable flex-column">
                                                         <li class="nav-item"><a class="nav-link"
-                                                                href="{{ url('edit-staff', $staffs->id) }}"><i
+                                                                href="{{ url('edit-superadmin', $superadmins->id) }}"><i
                                                                     class="nav-icon la la-edit"></i><span
                                                                     class="nav-text">View and Update</span></a></li>
                                                         <li class="nav-item"><a class="nav-link" href="#"><i
@@ -156,27 +150,22 @@
                                                     </ul>
                                                 </div>
                                             </div>
-
-                                            <a href="{{ url('edit-staff', $staffs->id) }}"
+                                            <a href="{{ url('edit-superadmin', $superadmins->id) }}"
                                                 class="btn btn-sm btn-clean btn-icon" title="Edit details">
                                                 <i class="la la-edit"></i>
                                             </a>
                                             <form class="btn btn-sm btn-clean btn-icon" method="POST"
-                                            action="{{ route('delete-staff', $staffs->id) }}">
-                                            @csrf
-                                            <input name="_method" type="hidden" value="DELETE">
-                                            <button
-                                                class="kt_sweetalert_demo_9 btn btn-sm btn-clean btn-icon show_confirm"
-                                                data-toggle="tooltip" type="submit" title='Delete'><i
-                                                    class="la la-trash"></i></button>
-                                        </form>
-
+                                                action="{{ route('delete-superadmin', $superadmins->id) }}">
+                                                @csrf
+                                                <input name="_method" type="hidden" value="DELETE">
+                                                <button
+                                                    class="kt_sweetalert_demo_9 btn btn-sm btn-clean btn-icon show_confirm"
+                                                    type="submit" data-toggle="tooltip" title='Delete'><i
+                                                        class="la la-trash"></i></button>
+                                            </form>
                                         </td>
-
                                     </tr>
                                 @endforeach
-
-
                             </tbody>
                         </table>
                         <!--end: Datatable-->
@@ -188,7 +177,5 @@
         </div>
         <!--end::Entry-->
     </div>
-
-
     <!--end::Content-->
 @endsection

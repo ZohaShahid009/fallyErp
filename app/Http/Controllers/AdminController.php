@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Company;
 use App\Models\Staff;
+use App\Models\User;
 use Livewire\Component;
 use Image;
 
@@ -195,6 +196,80 @@ class AdminController extends Controller
         return redirect()->back()->with('info', 'staff updated successfully');
     }
 
-//-------< End Staff Section >---------\\
+    //-------< End Staff Section >---------\\
+
+    //-------< Srart Super Admin Crud Section >---------\\
+
+    // Adding super admin
+    public function addsuperadmin(Request $request)
+    {
+        $request->validate([
+            'name'=> 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+        $imageName = "blank.png";
+        if($request->hasFile('profile_avatar')){
+            $img_tmp = $request->file('profile_avatar');
+                if($img_tmp->isValid()){
+                    $extension = $img_tmp->getClientOriginalExtension();
+                    $imageName = rand(111,99999).'.'.$extension;
+                    $imagePath = 'superadmin_images/'.$imageName;
+                    Image::make($img_tmp)->save($imagePath);
+                    };
+            };
+        $user = new User([
+            'name'=> $request->get('name'),
+            'email'=> $request->get('email'),
+            'password'=> $request->get('password'),
+            'profile_image'=> $imageName,
+        ]);
+        $user->save();
+        return redirect()->back()->with('message', 'Super Admin has been added');
+    }
+
+    // View super Admin List/Table
+    public function superadminlist()
+    {
+        $superadmin = User::all();
+        return view('admin.pages.superadmin.list', compact('superadmin'));
+    }
+
+    // Delete Super Admin
+    public function deletesuperadmin($id){
+        User::find($id)->delete();
+        return back();
+    }
+
+    //  Edit Super Admin
+    public function editsuperadmin(Request $request, $id){
+        $superadmin =  User::find($id);
+        return view('admin.pages.superadmin.edit', compact('superadmin'));
+    }
+
+    // Update Super Admin
+    public function updatesuperadmin(Request $request,$id)
+    {
+        $request->validate([
+            'email'=> 'email',
+        ]);
+
+        $superadmin = User::find($id);
+        $superadmin->name = $request->get('name');
+        $superadmin->email = $request->get('email');
+        if($request->hasFile('profile_avatar')){
+            $img_tmp = $request->file('profile_avatar');
+                if($img_tmp->isValid()){
+                    $extension = $img_tmp->getClientOriginalExtension();
+                    $imageName = rand(111,99999).'.'.$extension;
+                    $imagePath = 'superadmin_images/'.$imageName;
+                    Image::make($img_tmp)->save($imagePath);
+                    }
+                    $superadmin->profile_image = $imageName;
+            }
+        $superadmin->update();
+        return redirect()->back()->with('info', 'Superadmin updated successfully');
+    }
+//-------< End Super Admin Crud Section >---------\\
 
 }

@@ -79,6 +79,17 @@ Route::get('edit-staff/{id}', [AdminController::class, 'editstaff']);
 Route::delete('staffs/{id}', [AdminController::class, 'deletestaff'])->name('delete-staff');
 Route::post('update-staff/{id}', [AdminController::class, 'updatestaff']);
 
+// Super Admin Crud By Aqeel Start
+Route::get('add-superadmin-form', function () {
+    return view('admin.pages.superadmin.create');
+});
+Route::get('superadmin-list', [AdminController::class, 'superadminlist']);
+Route::post('add-superadmin', [AdminController::class, 'addsuperadmin']);
+Route::get('edit-superadmin/{id}', [AdminController::class, 'editsuperadmin']);
+Route::delete('superadmins/{id}', [AdminController::class, 'deletesuperadmin'])->name('delete-superadmin');
+Route::post('update-superadmin/{id}', [AdminController::class, 'updatesuperadmin']);
+// Super Admin Crud by Aqeel End
+
 
 
 

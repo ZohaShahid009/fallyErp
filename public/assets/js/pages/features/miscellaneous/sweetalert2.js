@@ -110,7 +110,7 @@ var KTSweetAlert2Demo = function () {
                          });
 		});
 
-		$('#kt_sweetalert_demo_9').click(function (e) {
+		$('.kt_sweetalert_demo_9').click(function (e) {
             var form = $(this).closest("form");
             var name = $(this).data("name");
             e.preventDefault();

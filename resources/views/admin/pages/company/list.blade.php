@@ -183,9 +183,9 @@
                                                         action="{{ route('delete-company', $company->id) }}">
                                                         @csrf
                                                         <input name="_method" type="hidden" value="DELETE">
-                                                        <button id="kt_sweetalert_demo_9" type="submit"
-                                                            class="btn btn-sm btn-clean btn-icon show_confirm"
-                                                            data-toggle="tooltip" title='Delete'><i
+                                                        <button
+                                                            class="kt_sweetalert_demo_9 btn btn-sm btn-clean btn-icon show_confirm"
+                                                            data-toggle="tooltip" type="submit" title='Delete'><i
                                                                 class="la la-trash"></i></button>
                                                     </form>
 
@@ -201,10 +201,10 @@
                             </div>
                         </div>
                     </div>
-                    <div>
-                    <div id="detail-tab" class="card card-custom border" style="display:none">
+
+                    <div id="detail-tab" class="col-6 border" style="display:none">
                     </div>
-                    </div>
+
                     <!--end::Card-->
                 </div>
             </div>

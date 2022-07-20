@@ -16,7 +16,7 @@
                     <h2>Company Details</h2>
 
                 </div>
-              
+
             </div>
             <table class="table table-bordered">
                 <tr>
