@@ -54,6 +54,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::post('single-charge', [HomeController::class, 'singleCharge'])->name('single.charge');
+
 Route::get('plans/create', [SubscriptionController::class, 'showPlanForm'])->name('plans.create');
 Route::post('plans/store', [SubscriptionController::class, 'savePlan'])->name('plans.store');
 
