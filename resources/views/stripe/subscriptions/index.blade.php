@@ -1,160 +1,242 @@
-@extends('layouts.app')
-
-@section('styles')
-<style>
-    /* The switch - the box around the slider */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-input:checked + .slider {
-  background-color: #2196F3;
-}
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-.slider.round:before {
-  border-radius: 50%;
-}
-</style>
-@endsection
-
+@extends('admin.layout.adminLayout')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+    <!--begin::Page-->
 
-                <div class="card-body">
-                    @if (session('alert-success'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('alert-success') }}
+    <!--begin::Content-->
+    <div class="content d-flex flex-column flex-column-fluid wrapper" id="kt_content">
+        <!--begin::Subheader-->
+
+        <!--end::Subheader-->
+        <!--begin::Entry-->
+        <div class="d-flex flex-column-fluid">
+            <!--begin::Container-->
+            <div class="container-fluid">
+                <!--end::Notice-->
+                <!--begin::Card-->
+                <div class="card card-custom">
+                    <div class="card-header flex-wrap py-5">
+                        <div class="card-title">
+                            <h3 class="card-label">View Subscription
                         </div>
-                    @endif
+                        <div class="card-toolbar">
+                            <!--begin::Dropdown-->
+                            <div class="dropdown dropdown-inline mr-2">
+                                <button type="button" class="btn btn-light-primary font-weight-bolder dropdown-toggle"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="svg-icon svg-icon-md">
+                                        <!--begin::Svg Icon | path:assets/media/svg/icons/Design/PenAndRuller.svg-->
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                            width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24" />
+                                                <path
+                                                    d="M3,16 L5,16 C5.55228475,16 6,15.5522847 6,15 C6,14.4477153 5.55228475,14 5,14 L3,14 L3,12 L5,12 C5.55228475,12 6,11.5522847 6,11 C6,10.4477153 5.55228475,10 5,10 L3,10 L3,8 L5,8 C5.55228475,8 6,7.55228475 6,7 C6,6.44771525 5.55228475,6 5,6 L3,6 L3,4 C3,3.44771525 3.44771525,3 4,3 L10,3 C10.5522847,3 11,3.44771525 11,4 L11,19 C11,19.5522847 10.5522847,20 10,20 L4,20 C3.44771525,20 3,19.5522847 3,19 L3,16 Z"
+                                                    fill="#000000" opacity="0.3" />
+                                                <path
+                                                    d="M16,3 L19,3 C20.1045695,3 21,3.8954305 21,5 L21,15.2485298 C21,15.7329761 20.8241635,16.200956 20.5051534,16.565539 L17.8762883,19.5699562 C17.6944473,19.7777745 17.378566,19.7988332 17.1707477,19.6169922 C17.1540423,19.602375 17.1383289,19.5866616 17.1237117,19.5699562 L14.4948466,16.565539 C14.1758365,16.200956 14,15.7329761 14,15.2485298 L14,5 C14,3.8954305 14.8954305,3 16,3 Z"
+                                                    fill="#000000" />
+                                            </g>
+                                        </svg>
+                                        <!--end::Svg Icon-->
+                                    </span>Export</button>
+                                <!--begin::Dropdown Menu-->
+                                <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                                    <!--begin::Navigation-->
+                                    <ul class="navi flex-column navi-hover py-2">
+                                        <li
+                                            class="navi-header font-weight-bolder text-uppercase font-size-sm text-primary pb-2">
+                                            Choose an option:</li>
+                                        <li class="navi-item">
+                                            <a href="#" class="navi-link">
+                                                <span class="navi-icon">
+                                                    <i class="la la-print"></i>
+                                                </span>
+                                                <span class="navi-text">Print</span>
+                                            </a>
+                                        </li>
+                                        <li class="navi-item">
+                                            <a href="#" class="navi-link">
+                                                <span class="navi-icon">
+                                                    <i class="la la-copy"></i>
+                                                </span>
+                                                <span class="navi-text">Copy</span>
+                                            </a>
+                                        </li>
+                                        <li class="navi-item">
+                                            <a href="#" class="navi-link">
+                                                <span class="navi-icon">
+                                                    <i class="la la-file-excel-o"></i>
+                                                </span>
+                                                <span class="navi-text">Excel</span>
+                                            </a>
+                                        </li>
+                                        <li class="navi-item">
+                                            <a href="#" class="navi-link">
+                                                <span class="navi-icon">
+                                                    <i class="la la-file-text-o"></i>
+                                                </span>
+                                                <span class="navi-text">CSV</span>
+                                            </a>
+                                        </li>
+                                        <li class="navi-item">
+                                            <a href="#" class="navi-link">
+                                                <span class="navi-icon">
+                                                    <i class="la la-file-pdf-o"></i>
+                                                </span>
+                                                <span class="navi-text">PDF</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <!--end::Navigation-->
+                                </div>
+                                <!--end::Dropdown Menu-->
+                            </div>
+                            <!--end::Dropdown-->
+                            <!--begin::Button-->
+                            <a href="{{ url('/plans/create') }}" class="btn btn-primary font-weight-bolder">
+                                <span class="svg-icon svg-icon-md">
+                                    <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <rect x="0" y="0" width="24" height="24" />
+                                            <circle fill="#000000" cx="9" cy="15" r="6" />
+                                            <path
+                                                d="M8.8012943,7.00241953 C9.83837775,5.20768121 11.7781543,4 14,4 C17.3137085,4 20,6.6862915 20,10 C20,12.2218457 18.7923188,14.1616223 16.9975805,15.1987057 C16.9991904,15.1326658 17,15.0664274 17,15 C17,10.581722 13.418278,7 9,7 C8.93357256,7 8.86733422,7.00080962 8.8012943,7.00241953 Z"
+                                                fill="#000000" opacity="0.3" />
+                                        </g>
+                                    </svg>
+                                    <!--end::Svg Icon-->
+                                </span>
+                                Create Plan</a>
+                            <!--end::Button-->
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!--begin: Datatable-->
+                        <table class="table table-separate table-head-custom table-checkable" id="kt_datatable">
 
-                    @if (count($subscriptions) > 0)
-                    <h4><b>Your Subscriptions</b></h4>
-                    <table class="table">
-                        <thead>
-                          <tr>
-                            <th scope="col">Plan Name</th>
-                            <th scope="col">Subs Name</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Trial Start At</th>
-                            <th>Auto Renew</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($subscriptions as $subscription)
+                            <thead>
                                 <tr>
-                                    <td>{{ $subscription->plan->name }}</td>
-                                    <td>{{ $subscription->name }}</td>
-                                    <td>{{ $subscription->plan->price }}</td>
-                                    <td>{{ $subscription->quantity }}</td>
-                                    <td>{{ $subscription->created_at }}</td>
-                                    <td>
-                                        <label class="switch">
-                                            @if ($subscription->ends_at == null)
-                                                <input type="checkbox" id="switcher" checked value="{{ $subscription->name }}">
-                                            @else
-                                                <input type="checkbox" id="switcher" value="{{ $subscription->name }}">
-                                            @endif
 
-                                            <span class="slider round"></span>
-                                        </label>
-                                    </td>
+                                    <th>Plan Name</th>
+                                    <th>Subs Name</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Trial Start At</th>
+                                    <th>Auto Renew</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                    @else
-                    <h4>You are not subscribed to any plan</h4>
-                    @endif
+                            </thead>
+                            <tbody>
+                                @foreach ($subscriptions as $subscription)
+                                    <tr>
+                                        <td>{{ $subscription->plan->name }}</td>
+                                        <td>{{ $subscription->name }}</td>
+                                        <td>{{ $subscription->plan->price }}</td>
+                                        <td>{{ $subscription->quantity }}</td>
+                                        <td>{{ $subscription->created_at }}</td>
 
+                                        {{-- <span class="slider round"></span>
+                                            </label>
+                                        </td>
+                                            <div class="dropdown dropdown-inline">
+                                                <a href="javascript:;" class="btn btn-sm btn-clean btn-icon"
+                                                    data-toggle="dropdown">
+                                                    <i class="la la-cog"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                                                    <ul class="nav nav-hoverable flex-column">
+                                                        <li class="nav-item"><a class="nav-link"
+                                                                href="{{ url('edit-admin', $admin->id) }}"><i
+                                                                    class="nav-icon la la-edit"></i><span
+                                                                    class="nav-text">View and Update</span></a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="#"><i
+                                                                    class="nav-icon la la-leaf"></i><span
+                                                                    class="nav-text">Update Status</span></a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="#"><i
+                                                                    class="nav-icon la la-print"></i><span
+                                                                    class="nav-text">Print</span></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
 
+                                            <a href="{{ url('edit-admin', $admin->id) }}"
+                                                class="btn btn-sm btn-clean btn-icon" title="Edit details">
+                                                <i class="la la-edit"></i>
+                                            </a>
+                                            <form class="btn btn-sm btn-clean btn-icon" method="POST"
+                                                action="{{ route('delete-admin', $admin->id) }}">
+                                                @csrf
+                                                <input name="_method" type="hidden" value="DELETE">
+                                                <button type="submit" class="btn btn-sm btn-clean btn-icon show_confirm"
+                                                    data-toggle="tooltip" title='Delete'><i
+                                                        class="la la-trash"></i></button>
+                                            </form> --}}
+
+                                        <td>
+                                            <label class="switch">
+                                                @if ($subscription->ends_at == null)
+                                                    <input type="checkbox" id="switcher" checked
+                                                        value="{{ $subscription->name }}">
+                                                @else
+                                                    <input type="checkbox" id="switcher"
+                                                        value="{{ $subscription->name }}">
+                                                @endif
+
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        {{-- @else
+                        <h4>You are not subscribed to any plan</h4> --}}
+
+                        <!--end: Datatable-->
+                    </div>
                 </div>
+                <!--end::Card-->
             </div>
+            <!--end::Container-->
         </div>
+        <!--end::Entry-->
     </div>
-</div>
+
+
+    <!--end::Content-->
 @endsection
 
 @section('scripts')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#switcher').click(function() {
-            var subscriptionName = $('#switcher').val();
-            if($(this).is(':checked')){
-                $.ajax({
-                    url:'{{ route("subscriptions.resume") }}',
-                    data: { subscriptionName },
-                    type:"GET",
-                    success:function( response )
-                    {
-                    },
-                    error: function(response)
-                    {
-                    }
-                });
-            }
-            else {
-                $.ajax({
-                    url:'{{ route("subscriptions.cancel") }}',
-                    data: { subscriptionName },
-                    type:"GET",
-                    success:function( response )
-                    {
-                        console.log(response)
-                    },
-                    error: function(response)
-                    {
-                    }
-                });
-            }
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#switcher').click(function() {
+                var subscriptionName = $('#switcher').val();
+                if ($(this).is(':checked')) {
+                    $.ajax({
+                        url: '{{ route('subscriptions.resume') }}',
+                        data: {
+                            subscriptionName
+                        },
+                        type: "GET",
+                        success: function(response) {},
+                        error: function(response) {}
+                    });
+                } else {
+                    $.ajax({
+                        url: '{{ route('subscriptions.cancel') }}',
+                        data: {
+                            subscriptionName
+                        },
+                        type: "GET",
+                        success: function(response) {
+                            console.log(response)
+                        },
+                        error: function(response) {}
+                    });
+                }
+            });
         });
-    });
-</script>
+    </script>
 @endsection

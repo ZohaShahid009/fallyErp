@@ -10,14 +10,14 @@ class adminFAQcontroller extends Controller
     public function addadmin(Request $request)
     {
         $request->validate([
-            'Category_id'=> 'required',
-            'Tittle'=> 'required',
+            'Category_id' => 'required',
+            'Tittle' => 'required',
             // 'Discrption'=> 'required',
         ]);
         $admin = new adminFAQ([
-            'Category_id'=> $request->get('Category_id'),
-            'Tittle'=> $request->get('Tittle'),
-            'Discrption'=> $request->get('Discrption'),
+            'Category_id' => $request->get('Category_id'),
+            'Tittle' => $request->get('Tittle'),
+            'Discrption' => $request->get('Discrption'),
         ]);
         $admin->save();
         return redirect('/admin-list')->with('message', 'Admin has been added');
@@ -29,24 +29,25 @@ class adminFAQcontroller extends Controller
         return view('admin.pages.admin_FAQ.view', compact('admin'));
     }
     // check
-    public function editadmin(Request $request, $id){
+    public function editadmin(Request $request, $id)
+    {
         $admin = adminFAQ::find($id);
         return view('admin.pages.admin_FAQ.edit', compact('admin'));
     }
     // Delete ADmin
-    public function deleteadmin($id){
+    public function deleteadmin($id)
+    {
         adminFAQ::find($id)->delete();
         return back();
     }
     // Update Staff
-    public function updateadmindata(Request $request,$id)
+    public function updateadmindata(Request $request, $id)
     {
         $admin = adminFAQ::find($id);
-        $admin->Category_id= $request->get('Category_id');
+        $admin->Category_id = $request->get('Category_id');
         $admin->Tittle = $request->get('Tittle');
         $admin->Discrption = $request->get('Discrption');
         $admin->update();
         return redirect('/admin-list')->with('info', 'Admins updated successfully');
     }
-
 }
