@@ -1,134 +1,127 @@
-<!doctype html>
-<html class="no-js " lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-<meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
-
-<title>Pricing page</title>
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-<!-- Favicon-->
-<link rel="stylesheet" href="{{ asset('assets/plugins/bootstrap/css/bootstrap.min.css') }}">
-<!-- Custom Css -->
-<link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
-<link rel="stylesheet" href="{{ asset('assets/css/color_skins.css') }}">
-</head>
-<body class="theme-cyan">
-
-    <div class="row">
-        @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-    </div>
-<!-- Page Loader -->
-<div class="page-loader-wrapper">
-    <div class="loader">
-        <div class="m-t-30"><img class="zmdi-hc-spin" src="assets/images/logo.svg" width="48" height="48" alt="Compass"></div>
-        <p>Please wait...</p>
-    </div>
-</div>
-
-
-<!-- Overlay For Sidebars -->
-<div class="overlay"></div>
+@extends('admin.layout.adminLayout')
+@section('content')
 
 
 
+    <!--begin::Subheader-->
 
-<section class="content">
-    <div class="container-fluid">
-        <div class="row clearfix">
-            <div class="col-lg-12">
-                <div class="pricing pricing-palden">
-                    @if ($basic)
-                        <div class="pricing-item">
-                            <div class="pricing-deco l-slategray">
-                                <svg class="pricing-deco-img" enable-background="new 0 0 300 100" height="100px" id="Layer_1" preserveAspectRatio="none" version="1.1" viewBox="0 0 300 100" width="300px" x="0px" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" y="0px">
-                                <path class="deco-layer deco-layer--1" d="M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729&#x000A;	c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z" fill="#FFFFFF" opacity="0.6"></path>
-                                <path class="deco-layer deco-layer--2" d="M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729&#x000A;	c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z" fill="#FFFFFF" opacity="0.6"></path>
-                                <path class="deco-layer deco-layer--3" d="M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716&#x000A;	H42.401L43.415,98.342z" fill="#FFFFFF" opacity="0.7"></path>
-                                <path class="deco-layer deco-layer--4" d="M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428&#x000A;	c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z" fill="#FFFFFF"></path>
-                                </svg>
-                                <div class="pricing-price"><span class="pricing-currency">£</span>{{ $basic->price/100 }}
-                                <span class="pricing-period">/ mo</span>
-                                </div>
-                                <h3 class="pricing-title">BASIC</h3>
+    <!--end::Subheader-->
+    <div class="content d-flex flex-column flex-column-fluid wrapper" id="kt_content">
+    <!--begin::Entry-->
+    <div class="d-flex flex-column-fluid">
+        <!--begin::Container-->
+        <div class="container">
+            <!--begin::Card-->
+            <div class="card card-custom">
+                <div class="card-header">
+                    <div class="card-title">
+                        <span class="card-icon">
+                            <i class="flaticon2-chart text-primary"></i>
+                        </span>
+                        <h4 class="card-label">Pricing Table</h4>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row justify-content-center text-center my-0 my-md-25">
+                        <!-- begin: Pricing-->
+                        @if ($basic)
+                        <div class="col-md-4 col-xxl-3 bg-white rounded-left shadow-sm">
+                            <div class="pt-25 pb-25 pb-md-10 px-4">
+                                <h4 class="mb-15">Basic</h4>
+                                <div class="pricing-price"><span class="pricing-currency">£</span>{{ $basic->price/100}}
+                                    <span class="pricing-period">/ Basic</span>
+                                    </div>
+                                {{-- <h4 class="mb-15">Basic</h4>
+                                <span class="px-7 py-3 font-size-h1 font-weight-bold d-inline-flex flex-center bg-primary-o-10 rounded-lg mb-15">Free</span> --}}
+                                <br/>
+                                <p class="mb-10 d-flex flex-column text-dark-50">
+                                    <span>5GB Disk Space</span>
+                                    <span>10 Domain Names</span>
+                                    <span>5 E-Mail Address</span>
+                                   <span>Fully Support</span>
+
+                                </p>
+                                <style>
+                                    .plan1{
+                                        color:#fff;
+                                    }
+                                    .plan1:hover{
+                                        color: #fff;
+                                    }
+                                </style>
+                                <button type="button" class="btn btn-primary text-uppercase font-weight-bolder px-15 py-3"> <a class=
+                                    "plan1"href="{{ route('plans.checkout', $basic->plan_id) }}" class="pricing-action l-amber">Choose plan</a></button>
                             </div>
-                            <ul class="feature-list">
-                                <li>5GB Disk Space</li>
-                                <li>10 Domain Names</li>
-                                <li>5 E-Mail Address</li>
-                                <li>Fully Support</li>
-                            </ul>
-
-                            <a href="{{ route('plans.checkout', $basic->plan_id) }}" class="pricing-action l-amber">Choose plan</a>
                         </div>
-                    @endif
+                        @endif
+                        <!-- end: Pricing-->
+                        <!-- begin: Pricing-->
+                        @if ($professional)
+                        <div class="col-md-4 col-xxl-3 bg-primary my-md-n15 rounded shadow-sm">
+                            <div class="pt-25 pt-md-37 pb-25 pb-md-10 py-md-28 px-4">
+                                <h4 class="text-white mb-15">Professional</h4>
+                                <span class="px-7 py-3 bg-white d-inline-flex flex-center rounded-lg mb-15 bg-white">
+                                    <span class="pr-2 text-primary opacity-70">$</span>
+                                    {{-- <div><span class="pr-2 font-size-h1 font-weight-bold text-primary">£ {{ $professional->price/100 }}</span></div> --}}
+                                    <div class="pricing-price"><span class="pricing-currency">£</span>{{ $professional->price/100 }}
+                                        <span class="pricing-period">/Professional</span>
+                                    </div>
+                                    {{-- <span class="text-primary opacity-70">/&#160;&#160;Per Installation</span> --}}
+                                </span>
 
-                    @if ($professional)
-                        <div class="pricing-item pricing__item--featured">
-                            <div class="pricing-deco l-blush">
-                                <svg class="pricing-deco-img" enable-background="new 0 0 300 100" height="100px" id="Layer_1" preserveAspectRatio="none" version="1.1" viewBox="0 0 300 100" width="300px" x="0px" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" y="0px">
-                                <path class="deco-layer deco-layer--1" d="M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729&#x000A;	c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z" fill="#FFFFFF" opacity="0.6"></path>
-                                <path class="deco-layer deco-layer--2" d="M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729&#x000A;	c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z" fill="#FFFFFF" opacity="0.6"></path>
-                                <path class="deco-layer deco-layer--3" d="M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716&#x000A;	H42.401L43.415,98.342z" fill="#FFFFFF" opacity="0.7"></path>
-                                <path class="deco-layer deco-layer--4" d="M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428&#x000A;	c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z" fill="#FFFFFF"></path>
-                                </svg>
-                                <div class="pricing-price"><span class="pricing-currency">£</span>{{ $professional->price/100 }}
-                                <span class="pricing-period">/ mo</span>
-                                </div>
-                                <h3 class="pricing-title">PROFESSIONAL</h3>
+                                <p class="text-white mb-10 d-flex flex-column">
+                                    <span>10GB Disk Space</span>
+                                    <span>0 Domain Names</span>
+                                    <span>10 E-Mail Address</span>
+                                    <span>Fully Support</span>
+                                </p>
+                                <button type="button" class="btn btn-primary text-uppercase font-weight-bolder px-15 py-3"> <a class=
+                                    "plan1"href="{{ route('plans.checkout', $professional->plan_id) }}" class="pricing-action l-amber">Choose plan</a></button>
+                                {{-- <button type="button" class="btn btn-primary text-uppercase font-weight-bolder px-15 py-3"> Choose plan<a href="{{ route('plans.checkout', $professional->plan_id) }}"></button></a> --}}
                             </div>
-                            <ul class="feature-list">
-                                <li>10GB Disk Space</li>
-                                <li>20 Domain Names</li>
-                                <li>10 E-Mail Address</li>
-                                <li>Fully Support</li>
-                            </ul>
-                            <a href="{{ route('plans.checkout', $professional->plan_id) }}" class="pricing-action l-amber">Choose plan</a>
                         </div>
-                    @endif
+                        @endif
 
-                    @if ($enterprise)
-                        <div class="pricing-item">
-                            <div class="pricing-deco l-slategray">
-                                <svg class="pricing-deco-img" enable-background="new 0 0 300 100" height="100px" id="Layer_1" preserveAspectRatio="none" version="1.1" viewBox="0 0 300 100" width="300px" x="0px" xml:space="preserve" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" y="0px">
-                                <path class="deco-layer deco-layer--1" d="M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729&#x000A;	c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z" fill="#FFFFFF" opacity="0.6"></path>
-                                <path class="deco-layer deco-layer--2" d="M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729&#x000A;	c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z" fill="#FFFFFF" opacity="0.6"></path>
-                                <path class="deco-layer deco-layer--3" d="M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716&#x000A;	H42.401L43.415,98.342z" fill="#FFFFFF" opacity="0.7"></path>
-                                <path class="deco-layer deco-layer--4" d="M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428&#x000A;	c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z" fill="#FFFFFF"></path>
-                                </svg>
-                                <div class="pricing-price"><span class="pricing-currency">£</span>{{ $enterprise->price/100 }}
-                                <span class="pricing-period">/ mo</span>
-                                </div>
-                                <h3 class="pricing-title">ENTERPRISE</h3>
+                        <!-- end: Pricing-->
+                        <!-- begin: Pricing-->
+                        @if ($enterprise)
+                        <div class="col-md-4 col-xxl-3 bg-white rounded-right shadow-sm">
+                            <div class="pt-25 pb-25 pb-md-10 px-4">
+                                <h4 class="mb-15">Extended</h4>
+                                <span class="px-7 py-3 d-inline-flex flex-center rounded-lg mb-15 bg-primary-o-10">
+                                    <span class="pr-2 opacity-70">$</span>
+                                    <div class="pricing-price"><span class="pricing-currency">£</span>{{ $enterprise->price/100 }}
+                                        <span class="pricing-period">/ mo</span>
+                                        </div>
+                                    {{-- <span class="pr-2 font-size-h1 font-weight-bold">99</span>
+                                    <span class="opacity-70">/&#160;&#160;Per Installation</span> --}}
+                                </span>
+                                <br />
+                                <p class="mb-10 d-flex flex-column text-dark-50">
+                                    <span>50GB Disk Space</span>
+                                    <span>50 Domain Names</span>
+                                    <span>20 E-Mail Addressa</span>
+                                    <span>Fully Support</span>
+                                </p>
+                                <button type="button" class="btn btn-primary text-uppercase font-weight-bolder px-15 py-3"> <a class=
+                                    "plan1"href="{{ route('plans.checkout', $enterprise->plan_id) }}" class="pricing-action l-amber">Choose plan</a></button>
+                                {{-- <button type="button" class="btn btn-primary text-uppercase font-weight-bolder px-15 py-3">Purchase</button> --}}
                             </div>
-                            <ul class="feature-list">
-                                <li>50GB Disk Space</li>
-                                <li>50 Domain Names</li>
-                                <li>20 E-Mail Address</li>
-                                <li>Fully Support</li>
-                            </ul>
-                            <a href="{{ route('plans.checkout', $enterprise->plan_id) }}" class="pricing-action l-amber">Choose plan</a>
                         </div>
-                    @endif
 
+                        @endif
+                        <!-- end: Pricing-->
+                    </div>
                 </div>
             </div>
+            <!--end::Card-->
         </div>
+        <!--end::Container-->
     </div>
-</section>
-<!-- Jquery Core Js -->
-<script src="{{ asset('assets/bundles/libscripts.bundle.js') }}"></script> <!-- Lib Scripts Plugin Js -->
-<script src="{{ asset('assets/bundles/vendorscripts.bundle.js') }}"></script> <!-- Lib Scripts Plugin Js -->
+    </div>
 
-<script src="{{ asset('assets/bundles/mainscripts.bundle.js') }}"></script><!-- Custom Js -->
-</body>
-</html>
+
+
+@endsection
+
+
