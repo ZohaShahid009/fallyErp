@@ -198,15 +198,4 @@ class AdminController extends Controller
     }
 
 
-    public function updateadmindata(Request $request,$id){
-        $admin = adminFAQ::find($id);
-        $admin->Category_id= $request->get('Category_id');
-        $admin->Tittle = $request->get('Tittle');
-        $admin->Discrption = $request->get('Discrption');
-        $admin->update();
-        return redirect()->back()->with('info', 'Admins updated successfully');
-    }
-
-//-------< End Staff Section >---------\\
-
 }

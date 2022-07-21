@@ -89,5 +89,5 @@ Route::get('admin-list', [adminFAQController::class, 'adminlist']);
 Route::post('add-admin', [adminFAQController::class, 'addadmin']);
 Route::get('edit-admin/{id}', [adminFAQController::class, 'editadmin']);
 Route::delete('admins/{id}', [adminFAQController::class, 'deleteadmin'])->name('delete-admin');
-Route::post('/updateadmin/{id}', [AdminController::class, ' updateadmindata']);
+Route::post('/updateadmin/{id}', [adminFAQController::class, 'updateadmindata']);
 // END OF // route of admin FAQ

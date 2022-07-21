@@ -20,7 +20,7 @@ class adminFAQcontroller extends Controller
             'Discrption'=> $request->get('Discrption'),
         ]);
         $admin->save();
-        return redirect()->back()->with('message', 'Admin has been added');
+        return redirect('/admin-list')->with('message', 'Admin has been added');
     }
 
     public function adminlist()
@@ -39,6 +39,14 @@ class adminFAQcontroller extends Controller
         return back();
     }
     // Update Staff
-
+    public function updateadmindata(Request $request,$id)
+    {
+        $admin = adminFAQ::find($id);
+        $admin->Category_id= $request->get('Category_id');
+        $admin->Tittle = $request->get('Tittle');
+        $admin->Discrption = $request->get('Discrption');
+        $admin->update();
+        return redirect('/admin-list')->with('info', 'Admins updated successfully');
+    }
 
 }
