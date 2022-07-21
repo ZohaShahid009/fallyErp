@@ -59,7 +59,6 @@ class SubscriptionController extends Controller
          $professional = ModelsPlan::where('name', 'professional')->first();
          $enterprise = ModelsPlan::where('name', 'enterprise')->first();
         // dd($enterprise);
-
         return view('stripe.plans', compact( 'basic', 'professional', 'enterprise'));
     }
     public function checkout($planId)
@@ -91,8 +90,6 @@ class SubscriptionController extends Controller
             $user->newSubscription(
                 $plan, $plan
             )->create( $paymentMethod != null ? $paymentMethod->id: '');
-                'default', $plan
-            )->trialDays(30)->create( $paymentMethod != null ? $paymentMethod->id: '');
         }
         catch(Exception $ex){
             return back()->withErrors([
