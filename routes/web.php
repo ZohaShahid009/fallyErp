@@ -5,7 +5,9 @@ use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\adminFAQController;
 use App\Models\Plan;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -79,4 +81,13 @@ Route::delete('staffs/{id}', [AdminController::class, 'deletestaff'])->name('del
 Route::post('update-staff/{id}', [AdminController::class, 'updatestaff']);
 //
 
-
+// route of admin FAQ
+Route::get('add-FAQ-form', function () {
+    return view('admin.pages.admin_FAQ.add');
+});
+Route::get('admin-list', [adminFAQController::class, 'adminlist']);
+Route::post('add-admin', [adminFAQController::class, 'addadmin']);
+Route::get('edit-admin/{id}', [adminFAQController::class, 'editadmin']);
+Route::delete('admins/{id}', [adminFAQController::class, 'deleteadmin'])->name('delete-admin');
+Route::post('/updateadmin/{id}', [AdminController::class, ' updateadmindata']);
+// END OF // route of admin FAQ

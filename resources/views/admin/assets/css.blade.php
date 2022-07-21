@@ -20,3 +20,4 @@
 		<link rel="shortcut icon" href="{{asset('/')}}assets/media/logos/favicon.ico" />
 
 
+
