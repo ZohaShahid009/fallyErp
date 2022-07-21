@@ -10,9 +10,8 @@
         <!--begin::Entry-->
         <div class="d-flex flex-column-fluid">
             <!--begin::Container-->
-            <div class="container-fluid">
-                <!--end::Notice-->
-                <!--begin::Card-->
+                        <div class="container-fluid">
+        <!--begin::Card-->
                 <div class="card card-custom">
                     <div class="card-header flex-wrap py-5">
                         <div class="card-title">
@@ -163,13 +162,14 @@
                                                 <i class="la la-edit"></i>
                                             </a>
                                             <form class="btn btn-sm btn-clean btn-icon" method="POST"
-                                                action="{{ route('delete-staff', $staffs->id) }}">
-                                                @csrf
-                                                <input name="_method" type="hidden" value="DELETE">
-                                                <button type="submit" class="btn btn-sm btn-clean btn-icon show_confirm"
-                                                    data-toggle="tooltip" title='Delete'><i
-                                                        class="la la-trash"></i></button>
-                                            </form>
+                                            action="{{ route('delete-staff', $staffs->id) }}">
+                                            @csrf
+                                            <input name="_method" type="hidden" value="DELETE">
+                                            <button
+                                                class="kt_sweetalert_demo_9 btn btn-sm btn-clean btn-icon show_confirm"
+                                                data-toggle="tooltip" type="submit" title='Delete'><i
+                                                    class="la la-trash"></i></button>
+                                        </form>
 
                                         </td>
 

@@ -1,76 +1,6 @@
 @extends('admin.layout.adminLayout')
-@extends('layouts.app')
-
-@section('styles')
-<style>
-    /* The switch - the box around the slider */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-/* Hide default HTML checkbox */
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-
-input:checked + .slider {
-  background-color: #2196F3;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-</style>
-
-@endsection
 @section('content')
     <!--begin::Page-->
-
     <!--begin::Content-->
     <div class="content d-flex flex-column flex-column-fluid wrapper" id="kt_content">
         <!--begin::Subheader-->
@@ -80,12 +10,11 @@ input:checked + .slider:before {
         <div class="d-flex flex-column-fluid">
             <!--begin::Container-->
             <div class="container-fluid">
-                <!--end::Notice-->
                 <!--begin::Card-->
                 <div class="card card-custom">
                     <div class="card-header flex-wrap py-5">
                         <div class="card-title">
-                            <h3 class="card-label">View Subscription
+                            <h3 class="card-label">Staff
                         </div>
                         <div class="card-toolbar">
                             <!--begin::Dropdown-->
@@ -162,7 +91,7 @@ input:checked + .slider:before {
                             </div>
                             <!--end::Dropdown-->
                             <!--begin::Button-->
-                            <a href="{{ url('/plans/create') }}" class="btn btn-primary font-weight-bolder">
+                            <a href="{{ url('add-superadmin-form') }}" class="btn btn-primary font-weight-bolder">
                                 <span class="svg-icon svg-icon-md">
                                     <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -176,67 +105,31 @@ input:checked + .slider:before {
                                         </g>
                                     </svg>
                                     <!--end::Svg Icon-->
-                                </span>
-                                Create Plan</a>
+                                </span>New Record</a>
                             <!--end::Button-->
                         </div>
                     </div>
                     <div class="card-body">
                         <!--begin: Datatable-->
                         <table class="table table-separate table-head-custom table-checkable" id="kt_datatable">
-
                             <thead>
                                 <tr>
-
-                                    <th>Plan Name</th>
-                                    <th>Subs Name</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                    <th>Trial Start At</th>
-                                    <th>Auto Renew</th>
-                    @if (count($subscriptions) > 0)
-                    <h4><b>Your Subscriptions</b></h4>
-                    <table class="table">
-                        <thead>
-                          <tr>
-                            <th scope="col">Plan Name</th>
-                            <th scope="col">Subs Name</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Trial Start At</th>
-                            <th scope="col">Trial Ends At</th>
-                            <th scope="col">Auto Renew</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($subscriptions as $subscription)
-                                <tr>
-                                    <td>{{ $subscription->plan->name }}</td>
-                                    <td>{{ $subscription->name }}</td>
-                                    <td>{{ $subscription->plan->price }}</td>
-                                    <td>{{ $subscription->quantity }}</td>
-                                    <td>{{ $subscription->trial_ends_at }}</td>
-                                    <td>{{ $subscription->created_at }}</td>
-                                    <td>
-                                    <label class="switch">
-                                        <input type="checkbox" id="switcher">
-                                        <span class="slider round"></span>
-                                      </label>
-                                    </td>
+                                    <th>SR#</th>
+                                    <th>Full Name</th>
+                                    <th>Email</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($subscriptions as $subscription)
+                                @php
+                                    $i = 0;
+                                @endphp
+                                @foreach ($superadmin as $superadmins)
                                     <tr>
-                                        <td>{{ $subscription->plan->name }}</td>
-                                        <td>{{ $subscription->name }}</td>
-                                        <td>{{ $subscription->plan->price }}</td>
-                                        <td>{{ $subscription->quantity }}</td>
-                                        <td>{{ $subscription->created_at }}</td>
-
-                                        {{-- <span class="slider round"></span>
-                                            </label>
-                                        </td>
+                                        <td>{{ ++$i }}</td>
+                                        <td>{{ $superadmins->name }}</td>
+                                        <td>{{ $superadmins->email }}</td>
+                                        <td>
                                             <div class="dropdown dropdown-inline">
                                                 <a href="javascript:;" class="btn btn-sm btn-clean btn-icon"
                                                     data-toggle="dropdown">
@@ -245,7 +138,7 @@ input:checked + .slider:before {
                                                 <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
                                                     <ul class="nav nav-hoverable flex-column">
                                                         <li class="nav-item"><a class="nav-link"
-                                                                href="{{ url('edit-admin', $admin->id) }}"><i
+                                                                href="{{ url('edit-superadmin', $superadmins->id) }}"><i
                                                                     class="nav-icon la la-edit"></i><span
                                                                     class="nav-text">View and Update</span></a></li>
                                                         <li class="nav-item"><a class="nav-link" href="#"><i
@@ -257,40 +150,24 @@ input:checked + .slider:before {
                                                     </ul>
                                                 </div>
                                             </div>
-
-                                            <a href="{{ url('edit-admin', $admin->id) }}"
+                                            <a href="{{ url('edit-superadmin', $superadmins->id) }}"
                                                 class="btn btn-sm btn-clean btn-icon" title="Edit details">
                                                 <i class="la la-edit"></i>
                                             </a>
                                             <form class="btn btn-sm btn-clean btn-icon" method="POST"
-                                                action="{{ route('delete-admin', $admin->id) }}">
+                                                action="{{ route('delete-superadmin', $superadmins->id) }}">
                                                 @csrf
                                                 <input name="_method" type="hidden" value="DELETE">
-                                                <button type="submit" class="btn btn-sm btn-clean btn-icon show_confirm"
-                                                    data-toggle="tooltip" title='Delete'><i
+                                                <button
+                                                    class="kt_sweetalert_demo_9 btn btn-sm btn-clean btn-icon show_confirm"
+                                                    type="submit" data-toggle="tooltip" title='Delete'><i
                                                         class="la la-trash"></i></button>
-                                            </form> --}}
-
-                                        <td>
-                                            <label class="switch">
-                                                @if ($subscription->ends_at == null)
-                                                    <input type="checkbox" id="switcher" checked
-                                                        value="{{ $subscription->name }}">
-                                                @else
-                                                    <input type="checkbox" id="switcher"
-                                                        value="{{ $subscription->name }}">
-                                                @endif
-
-                                                <span class="slider round"></span>
-                                            </label>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
-                        {{-- @else
-                        <h4>You are not subscribed to any plan</h4> --}}
-
                         <!--end: Datatable-->
                     </div>
                 </div>
@@ -300,65 +177,5 @@ input:checked + .slider:before {
         </div>
         <!--end::Entry-->
     </div>
-
-
     <!--end::Content-->
 @endsection
-@section('scripts')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#switcher').click(function() {
-                var subscriptionName = $('#switcher').val();
-                if ($(this).is(':checked')) {
-                    $.ajax({
-                        url: '{{ route('subscriptions.resume') }}',
-                        data: {
-                            subscriptionName
-                        },
-                        type: "GET",
-                        success: function(response) {},
-                        error: function(response) {}
-                    });
-                } else {
-                    $.ajax({
-                        url: '{{ route('subscriptions.cancel') }}',
-                        data: {
-                            subscriptionName
-                        },
-                        type: "GET",
-                        success: function(response) {
-                            console.log(response)
-                        },
-                        error: function(response) {}
-                    });
-                }
-            });
-        });
-    </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script>
-    $(document).ready(function(){
-
-        $('#switcher').click(function()
-        {
-            if($(this).is(':checked')){
-                console.log('chacked')
-            }
-            else {
-                console.log('not chacked')
-            }
-        });
-
-        });
-
-
-        // <div class="alert">
-        //     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        //     <strong>Title!</strong> Alert body ...
-        // </div>
-
-
-</script>
-@endsection
-

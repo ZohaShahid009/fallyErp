@@ -112,6 +112,11 @@
                                         <span></span>
                                     </i>
                                     <span class="menu-text">All Admin</span>
+                                <a href="{{url('superadmin-list')}}" class="menu-link menu-toggle">
+                                    <i class="menu-bullet menu-bullet-line">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">All Super Admin</span>
                                     <i class="menu-arrow"></i>
                                 </a>
                              </li>

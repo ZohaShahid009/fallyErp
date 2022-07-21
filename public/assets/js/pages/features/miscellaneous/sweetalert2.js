@@ -88,24 +88,32 @@ var KTSweetAlert2Demo = function () {
 		});
 
 		$('#kt_sweetalert_demo_8').click(function (e) {
+         var form = $(this).closest("form");
+         var name = $(this).data("name");
+         e.preventDefault();
 			Swal.fire({
 				title: 'Are you sure?',
 				text: "You won't be able to revert this!",
 				icon: 'warning',
 				showCancelButton: true,
 				confirmButtonText: 'Yes, delete it!'
-			}).then(function (result) {
-				if (result.value) {
-					Swal.fire(
-						'Deleted!',
-						'Your file has been deleted.',
-						'success'
-					)
-				}
-			});
+			})
+            .then((willDelete) => {
+                           if (willDelete) {
+                                 form.submit();
+                                 swal("Poof! Your imaginary file has been deleted!", {
+                                     icon: "success",
+                                 });
+                             } else {
+                                 swal("Your imaginary file is safe!");
+                             }
+                         });
 		});
 
-		$('#kt_sweetalert_demo_9').click(function (e) {
+		$('.kt_sweetalert_demo_9').click(function (e) {
+            var form = $(this).closest("form");
+            var name = $(this).data("name");
+            e.preventDefault();
 			Swal.fire({
 				title: 'Are you sure?',
 				text: "You won't be able to revert this!",
@@ -116,6 +124,7 @@ var KTSweetAlert2Demo = function () {
 				reverseButtons: true
 			}).then(function (result) {
 				if (result.value) {
+                    form.submit();
 					Swal.fire(
 						'Deleted!',
 						'Your file has been deleted.',
