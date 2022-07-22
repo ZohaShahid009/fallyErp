@@ -50,4 +50,10 @@ class adminFAQcontroller extends Controller
         $admin->update();
         return redirect('/admin-list')->with('info', 'Admins updated successfully');
     }
+    public function admin_detail(Request $request){
+        $id = $request->id;
+        $admin =  adminFAQ::find($id);
+
+        echo view('admin.pages.admin_FAQ.list', compact('admin'));
+    }
 }
