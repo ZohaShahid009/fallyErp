@@ -137,12 +137,23 @@ class AdminController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
+        $imageName = "blank.png";
+        if($request->hasFile('profile_avatar')){
+            $img_tmp = $request->file('profile_avatar');
+                if($img_tmp->isValid()){
+                    $extension = $img_tmp->getClientOriginalExtension();
+                    $imageName = rand(111,999999).'.'.$extension;
+                    $imagePath = 'staff_images/'.$imageName;
+                    Image::make($img_tmp)->save($imagePath);
+                    };
+            };
         $staff = new Staff([
             'first_name'=> $request->get('first_name'),
             'last_name'=> $request->get('last_name'),
             'email'=> $request->get('email'),
             'hourly_rate'=> $request->get('hourly_rate'),
             'phone'=> $request->get('phone'),
+            'image'=> $imageName,
             'facebook_url'=> $request->get('facebook_url'),
             'linkedin_url'=> $request->get('linkedin_url'),
             'skype_url'=> $request->get('skype_url'),
@@ -154,8 +165,18 @@ class AdminController extends Controller
             'password'=> $request->get('password'),
         ]);
         $staff->save();
-        return redirect()->back()->with('message', 'Staff has been added');
+        return redirect('/staff-list')->with('info', 'Staff updated successfully');
     }
+
+    // Staff Details
+    public function staff_detail(Request $request){
+        $id = $request->id;
+        $staff =  Staff::find($id);
+
+        echo view('admin.pages.staff.view', compact('staff'));
+    }
+
+
     // Show edit staff form
     public function editstaff(Request $request, $id){
         $staff =  Staff::find($id);
@@ -195,7 +216,7 @@ class AdminController extends Controller
                     $staff->image = $imageName;
                 }
         $staff->update();
-        return redirect()->back()->with('info', 'staff updated successfully');
+        return redirect('/staff-list')->with('info', 'Staff updated successfully');
     }
 
     //-------< End Staff Section >---------\\
@@ -227,7 +248,7 @@ class AdminController extends Controller
             'profile_image'=> $imageName,
         ]);
         $user->save();
-        return redirect()->back()->with('message', 'Super Admin has been added');
+        return redirect('/superadmin-list')->with('info', 'Super Admin updated successfully');
     }
 
     // View super Admin List/Table
@@ -270,8 +291,17 @@ class AdminController extends Controller
                     $superadmin->profile_image = $imageName;
             }
         $superadmin->update();
-        return redirect()->back()->with('info', 'Superadmin updated successfully');
+        return redirect('/superadmin-list')->with('info', 'SuperAdmin updated successfully');
     }
+
+        // Super Admin Details
+
+        public function superadmin_detail(Request $request){
+            $id = $request->id;
+            $superadmin =  User::find($id);
+
+            echo view('admin.pages.superadmin.view', compact('superadmin'));
+        }
 //-------< End Super Admin Crud Section >---------\\
 
 }

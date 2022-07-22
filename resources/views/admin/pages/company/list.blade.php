@@ -203,7 +203,7 @@
                         </div>
                     </div>
 
-                    <div id="detail-tab" class="col-6 border" style="display:none">
+                    <div id="detail-tab" class="col-5 border" style="display:none">
                     </div>
 
                     <!--end::Card-->
@@ -227,7 +227,7 @@
                     $('#detail-tab').html(response)
 
                     $('#listing-tab').removeClass('col-12')
-                    $('#listing-tab').addClass('col-6')
+                    $('#listing-tab').addClass('col-7')
                     $('#detail-tab').css('display', 'block')
                 }
             })
@@ -240,5 +240,6 @@
 
         }
     </script>
+
     <!--end::Content-->
 @endsection

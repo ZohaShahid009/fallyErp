@@ -17,7 +17,7 @@
                     @endif
                 </div>
                 <div class="card-header">
-                    <h3 class="card-title">Fill the Form to add new company</h3>
+                    <h3 class="card-title">Fill the Form to add new Super Admin</h3>
                 </div>
                 <form class="form" action="{{ url('add-superadmin') }}" method="POST" enctype="multipart/form-data">
                     @csrf

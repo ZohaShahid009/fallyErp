@@ -5,9 +5,7 @@ use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SubscriptionController;
-use App\Http\Controllers\adminFAQController;
 use App\Models\Plan;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -50,16 +48,25 @@ Route::post('company/detail', [AdminController::class, 'company_detail'])->name(
 // new zoI RFFF
 Auth::routes();
 
+
+
+
+// Auth::routes();
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
 Route::post('single-charge', [HomeController::class, 'singleCharge'])->name('single.charge');
 Route::get('plans/create', [SubscriptionController::class, 'showPlanForm'])->name('plans.create');
 Route::post('plans/store', [SubscriptionController::class, 'savePlan'])->name('plans.store');
+
+
 Route::get('plans', [SubscriptionController::class, 'allPlans'])->name('plans.all');
 Route::get('plans/checkout/{planId}', [SubscriptionController::class, 'checkout'])->name('plans.checkout');
 Route::post('plans/process', [SubscriptionController::class, 'processPlan'])->name('plan.process');
+
 Route::get('subscriptions/all', [SubscriptionController::class, 'allSubscriptions'])->name('subscriptions.all');
-Route::get('subscriptions/cancel', [SubscriptionController::class, 'cancelSubscriptions'])->name('subscriptions.cancel');
-Route::get('subscriptions/resume', [SubscriptionController::class, 'resumeSubscriptions'])->name('subscriptions.resume');
 
 // RFF END
 
@@ -72,6 +79,7 @@ Route::post('add-staff', [AdminController::class, 'addstaff']);
 Route::get('edit-staff/{id}', [AdminController::class, 'editstaff']);
 Route::delete('staffs/{id}', [AdminController::class, 'deletestaff'])->name('delete-staff');
 Route::post('update-staff/{id}', [AdminController::class, 'updatestaff']);
+Route::post('staff/detail', [AdminController::class, 'staff_detail'])->name('staff.detail');
 
 // Super Admin Crud By Aqeel Start
 Route::get('add-superadmin-form', function () {
@@ -82,6 +90,7 @@ Route::post('add-superadmin', [AdminController::class, 'addsuperadmin']);
 Route::get('edit-superadmin/{id}', [AdminController::class, 'editsuperadmin']);
 Route::delete('superadmins/{id}', [AdminController::class, 'deletesuperadmin'])->name('delete-superadmin');
 Route::post('update-superadmin/{id}', [AdminController::class, 'updatesuperadmin']);
+Route::post('superadmin/detail', [AdminController::class, 'superadmin_detail'])->name('superadmin.detail');
 // Super Admin Crud by Aqeel End
 
 
@@ -97,3 +106,4 @@ Route::delete('admins/{id}', [adminFAQController::class, 'deleteadmin'])->name('
 Route::post('/updateadmin/{id}', [adminFAQController::class, 'updateadmindata']);
 Route::post('admin/detail', [adminFAQController::class, 'admin_detail'])->name('admin.detail');
 // END OF // route of admin FAQ
+
