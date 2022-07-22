@@ -27,13 +27,10 @@
                                     <input name="name" id="name" class="form-control" />
 
                                 </div>
-
-
                                 <div class="col-lg-6">
                                     <label>Amount</label>
                                     <input type="number" name="amount" class="form-control" placeholder="Enter amount">
                                 </div>
-
                             </div>
 
                             <div class="form-group row">

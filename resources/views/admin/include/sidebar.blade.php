@@ -167,7 +167,7 @@
                    <i class="menu-bullet menu-bullet-line">
                        <span></span>
                    </i>
-                   <span class="menu-text">Add Payment Method</span>
+                   <span class="menu-text">Choose Plan</span>
                    <i class="menu-arrow"></i>
                </a>
             </li>
