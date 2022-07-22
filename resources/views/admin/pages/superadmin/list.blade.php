@@ -14,7 +14,7 @@
         <!--begin::Entry-->
         <div class="d-flex flex-column-fluid">
             <!--begin::Container-->
-            <div class="container-fluid">
+            <div class="container">
 
                 <!--begin::Card-->
                 <div class="row">
@@ -214,7 +214,7 @@
                     $('#detail-tab').html(response)
 
                     $('#listing-tab').removeClass('col-12')
-                    $('#listing-tab').addClass('col-6')
+                    $('#listing-tab').addClass('col-4')
                     $('#detail-tab').css('display', 'block')
                 }
             })
