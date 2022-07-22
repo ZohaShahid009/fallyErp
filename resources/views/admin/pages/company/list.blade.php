@@ -13,7 +13,7 @@
         <!--end::Subheader-->
         <!--begin::Entry-->
         <div class="d-flex flex-column-fluid">
-            
+
             <!--begin::Container-->
             <div class="container">
                 <!--begin::Notice-->
