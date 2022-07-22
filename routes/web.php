@@ -48,10 +48,6 @@ Route::post('company/detail', [AdminController::class, 'company_detail'])->name(
 
 // End Company routes
 // new zoI RFFF
-
-
-
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
