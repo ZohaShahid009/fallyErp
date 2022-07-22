@@ -5,7 +5,7 @@ use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SubscriptionController;
-use App\Http\Controllers\adminFAQController;
+use App\Http\Controllers\AdminFAQController;
 use App\Models\Plan;
 
 
@@ -49,7 +49,6 @@ Route::post('company/detail', [AdminController::class, 'company_detail'])->name(
 // End Company routes
 // new zoI RFFF
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('single-charge', [HomeController::class, 'singleCharge'])->name('single.charge');
 Route::get('plans/create', [SubscriptionController::class, 'showPlanForm'])->name('plans.create');
@@ -90,10 +89,10 @@ Route::post('update-superadmin/{id}', [AdminController::class, 'updatesuperadmin
 Route::get('add-FAQ-form', function () {
     return view('admin.pages.admin_FAQ.add');
 });
-Route::get('admin-list', [adminFAQController::class, 'adminlist']);
-Route::post('add-admin', [adminFAQController::class, 'addadmin']);
-Route::get('edit-admin/{id}', [adminFAQController::class, 'editadmin']);
-Route::delete('admins/{id}', [adminFAQController::class, 'deleteadmin'])->name('delete-admin');
-Route::post('/updateadmin/{id}', [adminFAQController::class, 'updateadmindata']);
-Route::post('admin/detail', [adminFAQController::class, 'admin_detail'])->name('admin.detail');
+Route::get('admin-list', [AdminFAQController::class, 'adminlist']);
+Route::post('add-admin', [AdminFAQController::class, 'addadmin']);
+Route::get('edit-admin/{id}', [AdminFAQController::class, 'editadmin']);
+Route::delete('admins/{id}', [AdminFAQController::class, 'deleteadmin'])->name('delete-admin');
+Route::post('/updateadmin/{id}', [AdminFAQController::class, 'updateadmindata']);
+Route::post('admin/detail', [AdminFAQController::class, 'admin_detail'])->name('admin.detail');
 // END OF // route of admin FAQ

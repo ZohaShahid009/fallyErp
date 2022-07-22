@@ -1,11 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\adminFAQ;
 use Illuminate\Http\Request;
-
-class adminFAQcontroller extends Controller
+class AdminFAQController extends Controller
 {
     public function addadmin(Request $request)
     {
@@ -56,4 +54,5 @@ class adminFAQcontroller extends Controller
 
         echo view('admin.pages.admin_FAQ.list', compact('admin'));
     }
+
 }
