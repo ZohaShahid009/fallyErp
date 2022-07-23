@@ -125,7 +125,8 @@
                             </div>
                             <div class="card-body">
                                 <!--begin: Datatable-->
-                                <table class="table table-separate table-head-custom table-checkable table-responsive" id="kt_datatable">
+                                <div class="table-responsive">
+                                <table class="table table-separate table-head-custom table-checkable table table-sm" id="kt_datatable">
                                     <thead>
                                         <tr>
                                             <th>SR#</th>
@@ -206,6 +207,7 @@
 
                                     </tbody>
                                 </table>
+                                </div>
                                 <!--end: Datatable-->
                             </div>
                         </div>

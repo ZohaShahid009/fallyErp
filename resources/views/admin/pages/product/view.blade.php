@@ -1,4 +1,4 @@
-<div class="card card-custom" style="height: 943px;">
+<div class="card card-custom" style="height: 560px; width:300px; ">
     <!--begin::Header-->
     <div class="card-header flex-wrap border-0 pt-6 pb-0">
         <div class="card-title">
@@ -51,6 +51,7 @@
                     <th>Discrption:</th>
                     <td>{{ $product->discrption}}</td>
                 </tr>
+
             </table>
     </div>
 </div>
