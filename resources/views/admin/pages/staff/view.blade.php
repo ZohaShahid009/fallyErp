@@ -58,90 +58,29 @@
     <!--begin::Header-->
     <div class="card-header h-auto py-4">
         <div class="card-title">
-            <h3 class="card-label">Company
-            <span class="d-block text-muted pt-2 font-size-sm">company profile preview</span></h3>
+            <h3 class="card-label">Staff
+                <span class="d-block text-muted pt-2 font-size-sm">Staff profile preview</span>
+            </h3>
         </div>
         <div class="card-toolbar">
-            <a href="#" class="btn btn-default btn-sm font-weight-bold" data-toggle="dropdown">
-            <i class="flaticon2-gear"></i>Export</a>
-            <div class="dropdown-menu dropdown-menu-right p-0 m-0 dropdown-menu-md">
-                <!--begin::Navigation-->
-                <ul class="navi navi-hover py-5">
-                    <li class="navi-item">
-                        <a href="#" class="navi-link">
-                            <span class="navi-icon">
-                                <i class="flaticon2-drop"></i>
-                            </span>
-                            <span class="navi-text">New Group</span>
-                        </a>
-                    </li>
-                    <li class="navi-item">
-                        <a href="#" class="navi-link">
-                            <span class="navi-icon">
-                                <i class="flaticon2-list-3"></i>
-                            </span>
-                            <span class="navi-text">Contacts</span>
-                        </a>
-                    </li>
-                    <li class="navi-item">
-                        <a href="#" class="navi-link">
-                            <span class="navi-icon">
-                                <i class="flaticon2-rocket-1"></i>
-                            </span>
-                            <span class="navi-text">Groups</span>
-                            <span class="navi-link-badge">
-                                <span class="label label-light-primary label-inline font-weight-bold">new</span>
-                            </span>
-                        </a>
-                    </li>
-                    <li class="navi-item">
-                        <a href="#" class="navi-link">
-                            <span class="navi-icon">
-                                <i class="flaticon2-bell-2"></i>
-                            </span>
-                            <span class="navi-text">Calls</span>
-                        </a>
-                    </li>
-                    <li class="navi-item">
-                        <a href="#" class="navi-link">
-                            <span class="navi-icon">
-                                <i class="flaticon2-gear"></i>
-                            </span>
-                            <span class="navi-text">Settings</span>
-                        </a>
-                    </li>
-                    <li class="navi-separator my-3"></li>
-                    <li class="navi-item">
-                        <a href="#" class="navi-link">
-                            <span class="navi-icon">
-                                <i class="flaticon2-magnifier-tool"></i>
-                            </span>
-                            <span class="navi-text">Help</span>
-                        </a>
-                    </li>
-                    <li class="navi-item">
-                        <a href="#" class="navi-link">
-                            <span class="navi-icon">
-                                <i class="flaticon2-bell-2"></i>
-                            </span>
-                            <span class="navi-text">Privacy</span>
-                            <span class="navi-link-badge">
-                                <span class="label label-light-danger label-rounded font-weight-bold">5</span>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-                <!--end::Navigation-->
-            </div>
+            <a onclick="divHider()" href="javascript:void(0);" class="btn btn-primary btn-sm font-weight-bold"
+                data-toggle="dropdown">
+                <i></i>Close</a>
         </div>
     </div>
     <!--end::Header-->
     <!--begin::Body-->
     <div class="card-body py-4">
         <div class="form-group row my-2">
-            <label class="col-4 col-form-label">Name:</label>
+            <label class="col-4 col-form-label">First Name:</label>
             <div class="col-8">
-                <span class="form-control-plaintext font-weight-bolder">Loop Inc.</span>
+                <span class="form-control-plaintext font-weight-bolder">{{ $staff->first_name }}.</span>
+            </div>
+        </div>
+        <div class="form-group row my-2">
+            <label class="col-4 col-form-label">Last Name:</label>
+            <div class="col-8">
+                <span class="form-control-plaintext font-weight-bolder">{{ $staff->last_name }}.</span>
             </div>
         </div>
         <div class="form-group row my-2">
@@ -151,32 +90,32 @@
             </div>
         </div>
         <div class="form-group row my-2">
-            <label class="col-4 col-form-label">Revenue:</label>
+            <label class="col-4 col-form-label">Hourly Rate:</label>
             <div class="col-8">
                 <span class="form-control-plaintext">
-                <span class="font-weight-bolder">345,000M</span>&#160;
-                <span class="label label-inline label-danger label-bold">Q4, 2019</span></span>
+                    <span class="font-weight-bolder">{{ $staff->hourly_rate }}</span>&#160;
+                    <span class="label label-inline label-danger label-bold">Q4, 2019</span></span>
             </div>
         </div>
         <div class="form-group row my-2">
             <label class="col-4 col-form-label">Phone:</label>
             <div class="col-8">
-                <span class="form-control-plaintext font-weight-bolder">+456 7890456</span>
+                <span class="form-control-plaintext font-weight-bolder">{{ $staff->phone }}</span>
             </div>
         </div>
         <div class="form-group row my-2">
             <label class="col-4 col-form-label">Email:</label>
             <div class="col-8">
                 <span class="form-control-plaintext font-weight-bolder">
-                    <a href="#">info@loop.com</a>
+                    <a href="#">{{ $staff->email }}</a>
                 </span>
             </div>
         </div>
         <div class="form-group row my-2">
-            <label class="col-4 col-form-label">Website:</label>
+            <label class="col-4 col-form-label">Facebook:</label>
             <div class="col-8">
                 <span class="form-control-plaintext font-weight-bolder">
-                    <a href="#">www.loop.com</a>
+                    <a href="#">{{ $staff->facebook_url }}</a>
                 </span>
             </div>
         </div>
