@@ -28,7 +28,7 @@
                                 <div class="col-lg-3"></div>
                                 <div class=" mt-5 mb-5 image-input image-input-outline image-input-circle" id="kt_image_3">
                                     <div class="image-input-wrapper"
-                                        style="background-image: url({{ asset('/') }}staff_images/{{ $staff->image }})">
+                                        style="background-image: url({{ asset('/') }}uploaded_images/staff_images/{{ $staff->image }})">
                                     </div>
 
                                     <label

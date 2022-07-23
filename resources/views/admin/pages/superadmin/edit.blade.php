@@ -27,7 +27,7 @@
                             <div class="form-group row">
                                 <div class="col-lg-3"></div>
                                 <div class=" mt-5 mb-5 image-input image-input-outline image-input-circle" id="kt_image_3">
-                                    <div class="image-input-wrapper" style="background-image: url({{ asset('/') }}superadmin_images/{{ $superadmin->profile_image }})">
+                                    <div class="image-input-wrapper" style="background-image: url({{ asset('/') }}uploaded_images/superadmin_images/{{ $superadmin->profile_image }})">
                                     </div>
                                     <label
                                         class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"

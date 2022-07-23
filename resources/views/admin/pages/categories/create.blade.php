@@ -17,17 +17,17 @@
                     @endif
                 </div>
                 <div class="card-header">
-                    <h3 class="card-title">Fill the Form to add new Super Admin</h3>
+                    <h3 class="card-title">Fill the Form to add new Category</h3>
                 </div>
-                <form class="form" action="{{ url('add-superadmin') }}" method="POST" enctype="multipart/form-data">
+                <form class="form" action="{{ url('add/categories') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
-                        <h3 class="font-size-lg text-dark font-weight-bold mb-6">1. Profile Image:</h3>
+                        <h3 class="font-size-lg text-dark font-weight-bold mb-6">1. Product Image:</h3>
                         <div class="mb-15">
                             <div class="form-group row">
                                 <div class="col-lg-3"></div>
                                 <div class=" mt-5 mb-5 image-input image-input-outline image-input-circle" id="kt_image_3">
-                                    <div class="image-input-wrapper" style="background-image: url({{ asset('/') }}uploaded_images/superadmin_images/blank.png)">
+                                    <div class="image-input-wrapper" style="background-image: url({{ asset('/') }}uploaded_images/cat_images/blank.png)">
                                     </div>
                                     <label
                                         class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
@@ -45,24 +45,10 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>Full Name:</label>
-                            <input name="name" id="name" type="text" class="form-control form-control-solid"
-                                placeholder="Enter full name" />
-                            <span class="form-text text-muted">Please enter your full name</span>
-                        </div>
-                        <div class="form-group">
-                            <label>Email address:</label>
-                            <input name="email" id="email" type="email" class="form-control form-control-solid"
-                                placeholder="Enter email" />
-                            <span class="form-text text-muted">We'll never share your email with anyone else</span>
-                        </div>
-                        <div class="form-group">
-                            <label>Password</label>
-                            <div class="input-group input-group-lg">
-                                <div class="input-group-prepend"><span class="input-group-text">$</span></div>
-                                <input id="password" name="password" type="password"
-                                    class="form-control form-control-solid" placeholder="password" />
-                            </div>
+                            <label>Title:</label>
+                            <input name="title" id="title" type="text" class="form-control form-control-solid"
+                                placeholder="Enter Title" />
+                            <span class="form-text text-muted">Please enter Title</span>
                         </div>
                     </div>
                     <div class="card-footer">
