@@ -7,26 +7,21 @@
         }
     </style>
     <div class="container-fluid">
-        <!--begin::Content-->
         <div class="content d-flex flex-column flex-column-fluid wrapper" id="kt_content">
             <!--begin::Subheader-->
 
             <!--end::Subheader-->
             <!--begin::Entry-->
             <div class="d-flex flex-column-fluid">
-
                 <!--begin::Container-->
                 <div class="container-fluid">
-                    <!--begin::Notice-->
-
-                    <!--end::Notice-->
                     <!--begin::Card-->
                     <div class="row">
                         <div id="listing-tab" class="col-12">
                             <div class="card card-custom">
                                 <div class="card-header flex-wrap py-5">
                                     <div class="card-title">
-                                        <h3 class="card-label">Companies
+                                        <h3 class="card-label">Sub Categories
                                     </div>
                                     <div class="card-toolbar">
                                         <!--begin::Dropdown-->
@@ -37,12 +32,10 @@
                                                 <span class="svg-icon svg-icon-md">
                                                     <!--begin::Svg Icon | path:assets/media/svg/icons/Design/PenAndRuller.svg-->
                                                     <svg xmlns="http://www.w3.org/2000/svg"
-                                                        xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                                                        height="24px" viewBox="0 0 24 24" version="1.1">
-                                                        <g stroke="none" stroke-width="1" fill="none"
-                                                            fill-rule="evenodd">
-                                                            <rect x="0" y="0" width="24"
-                                                                height="24" />
+                                                        xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px"
+                                                        viewBox="0 0 24 24" version="1.1">
+                                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                            <rect x="0" y="0" width="24" height="24" />
                                                             <path
                                                                 d="M3,16 L5,16 C5.55228475,16 6,15.5522847 6,15 C6,14.4477153 5.55228475,14 5,14 L3,14 L3,12 L5,12 C5.55228475,12 6,11.5522847 6,11 C6,10.4477153 5.55228475,10 5,10 L3,10 L3,8 L5,8 C5.55228475,8 6,7.55228475 6,7 C6,6.44771525 5.55228475,6 5,6 L3,6 L3,4 C3,3.44771525 3.44771525,3 4,3 L10,3 C10.5522847,3 11,3.44771525 11,4 L11,19 C11,19.5522847 10.5522847,20 10,20 L4,20 C3.44771525,20 3,19.5522847 3,19 L3,16 Z"
                                                                 fill="#000000" opacity="0.3" />
@@ -107,7 +100,7 @@
                                         </div>
                                         <!--end::Dropdown-->
                                         <!--begin::Button-->
-                                        <a href="{{ url('add-company-form') }}" class="btn btn-primary font-weight-bolder">
+                                        <a href="{{ url('add/sub-categories') }}" class="btn btn-primary font-weight-bolder">
                                             <span class="svg-icon svg-icon-md">
                                                 <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
                                                 <svg xmlns="http://www.w3.org/2000/svg"
@@ -115,8 +108,7 @@
                                                     viewBox="0 0 24 24" version="1.1">
                                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                         <rect x="0" y="0" width="24" height="24" />
-                                                        <circle fill="#000000" cx="9" cy="15"
-                                                            r="6" />
+                                                        <circle fill="#000000" cx="9" cy="15" r="6" />
                                                         <path
                                                             d="M8.8012943,7.00241953 C9.83837775,5.20768121 11.7781543,4 14,4 C17.3137085,4 20,6.6862915 20,10 C20,12.2218457 18.7923188,14.1616223 16.9975805,15.1987057 C16.9991904,15.1326658 17,15.0664274 17,15 C17,10.581722 13.418278,7 9,7 C8.93357256,7 8.86733422,7.00080962 8.8012943,7.00241953 Z"
                                                             fill="#000000" opacity="0.3" />
@@ -133,9 +125,8 @@
                                         <thead>
                                             <tr>
                                                 <th>SR#</th>
-                                                <th>Company Name</th>
-                                                <th>Company Email</th>
-                                                <th>Company Phone No</th>
+                                                <th>Title</th>
+                                                <th>Parent Category ID</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
@@ -144,31 +135,28 @@
                                             @php
                                                 $i = 0;
                                             @endphp
-                                            @foreach ($companies as $company)
+                                            @foreach ($subcategory as $subcategories)
                                                 <tr>
                                                     <td>{{ ++$i }}</td>
-                                                    <td>{{ $company->company_name }}</td>
-                                                    <td>{{ $company->company_email }}</td>
-                                                    <td>{{ $company->company_phone }}</td>
+                                                    <td>{{ $subcategories->title }}</td>
+                                                    <td>{{ $subcategories->parent_cat_id }}</td>
                                                     <td>
                                                         <div class="dropdown dropdown-inline">
                                                             <a href="javascript:;" class="btn btn-sm btn-clean btn-icon"
                                                                 data-toggle="dropdown">
                                                                 <i class="la la-cog"></i>
                                                             </a>
-                                                            <div
-                                                                class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                                                            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
                                                                 <ul class="nav nav-hoverable flex-column">
                                                                     <li class="nav-item"><a class="nav-link"
-                                                                            href="{{ url('edit-company', $company->id) }}"><i
+                                                                            href="{{ url('edit/sub-categories', $subcategories->id) }}"><i
                                                                                 class="nav-icon la la-edit"></i><span
                                                                                 class="nav-text">View and Update</span></a>
                                                                     </li>
                                                                     <li class="nav-item"><a class="nav-link"
                                                                             href="#"><i
                                                                                 class="nav-icon la la-leaf"></i><span
-                                                                                class="nav-text">Update Status</span></a>
-                                                                    </li>
+                                                                                class="nav-text">Update Status</span></a></li>
                                                                     <li class="nav-item"><a class="nav-link"
                                                                             href="#"><i
                                                                                 class="nav-icon la la-print"></i><span
@@ -177,17 +165,17 @@
                                                             </div>
                                                         </div>
 
-                                                        <a href="{{ url('edit-company', $company->id) }}"
+                                                        <a href="{{ url('edit/sub-categories', $subcategories->id) }}"
                                                             class="btn btn-sm btn-clean btn-icon" title="Edit details">
                                                             <i class="la la-edit"></i>
                                                         </a>
                                                         <a href="javascript:void(0)"
                                                             class="btn btn-sm btn-clean btn-icon view_details"
-                                                            id="{{ $company->id }}" title="View details">
+                                                            id="{{ $subcategories->id }}" title="View details">
                                                             <i class="la la-eye"></i>
                                                         </a>
                                                         <form class="btn btn-sm btn-clean btn-icon" method="POST"
-                                                            action="{{ route('delete-company', $company->id) }}">
+                                                            action="{{ route('delete/sub-categories', $subcategories->id) }}">
                                                             @csrf
                                                             <input name="_method" type="hidden" value="DELETE">
                                                             <button
@@ -208,25 +196,25 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div id="detail-tab" class="col-4 border" style="display:none">
+                        <div id="detail-tab" class="col-5 border" style="display:none">
                         </div>
-
-                        <!--end::Card-->
                     </div>
+                    <!--end::Card-->
                 </div>
                 <!--end::Container-->
             </div>
             <!--end::Entry-->
         </div>
     </div>
+    <!--begin::Content-->
+
 
     <script>
         $(document).on('click', '.view_details', function() {
             var id = $(this).attr('id');
             $.ajax({
                 type: 'post',
-                url: '/company/detail',
+                url: '/staff/detail',
                 data: {
                     'id': id
                 },
@@ -234,7 +222,7 @@
                     $('#detail-tab').html(response)
 
                     $('#listing-tab').removeClass('col-12')
-                    $('#listing-tab').addClass('col-8')
+                    $('#listing-tab').addClass('col-7')
                     $('#detail-tab').css('display', 'block')
                 }
             })

@@ -13,16 +13,19 @@
         <!--end::Subheader-->
         <!--begin::Entry-->
         <div class="d-flex flex-column-fluid">
-            <!--begin::Container-->
-            <div class="container">
 
+            <!--begin::Container-->
+            <div class="container-fluid">
+                <!--begin::Notice-->
+
+                <!--end::Notice-->
                 <!--begin::Card-->
                 <div class="row">
                     <div id="listing-tab" class="col-12">
                         <div class="card card-custom">
                             <div class="card-header flex-wrap py-5">
                                 <div class="card-title">
-                                    <h3 class="card-label">Super Admin
+                                    <h3 class="card-label">Products
                                 </div>
                                 <div class="card-toolbar">
                                     <!--begin::Dropdown-->
@@ -101,7 +104,7 @@
                                     </div>
                                     <!--end::Dropdown-->
                                     <!--begin::Button-->
-                                    <a href="{{ url('add-superadmin-form') }}" class="btn btn-primary font-weight-bolder">
+                                    <a href="{{ url('add-product-form') }}" class="btn btn-primary font-weight-bolder">
                                         <span class="svg-icon svg-icon-md">
                                             <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
                                             <svg xmlns="http://www.w3.org/2000/svg"
@@ -122,24 +125,38 @@
                             </div>
                             <div class="card-body">
                                 <!--begin: Datatable-->
-                                <table class="table table-separate table-head-custom table-checkable" id="kt_datatable">
+                                <div class="table-responsive">
+                                <table class="table table-separate table-head-custom table-checkable table table-sm" id="kt_datatable">
                                     <thead>
                                         <tr>
                                             <th>SR#</th>
-                                            <th>Full Name</th>
-                                            <th>Email</th>
-                                            <th>Actions</th>
+                                            <th>Category Id</th>
+                                            <th>Tittle</th>
+                                            <th>Cost</th>
+                                            <th>Unit Price</th>
+                                            <th>Sale Price</th>
+                                            <th>Purchase Price</th>
+                                            <th>Unit</th>
+                                            <th>Discrption</th>
+                                            {{-- <th>Action</th> --}}
                                         </tr>
                                     </thead>
+
                                     <tbody>
                                         @php
                                             $i = 0;
                                         @endphp
-                                        @foreach ($superadmin as $superadmins)
+                                        @foreach ($product as $product)
                                             <tr>
                                                 <td>{{ ++$i }}</td>
-                                                <td>{{ $superadmins->name }}</td>
-                                                <td>{{ $superadmins->email }}</td>
+                                                <td>{{ $product->category_id }}</td>
+                                                <td>{{ $product->tittle }}</td>
+                                                <td>{{ $product->cost }}</td>
+                                                <td>{{ $product->unit_price }}</td>
+                                                <td>{{ $product->sale_price }}</td>
+                                                <td>{{ $product->purchase_price }}</td>
+                                                <td>{{ $product->unit }}</td>
+                                                <td>{{ $product->discrption }}</td>
                                                 <td>
                                                     <div class="dropdown dropdown-inline">
                                                         <a href="javascript:;" class="btn btn-sm btn-clean btn-icon"
@@ -149,7 +166,7 @@
                                                         <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
                                                             <ul class="nav nav-hoverable flex-column">
                                                                 <li class="nav-item"><a class="nav-link"
-                                                                        href="{{ url('edit-superadmin', $superadmins->id) }}"><i
+                                                                        href="{{ url('edit-product', $product->id) }}"><i
                                                                             class="nav-icon la la-edit"></i><span
                                                                             class="nav-text">View and Update</span></a>
                                                                 </li>
@@ -164,37 +181,43 @@
                                                             </ul>
                                                         </div>
                                                     </div>
-                                                    <a href="{{ url('edit-superadmin', $superadmins->id) }}"
+
+                                                    <a href="{{ url('edit-product', $product->id) }}"
                                                         class="btn btn-sm btn-clean btn-icon" title="Edit details">
                                                         <i class="la la-edit"></i>
                                                     </a>
                                                     <a href="javascript:void(0)"
                                                         class="btn btn-sm btn-clean btn-icon view_details"
-                                                        id="{{ $superadmins->id }}" title="View details">
+                                                        id="{{ $product->id }}" title="View details">
                                                         <i class="la la-eye"></i>
                                                     </a>
                                                     <form class="btn btn-sm btn-clean btn-icon" method="POST"
-                                                        action="{{ route('delete-superadmin', $superadmins->id) }}">
+                                                        action="{{ route('delete-product', $product->id) }}">
                                                         @csrf
                                                         <input name="_method" type="hidden" value="DELETE">
                                                         <button
                                                             class="kt_sweetalert_demo_9 btn btn-sm btn-clean btn-icon show_confirm"
-                                                            type="submit" data-toggle="tooltip" title='Delete'><i
+                                                            data-toggle="tooltip" type="submit" title='Delete'><i
                                                                 class="la la-trash"></i></button>
                                                     </form>
                                                 </td>
                                             </tr>
                                         @endforeach
+
+
                                     </tbody>
                                 </table>
+                                </div>
                                 <!--end: Datatable-->
                             </div>
                         </div>
                     </div>
-                    <div id="detail-tab" class="col-4 border" style="display:none">
+
+                    <div id="detail-tab" class="col-6 border" style="display:none">
                     </div>
+
+                    <!--end::Card-->
                 </div>
-                <!--end::Card-->
             </div>
             <!--end::Container-->
         </div>
@@ -206,7 +229,7 @@
             var id = $(this).attr('id');
             $.ajax({
                 type: 'post',
-                url: '/superadmin/detail',
+                url: '/product/detail',
                 data: {
                     'id': id
                 },
@@ -214,14 +237,13 @@
                     $('#detail-tab').html(response)
 
                     $('#listing-tab').removeClass('col-12')
-                    $('#listing-tab').addClass('col-8')
+                    $('#listing-tab').addClass('col-6')
                     $('#detail-tab').css('display', 'block')
                 }
             })
         });
 
         function divHider() {
-
             $('#listing-tab').addClass('col-12')
             $('#detail-tab').css('display', 'none')
 

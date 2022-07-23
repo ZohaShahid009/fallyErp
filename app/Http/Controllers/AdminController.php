@@ -143,7 +143,7 @@ class AdminController extends Controller
                 if($img_tmp->isValid()){
                     $extension = $img_tmp->getClientOriginalExtension();
                     $imageName = rand(111,999999).'.'.$extension;
-                    $imagePath = 'staff_images/'.$imageName;
+                    $imagePath = 'uploaded_images/staff_images/'.$imageName;
                     Image::make($img_tmp)->save($imagePath);
                     };
             };
@@ -210,7 +210,7 @@ class AdminController extends Controller
                 if($img_tmp->isValid()){
                     $extension = $img_tmp->getClientOriginalExtension();
                     $imageName = rand(111,99999).'.'.$extension;
-                    $imagePath = 'staff_images/'.$imageName;
+                    $imagePath = 'uploaded_images/staff_images/'.$imageName;
                     Image::make($img_tmp)->save($imagePath);
                     }
                     $staff->image = $imageName;
@@ -237,7 +237,7 @@ class AdminController extends Controller
                 if($img_tmp->isValid()){
                     $extension = $img_tmp->getClientOriginalExtension();
                     $imageName = rand(111,99999).'.'.$extension;
-                    $imagePath = 'superadmin_images/'.$imageName;
+                    $imagePath = 'uploaded_images/superadmin_images/'.$imageName;
                     Image::make($img_tmp)->save($imagePath);
                     };
             };
@@ -285,7 +285,7 @@ class AdminController extends Controller
                 if($img_tmp->isValid()){
                     $extension = $img_tmp->getClientOriginalExtension();
                     $imageName = rand(111,99999).'.'.$extension;
-                    $imagePath = 'superadmin_images/'.$imageName;
+                    $imagePath = 'uploaded_images/superadmin_images/'.$imageName;
                     Image::make($img_tmp)->save($imagePath);
                     }
                     $superadmin->profile_image = $imageName;
