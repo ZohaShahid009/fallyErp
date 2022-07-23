@@ -87,7 +87,7 @@
                          <i class="menu-arrow"></i>
                          <ul class="menu-subnav">
                              <li class="menu-item menu-item-parent" aria-haspopup="true">
-                                {{-- zoi --}}
+
                                  <span class="menu-link">
                                      <span class="menu-text">Tables</span>
                                  </span>
@@ -119,6 +119,15 @@
                                     <span class="menu-text">All Super Admin</span>
                                     <i class="menu-arrow"></i>
                                 </a>
+
+                                <a href="{{url('product-list')}}" class="menu-link menu-toggle">
+                                    <i class="menu-bullet menu-bullet-line">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">Product library</span>
+                                    <i class="menu-arrow"></i>
+                                </a>
+
                              </li>
                          </ul>
                      </div>
@@ -177,7 +186,7 @@
 
 </li>
              </ul>
-             {{-- zoha edhe --}}
+
 
              <!--end::Menu Nav-->
          </div>

@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminFAQController;
 use App\Models\Plan;
 
@@ -96,3 +97,17 @@ Route::delete('admins/{id}', [AdminFAQController::class, 'deleteadmin'])->name('
 Route::post('/updateadmin/{id}', [AdminFAQController::class, 'updateadmindata']);
 Route::post('admin/detail', [AdminFAQController::class, 'admin_detail'])->name('admin.detail');
 // END OF // route of admin FAQ
+
+
+
+// products
+Route::get('add-product-form', function () {
+    return view('admin.pages.product.create');
+});
+Route::get('product-list', [ProductController::class, 'productlist']);
+Route::post('add-product', [ProductController::class, 'addproduct']);
+Route::get('edit-product/{id}', [ProductController::class, 'editproduct']);
+Route::delete('product/{id}', [ProductController::class, 'deleteproduct'])->name('delete-product');
+Route::post('/updateproduct/{id}', [ProductController::class, 'updateproduct']);
+Route::post('product/detail', [ProductController::class, 'product_detail'])->name('product.detail');
+// end products
