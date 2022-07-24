@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminFAQController;
+use App\Http\Controllers\GlobalsettingseController;
 use App\Models\Plan;
 
 /*
@@ -134,3 +135,5 @@ Route::delete('product/{id}', [ProductController::class, 'deleteproduct'])->name
 Route::post('/updateproduct/{id}', [ProductController::class, 'updateproduct']);
 Route::post('product/detail', [ProductController::class, 'product_detail'])->name('product.detail');
 // end products
+// Settings
+Route::get('/show', [GlobalsettingseController::class, 'create']);

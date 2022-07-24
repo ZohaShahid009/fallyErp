@@ -118,7 +118,10 @@
                                          </li>
                                      </ul>
                                  </div>
+
+
                              </li>
+
                              <li class="menu-item menu-item-parent" aria-haspopup="true">
 
                                  <span class="menu-link">
@@ -188,11 +191,46 @@
 
                                  </a>
                              </li>
+                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                <a href="javascript:;" class="menu-link menu-toggle">
+                                    <i class="menu-bullet menu-bullet-line">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">Settings</span>
+                                    <span class="menu-label">
+                                        <span class="label label-rounded label-primary">1</span>
+                                    </span>
+                                    <i class="menu-arrow"></i>
+                                </a>
+                                <div class="menu-submenu">
+                                    <i class="menu-arrow"></i>
+                                    <ul class="menu-subnav">
+                                        <li class="menu-item" aria-haspopup="true">
+                                            <a href="{{ url('/show') }}" class="menu-link">
+                                                <i class="menu-bullet menu-bullet-dot">
+                                                    <span></span>
+                                                </i>
+                                                <span class="menu-text">Global Settings</span>
+                                            </a>
+                                        </li>
+                                        {{-- <li class="menu-item" aria-haspopup="true">
+                                            <a href="{{ url('sub-categories/list') }}" class="menu-link">
+                                                <i class="menu-bullet menu-bullet-dot">
+                                                    <span></span>
+                                                </i>
+                                                <span class="menu-text">Sub Categories</span>
+                                            </a>
+                                        </li> --}}
+                                    </ul>
+                                </div>
+
+
+                            </li>
                          </ul>
                      </div>
 
                  </li>
-                 {{-- zoha --}}
+
                  <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                      <a href="javascript:;" class="menu-link menu-toggle">
                          <span class="svg-icon menu-icon">
@@ -217,7 +255,7 @@
                          <i class="menu-arrow"></i>
                          <ul class="menu-subnav">
                              <li class="menu-item menu-item-parent" aria-haspopup="true">
-                                 {{-- zoi --}}
+
                                  <span class="menu-link">
                                      <span class="menu-text">payments</span>
                                  </span>
@@ -240,6 +278,7 @@
                                      <i class="menu-arrow"></i>
                                  </a>
                              </li>
+
                          </ul>
                      </div>
 

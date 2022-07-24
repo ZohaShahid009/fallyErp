@@ -37,8 +37,6 @@ class CreateGlobalSettingsTable extends Migration
             $table->string('timezone')->nullable(true);
             $table->string('money_formate')->nullable(true);
             $table->string('currency_position')->nullable(true);
-
-
             $table->timestamps();
         });
     }
