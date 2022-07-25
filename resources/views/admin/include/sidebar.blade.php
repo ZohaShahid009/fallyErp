@@ -118,10 +118,40 @@
                                          </li>
                                      </ul>
                                  </div>
-
-
                              </li>
-
+                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                 <a href="javascript:;" class="menu-link menu-toggle">
+                                     <i class="menu-bullet menu-bullet-line">
+                                         <span></span>
+                                     </i>
+                                     <span class="menu-text">All Admins</span>
+                                     <span class="menu-label">
+                                         <span class="label label-rounded label-primary">2</span>
+                                     </span>
+                                     <i class="menu-arrow"></i>
+                                 </a>
+                                 <div class="menu-submenu">
+                                     <i class="menu-arrow"></i>
+                                     <ul class="menu-subnav">
+                                         <li class="menu-item" aria-haspopup="true">
+                                             <a href="{{ url('superadmin-list') }}" class="menu-link">
+                                                 <i class="menu-bullet menu-bullet-dot">
+                                                     <span></span>
+                                                 </i>
+                                                 <span class="menu-text">Super Admin</span>
+                                             </a>
+                                         </li>
+                                         <li class="menu-item" aria-haspopup="true">
+                                             <a href="{{ url('admin-list') }}" class="menu-link">
+                                                 <i class="menu-bullet menu-bullet-dot">
+                                                     <span></span>
+                                                 </i>
+                                                 <span class="menu-text">Admins</span>
+                                             </a>
+                                         </li>
+                                     </ul>
+                                 </div>
+                             </li>
                              <li class="menu-item menu-item-parent" aria-haspopup="true">
                                  <span class="menu-link">
                                      <span class="menu-text">Tables</span>
@@ -146,21 +176,6 @@
                                  </a>
                              </li>
                              <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                                 <a href="{{ url('superadmin-list') }}" class="menu-link menu-toggle">
-                                     <i class="menu-bullet menu-bullet-line">
-                                         <span></span>
-                                     </i>
-                                     <span class="menu-text">All Super Admin</span>
-                                     <i class="menu-arrow"></i>
-                                 </a>
-                             </li>
-                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                                 <a href="{{ url('admin-list') }}" class="menu-link menu-toggle">
-                                     <i class="menu-bullet menu-bullet-line">
-                                         <span></span>
-                                     </i>
-                                     <span class="menu-text">All Admin</span>
-                                 </a>
                                  <a href="{{ url('product-list') }}" class="menu-link menu-toggle">
                                      <i class="menu-bullet menu-bullet-line">
                                          <span></span>
@@ -170,28 +185,28 @@
                                  </a>
                              </li>
                              <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                                <a href="javascript:;" class="menu-link menu-toggle">
-                                    <i class="menu-bullet menu-bullet-line">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">Settings</span>
-                                    <span class="menu-label">
-                                        <span class="label label-rounded label-primary">1</span>
-                                    </span>
-                                    <i class="menu-arrow"></i>
-                                </a>
-                                <div class="menu-submenu">
-                                    <i class="menu-arrow"></i>
-                                    <ul class="menu-subnav">
-                                        <li class="menu-item" aria-haspopup="true">
-                                            <a href="{{ url('/edit-settings/1') }}" class="menu-link">
-                                                <i class="menu-bullet menu-bullet-dot">
-                                                    <span></span>
-                                                </i>
-                                                <span class="menu-text">Global Settings</span>
-                                            </a>
-                                        </li>
-                                        {{-- <li class="menu-item" aria-haspopup="true">
+                                 <a href="javascript:;" class="menu-link menu-toggle">
+                                     <i class="menu-bullet menu-bullet-line">
+                                         <span></span>
+                                     </i>
+                                     <span class="menu-text">Settings</span>
+                                     <span class="menu-label">
+                                         <span class="label label-rounded label-primary">1</span>
+                                     </span>
+                                     <i class="menu-arrow"></i>
+                                 </a>
+                                 <div class="menu-submenu">
+                                     <i class="menu-arrow"></i>
+                                     <ul class="menu-subnav">
+                                         <li class="menu-item" aria-haspopup="true">
+                                             <a href="{{ url('/edit-settings/1') }}" class="menu-link">
+                                                 <i class="menu-bullet menu-bullet-dot">
+                                                     <span></span>
+                                                 </i>
+                                                 <span class="menu-text">Global Settings</span>
+                                             </a>
+                                         </li>
+                                         {{-- <li class="menu-item" aria-haspopup="true">
                                             <a href="{{ url('sub-categories/list') }}" class="menu-link">
                                                 <i class="menu-bullet menu-bullet-dot">
                                                     <span></span>
@@ -199,11 +214,11 @@
                                                 <span class="menu-text">Sub Categories</span>
                                             </a>
                                         </li> --}}
-                                    </ul>
-                                </div>
+                                     </ul>
+                                 </div>
 
 
-                            </li>
+                             </li>
                          </ul>
                      </div>
 

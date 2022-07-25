@@ -25,7 +25,7 @@
                         <div class="card card-custom">
                             <div class="card-header flex-wrap py-5">
                                 <div class="card-title">
-                                    <h3 class="card-label">Companies
+                                    <h3 class="card-label">Admins
                                 </div>
                                 <div class="card-toolbar">
                                     <!--begin::Dropdown-->
