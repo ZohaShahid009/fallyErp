@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\GlobalSettings;
 
-
 class GlobalsettingseController extends Controller
 {
     public function create()
@@ -29,11 +28,6 @@ class GlobalsettingseController extends Controller
         // dd($settings );
         return view('admin.pages.settings.edit', compact('settings' ,'timezones'));
     }
-
-
-
-
-
 
     public function  updatesettings(Request $request, $id)
     {
@@ -84,8 +78,15 @@ class GlobalsettingseController extends Controller
             $timezone->invoice_logo =  $imageName;
         }
 
-
         $timezone->update();
         return redirect('/setting-list')->with('info', 'Settings updated successfully');
     }
+    // zoh rfff
+    // if (isset($request->invoice_logo)  && ($request->invoice_logo->extension() != '')) {
+    //     $imageName = rand(0, 999999999) . time() . '.' . $request->invoice_logo->extension();
+    //     $request->invoice_logo->move(public_path('images'), $imageName);
+    //     $timezone->invoice_logo[] =  $imageName;
+    // }
+
+    // zoha rff end
 }

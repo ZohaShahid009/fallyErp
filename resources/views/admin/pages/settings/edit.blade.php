@@ -233,8 +233,6 @@
 
                             <div class="form-group row">
                                 <div class="col-lg-6">
-
-
                                     <label for="input-file-to-destroy">Invoice Logo</label>
                                     <input type="file" id="input-file-to-destroy" name="invoice_logo" class="dropify"
                                         data-allowed-formats="portrait square" data-max-file-size="2M"
@@ -245,6 +243,20 @@
                                     @endif
                                 </div>
                             </div>
+                            {{-- zoha  rfff--}}
+                            {{-- <div class="form-group row">
+                                <div class="col-lg-6">
+                                    <label for="input-file-to-destroy">Invoice Logo</label>
+                                    <input type="file" id="input-file-to-destroy" name="invoice_logo[]" class="dropify"
+                                        data-allowed-formats="portrait square" data-max-file-size="2M"
+                                        data-max-height="2000"  multiple/>
+                                    @if (!empty($settings->invoice_logo))
+                                        <img style="width:100px;margin-top:10px;" id="blah"
+                                            src="{{ asset('images/' . $settings->invoice_logo) }}">
+                                    @endif
+                                </div>
+                            </div> --}}
+                            {{-- zoha  rff ens--}}
                         </div>
                         <div class="card-footer">
                             <div class="row">
