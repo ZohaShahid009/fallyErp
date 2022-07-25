@@ -136,7 +136,6 @@ Route::post('/updateproduct/{id}', [ProductController::class, 'updateproduct']);
 Route::post('product/detail', [ProductController::class, 'product_detail'])->name('product.detail');
 // end products
 // Settings
-Route::get('/show', [GlobalsettingseController::class, 'create']);
-Route::get('setting-list', [GlobalsettingseController::class, 'settinglist']);
+
 Route::get('edit-settings/{id}', [GlobalsettingseController::class, 'editsettings']);
 Route::post('/updatesettings/{id}', [GlobalsettingseController::class, 'updatesettings']);
