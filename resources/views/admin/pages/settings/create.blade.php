@@ -62,73 +62,32 @@
                                     <label>Company Domain</label>
                                     <input name="company_domain" id="company_domain" type="text" class="form-control" />
                                 </div>
-                                {{-- <div class="col-lg-6">
-                                    <label>Company Logo</label>
-                                    <input name="company_logo" id="company_logo"   />
-                                </div> --}}
+
+
 
                                 {{-- <div class="col-lg-6">
-                                    <label class="form-label" for="customFile">Company Logo</label>
-                                    <input type="file" name="company_logo" class="form-control" id="customFile" />
-                                </div> --}}
-                                <div class="col-lg-6">
                                     <label>Company Logo</label>
                                     <div class="form-group">
                                         <input type="file" name="company_logo" accept="image/x-png,image/gif,image/jpeg"
                                             class="form-control">
                                     </div>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-lg-6">
-                                    <label>Footer Logo</label>
-                                    <div class="form-group">
-                                        <input type="file" name="footer_logo" accept="image/x-png,image/gif,image/jpeg"
-                                            class="form-control">
-                                    </div>
-                                </div>
-                                {{-- <div class="col-lg-6">
-                                    <label>Footer Logo</label>
-                                    <input name="footer_logo" id="footer_logo" type="text" class="form-control" />
                                 </div> --}}
-
                                 <div class="col-lg-6">
-                                    <label>Auth Logo</label>
-                                    <div class="form-group">
-                                        <input type="file" name="auth_logo" accept="image/x-png,image/gif,image/jpeg"
-                                            class="form-control">
+                                    <label>Currency Position</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                        <input name="currency_position"type="text" class="form-control"
+                                            placeholder="$" />
                                     </div>
-                                </div>
                             </div>
+                            </div>
+
                             {{-- <label>Auth Logo</label>
                                     <input name="auth_logo" id="auth_logo" type="text" class="form-control" />
                                 </div>
                             </div> --}}
-                            <div class="form-group row">
-                                <div class="col-lg-6">
-                                    <label>Admin Logo</label>
-                                    <div class="form-group">
-                                        <input type="file" name="admin_logo" accept="image/x-png,image/gif,image/jpeg"
-                                            class="form-control">
-                                    </div>
-                                </div>
-                                {{-- <div class="col-lg-6">
-                                    <label>Admin Logo</label>
-                                    <input name="admin_logo" id="admin_logo" class="form-control" />
-                                </div> --}}
-                                {{-- <div class="col-lg-6">
-                                    <label>Invoice Logo</label>
-                                    <input name="invoice_logo" id="invoice_logo" type="text" class="form-control" />
-                                </div> --}}
-                                <div class="col-lg-6">
-                                    <label>Invoice Logo</label>
-                                    <div class="form-group">
-                                        <input type="file" name="invoice_logo" accept="image/x-png,image/gif,image/jpeg"
-                                            class="form-control">
-                                    </div>
-                                </div>
-
-                            </div>
 
                             <div class="form-group row">
                                 <div class="col-lg-6">
@@ -220,25 +179,101 @@
                             </div>
 
                             <div class="form-group row">
-                                <div class="col-lg-6">
+                                <div class="col-lg-12">
                                     <label for="currency-field">Money Formate</label>
                                     <input type="text" name="money_formate" id="currency-field"
                                         pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" value="" data-type="currency"
                                         placeholder="$1,000,000.00" class="form-control">
                                 </div>
-
+                            </div>
+                                {{-- start all logo --}}
+                                <div class="form-group row">
                                 <div class="col-lg-6">
-                                    <label>Currency Position</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text">$</span>
-                                        </div>
-                                        <input name="currency_position"type="text" class="form-control"
-                                            placeholder="$" />
+                                    <label for="input-file-to-destroy">Company Logo</label>
+                                    <input type="file" id="input-file-to-destroy" name="company_logo" class="dropify" data-allowed-formats="portrait square" data-max-file-size="2M" data-max-height="2000" />
+                                    {{-- <p class="help">Only portrait or square images, 2M max and 2000px max-height.</p> --}}
+
+                                </div>
+
+
+                                {{-- <div class="col-lg-6">
+                                    <label>Footer Logo</label>
+                                    <div class="form-group">
+                                        <input type="file" name="footer_logo" accept="image/x-png,image/gif,image/jpeg"
+                                            class="form-control">
+                                    </div> --}}
+                                    <div class="col-lg-6">
+                                        <label for="input-file-to-destroy">Footer Logo</label>
+                                        <input type="file" id="input-file-to-destroy" name="footer_logo" class="dropify" data-allowed-formats="portrait square" data-max-file-size="2M" data-max-height="2000" />
+                                        {{-- <p class="help">Only portrait or square images, 2M max and 2000px max-height.</p> --}}
+
                                     </div>
                                 </div>
-                            </div>
+                                {{-- <div class="col-lg-6">
+                                    <label>Footer Logo</label>
+                                    <input name="footer_logo" id="footer_logo" type="text" class="form-control" />
+                                </div> --}}
 
+
+                                    {{-- <label>Auth Logo</label>
+                                    <div class="form-group">
+                                        <input type="file" name="auth_logo" accept="image/x-png,image/gif,image/jpeg"
+                                            class="form-control">
+                                    </div> --}}
+                                    <div class="form-group row">
+                                    <div class="col-lg-6">
+                                        <label for="input-file-to-destroy">Auth Logo</label>
+                                        <input type="file" id="input-file-to-destroy" name="auth_logo" class="dropify" data-allowed-formats="portrait square" data-max-file-size="2M" data-max-height="2000" />
+                                        {{-- <p class="help">Only portrait or square images, 2M max and 2000px max-height.</p> --}}
+                                        {{-- <br/> --}}
+                                    </div>
+
+                                <div class="col-lg-6">
+                                    {{-- <label>Admin Logo</label>
+                                    <div class="form-group">
+                                        <input type="file" name="admin_logo" accept="image/x-png,image/gif,image/jpeg"
+                                            class="form-control">
+                                    </div> --}}
+                                    <label for="input-file-to-destroy">Admin Logo</label>
+                                    <input type="file" id="input-file-to-destroy" name="admin_logo" class="dropify" data-allowed-formats="portrait square" data-max-file-size="2M" data-max-height="2000" />
+                                    {{-- <p class="help">Only portrait or square images, 2M max and 2000px max-height.</p> --}}
+                                    {{-- <br /> --}}
+                                </div>
+                                </div>
+                                {{-- <div class="col-lg-6">
+                                    <label>Admin Logo</label>
+                                    <input name="admin_logo" id="admin_logo" class="form-control" />
+                                </div> --}}
+                                {{-- <div class="col-lg-6">
+                                    <label>Invoice Logo</label>
+                                    <input name="invoice_logo" id="invoice_logo" type="text" class="form-control" />
+                                </div> --}}
+
+                                    {{-- <label>Invoice Logo</label>
+                                    <div class="form-group">
+                                        <input type="file" name="invoice_logo" accept="image/x-png,image/gif,image/jpeg"
+                                            class="form-control">
+                                    </div> --}}
+                                    <div class="form-group row">
+                                    <div class="col-lg-12">
+
+                                        {{-- zoha --}}
+                                        {{-- <label>Currency Position</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text">$</span>
+                                            </div>
+                                            <input name="currency_position"type="text" class="form-control"
+                                                placeholder="$" />
+                                        </div> --}}
+
+                                            <label for="input-file-to-destroy">Invoice Logo</label>
+                                            <input type="file" id="input-file-to-destroy" name="invoice_logo" class="dropify" data-allowed-formats="portrait square" data-max-file-size="2M" data-max-height="2000" />
+                                            {{-- <p class="help">Only portrait or square images, 2M max and 2000px max-height.</p> --}}
+                                            {{-- <br /> --}}
+                                    </div>
+                            </div>
+                            </div>
                             <div class="card-footer">
                                 <div class="row">
                                     <div class="col-lg-4"></div>
@@ -257,3 +292,4 @@
     </div>
 
 @endsection
+
