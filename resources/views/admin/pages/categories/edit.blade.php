@@ -22,7 +22,7 @@
                     enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
-                        <h3 class="font-size-lg text-dark font-weight-bold mb-6">1. Image:</h3>
+                        {{-- <h3 class="font-size-lg text-dark font-weight-bold mb-6">1. Image:</h3>
                         <div class="mb-15">
                             <div class="form-group row">
                                 <div class="col-lg-3"></div>
@@ -46,6 +46,16 @@
                                     </span>
                                 </div>
                             </div>
+                        </div> --}}
+                        <div class="form-group">
+                        <label for="input-file-to-destroy">Product Image</label>
+                        <input type="file" id="input-file-to-destroy" name="profile_avatar" class="dropify"
+                            data-allowed-formats="portrait square" data-max-file-size="2M"
+                            data-max-height="2000" />
+                        @if (!empty($category->image))
+                            <img style="width:100px;margin-top:10px;" id="blah"
+                                src="{{ asset('images/' . category->image) }}">
+                        @endif
                         </div>
                         <h3 class="font-size-lg text-dark font-weight-bold mb-6">2. Category Info:</h3>
                         <div class="mb-15">

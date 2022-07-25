@@ -22,7 +22,7 @@
                 <form class="form" action="{{ url('add/categories') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
-                        <h3 class="font-size-lg text-dark font-weight-bold mb-6">1. Product Image:</h3>
+                        {{-- <h3 class="font-size-lg text-dark font-weight-bold mb-6">1. Product Image:</h3>
                         <div class="mb-15">
                             <div class="form-group row">
                                 <div class="col-lg-3"></div>
@@ -43,6 +43,10 @@
                                     </span>
                                 </div>
                             </div>
+                        </div> --}}
+                        <div class="form-group">
+                            <label for="input-file-to-destroy">Product Image</label>
+                                    <input type="file" id="input-file-to-destroy"  name="profile_avatar"  class="dropify" data-allowed-formats="portrait square" data-max-file-size="2M" data-max-height="2000" />
                         </div>
                         <div class="form-group">
                             <label>Title:</label>
