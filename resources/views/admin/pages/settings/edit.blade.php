@@ -232,7 +232,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <div class="col-lg-12">
+                                <div class="col-lg-6">
 
 
                                     <label for="input-file-to-destroy">Invoice Logo</label>
