@@ -101,7 +101,7 @@
                                      <i class="menu-arrow"></i>
                                      <ul class="menu-subnav">
                                          <li class="menu-item" aria-haspopup="true">
-                                             <a href="{{ url('sub-categories/list') }}" class="menu-link">
+                                             <a href="{{ url('categories/list') }}" class="menu-link">
                                                  <i class="menu-bullet menu-bullet-dot">
                                                      <span></span>
                                                  </i>
@@ -123,47 +123,11 @@
                              </li>
 
                              <li class="menu-item menu-item-parent" aria-haspopup="true">
-
                                  <span class="menu-link">
                                      <span class="menu-text">Tables</span>
                                  </span>
                              </li>
                              <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                                 <a href="{{url('company-list')}}" class="menu-link menu-toggle">
-                                    <i class="menu-bullet menu-bullet-line">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">All Companies</span>
-                                    <i class="menu-arrow"></i>
-                                </a>
-                                <a href="{{url('staff-list')}}" class="menu-link menu-toggle">
-                                    <i class="menu-bullet menu-bullet-line">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">All Staff</span>
-                                    <i class="menu-arrow"></i>
-                                </a>
-                                <a href="{{url('admin-list')}}" class="menu-link menu-toggle">
-                                    <i class="menu-bullet menu-bullet-line">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">All Admin</span>
-                                <a href="{{url('superadmin-list')}}" class="menu-link menu-toggle">
-                                    <i class="menu-bullet menu-bullet-line">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">All Super Admin</span>
-                                    <i class="menu-arrow"></i>
-                                </a>
-
-                                <a href="{{url('product-list')}}" class="menu-link menu-toggle">
-                                    <i class="menu-bullet menu-bullet-line">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">Product library</span>
-                                    <i class="menu-arrow"></i>
-                                </a>
-
                                  <a href="{{ url('company-list') }}" class="menu-link menu-toggle">
                                      <i class="menu-bullet menu-bullet-line">
                                          <span></span>
@@ -188,7 +152,21 @@
                                      </i>
                                      <span class="menu-text">All Super Admin</span>
                                      <i class="menu-arrow"></i>
-
+                                 </a>
+                             </li>
+                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                 <a href="{{ url('admin-list') }}" class="menu-link menu-toggle">
+                                     <i class="menu-bullet menu-bullet-line">
+                                         <span></span>
+                                     </i>
+                                     <span class="menu-text">All Admin</span>
+                                 </a>
+                                 <a href="{{ url('product-list') }}" class="menu-link menu-toggle">
+                                     <i class="menu-bullet menu-bullet-line">
+                                         <span></span>
+                                     </i>
+                                     <span class="menu-text">Product library</span>
+                                     <i class="menu-arrow"></i>
                                  </a>
                              </li>
                              <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">

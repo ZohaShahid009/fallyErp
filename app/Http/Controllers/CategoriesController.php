@@ -9,6 +9,7 @@ use Image;
 
 class CategoriesController extends Controller
 {
+    // Add main category
     public function addCategories(Request $request){
         if ($request->isMethod('get')) {
             return view('admin.pages.categories.create');
@@ -35,6 +36,7 @@ class CategoriesController extends Controller
         return redirect('/categories/list')->with('info', 'Category updated successfully');
     }
 
+    // View main Category
     public function categorieslist(){
         $category = Category::all();
         return view('admin.pages.categories.list', compact('category'));
@@ -68,14 +70,11 @@ class CategoriesController extends Controller
 
 
 
-
-
-
-
-
+    // Sub category Section Started
     public function addsubCategories(Request $request){
         if ($request->isMethod('get')) {
-            return view('admin.pages.categories.subCategory.create');
+            $category = Category::all();
+            return view('admin.pages.categories.subCategory.create', compact('category'));
         };
 
         $request->validate([

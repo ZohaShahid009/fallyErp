@@ -27,7 +27,8 @@
                             <div class="form-group row">
                                 <div class="col-lg-3"></div>
                                 <div class=" mt-5 mb-5 image-input image-input-outline image-input-circle" id="kt_image_3">
-                                    <div class="image-input-wrapper" style="background-image: url({{ asset('/') }}uploaded_images/sub_cat_images/blank.png)">
+                                    <div class="image-input-wrapper"
+                                        style="background-image: url({{ asset('/') }}uploaded_images/sub_cat_images/blank.png)">
                                     </div>
                                     <label
                                         class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow"
@@ -49,16 +50,24 @@
                                     <input type="file" id="input-file-to-destroy"  name="profile_avatar"  class="dropify" data-allowed-formats="portrait square" data-max-file-size="2M" data-max-height="2000" />
                         </div>
                         <div class="form-group">
-                            <label>Parent category ID:</label>
+                            <label>Title:</label>
                             <input name="title" id="title" type="text" class="form-control form-control-solid"
                                 placeholder="Enter Title" />
-                            <span class="form-text text-muted">Please enter Parent category ID</span>
+                            <span class="form-text text-muted">Please enter Title</span>
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label>Title:</label>
-                            <input name="parent_cat_id" id="parent_cat_id" type="text" class="form-control form-control-solid"
-                                placeholder="Enter Title" />
+                            <input name="parent_cat_id" id="parent_cat_id" type="text"
+                                class="form-control form-control-solid" placeholder="Enter Title" />
                             <span class="form-text text-muted">Please enter ID</span>
+                        </div> --}}
+                        <div class="form-group">
+                            <label for="exampleSelect1">Parent category:<span class="text-danger">*</span></label>
+                            <select class="form-control" name="parent_cat_id" id="parent_cat_id">
+                                @foreach ($category as $categories)
+                                <option value="{{ $categories->id }}">{{ $categories->title }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="card-footer">
