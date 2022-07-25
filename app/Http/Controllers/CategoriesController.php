@@ -39,7 +39,6 @@ class CategoriesController extends Controller
         $category = Category::all();
         return view('admin.pages.categories.list', compact('category'));
     }
-
     public function editCategories(Request $request, $id){
         if ($request->isMethod('get')) {
                 $category =  Category::find($id);
