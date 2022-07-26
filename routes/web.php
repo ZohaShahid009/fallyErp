@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SubscriptionController;
@@ -97,16 +98,21 @@ Route::post('update-superadmin/{id}', [AdminController::class, 'updatesuperadmin
 Route::post('superadmin/detail', [AdminController::class, 'superadmin_detail'])->name('superadmin.detail');
 // Super Admin Crud by Aqeel End
 
+// Categories Crud routes starts
 Route::match(['get', 'post'], 'add/categories', [CategoriesController::class, 'addCategories']);
 Route::get('categories/list', [CategoriesController::class, 'categorieslist']);
 Route::match(['get', 'post'], 'edit/categories/{id}', [CategoriesController::class, 'editCategories']);
 Route::delete('categories/{id}', [CategoriesController::class, 'deletecategories'])->name('delete/categories');
 
-
+// Sub Categories Crud routes starts.
 Route::match(['get', 'post'], 'add/sub-categories', [CategoriesController::class, 'addsubCategories']);
 Route::get('sub-categories/list', [CategoriesController::class, 'subcategorieslist']);
 Route::match(['get', 'post'], 'edit/sub-categories/{id}', [CategoriesController::class, 'editsubCategories']);
 Route::delete('sub-categories/{id}', [CategoriesController::class, 'deletesubcategories'])->name('delete/sub-categories');
+
+// Front settings routes starts.
+Route::match(['get', 'post'], 'add/front-page', [FrontController::class, 'createPage']);
+Route::get('front-page/list', [FrontController::class, 'frontpagelist']);
 
 
 
