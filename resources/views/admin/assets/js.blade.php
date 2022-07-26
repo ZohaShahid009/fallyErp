@@ -128,7 +128,7 @@ function formatCurrency(input, blur) {
 }
 
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> --}}
 <script src="dist/js/dropify.min.js"></script>
 <script>
     $(document).ready(function(){
