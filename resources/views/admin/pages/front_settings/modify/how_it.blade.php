@@ -34,11 +34,16 @@
                                 placeholder="Enter Sub title" />
                             <span class="form-text text-muted">Please enter subtitle</span>
                         </div>
-
                         <div>
-                            <div class="form-group">
-                                <span>image</span>
-                                <input id="image" name="image" type="file">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="input-file-to-destroy">Please upload Image</label>
+                                        <input type="file" id="input-file-to-destroy" name="image" class="dropify"
+                                            data-allowed-formats="portrait square" data-max-file-size="2M"
+                                            data-max-height="2000" />
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="comment">Description:</label>

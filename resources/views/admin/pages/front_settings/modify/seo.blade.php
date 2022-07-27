@@ -36,10 +36,12 @@
                             <label for="comment">KeyWords:</label>
                             <textarea class="form-control" rows="5" id="keywords" name="keywords"></textarea>
                         </div>
-                        <div class="form-group">
-                            <span>Meta Image</span>
-                            <input id="meta_image" name="meta_image" type="file">
-                        </div>
+                                <div class="form-group">
+                                    <label for="input-file-to-destroy">Please upload Meta Image:</label>
+                                    <input type="file" id="input-file-to-destroy" name="meta_image" class="dropify"
+                                        data-allowed-formats="portrait square" data-max-file-size="2M"
+                                        data-max-height="2000" />
+                                </div>
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>

@@ -10,6 +10,7 @@ use App\Models\Cta;
 use App\Models\Blog;
 use App\Models\Seo;
 use App\Models\HowitWork;
+use App\Models\Category;
 
 use Illuminate\Http\Request;
 
@@ -83,7 +84,8 @@ class FrontController extends Controller
 
     public function addlatestproject(Request $request, $id){
         if ($request->isMethod('get')) {
-                return view('admin.pages.front_settings.modify.project_feature');
+            $category =  Category::all();
+                return view('admin.pages.front_settings.modify.project_feature', compact('category'));
         };
         $record = Latestproject::find($id);
         $record->title = $request->get('title');

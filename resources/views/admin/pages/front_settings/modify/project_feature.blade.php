@@ -57,7 +57,8 @@
                 <div class="card-header">
                     <h3 class="card-title">Featured category Section</h3>
                 </div>
-                <form class="form" action="{{ url('add/featuredcategory/1') }}" method="POST" enctype="multipart/form-data">
+                <form class="form" action="{{ url('add/featuredcategory/1') }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="form-group">
@@ -70,25 +71,34 @@
                             <label for="comment">sub title:</label>
                             <textarea class="form-control" rows="5" id="subtitle" name="subtitle"></textarea>
                         </div>
+
                         <div class="form-group">
                             <label for="exampleSelect1">Select category:<span class="text-danger">*</span></label>
                             <select class="form-control" name="category" id="category">
-                                {{-- @foreach ($category as $categories) --}}
-                                <option value="11">11</option>
-                                <option value="22">22</option>
-                                <option value="33">33</option>
-                                <option value="44">44</option>
-                                {{-- @endforeach --}}
+                                @foreach ($category as $categories)
+                                    {
+                                    <option value="{{ $categories->id }}">{{ $categories->title }}</option>
+                                @endforeach}
                             </select>
                         </div>
-                            <div class="form-group">
-                                <input id="leftbanner" name="leftbanner" type="file">
-                                <span class="form-text text-muted">Please upload left banner</span>
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label for="input-file-to-destroy">Left Banner</label>
+                                    <input type="file" id="input-file-to-destroy" name="leftbanner" class="dropify"
+                                        data-allowed-formats="portrait square" data-max-file-size="2M"
+                                        data-max-height="2000" />
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <input id="rightbanner" name="rightbanner" type="file">
-                                <span class="form-text text-muted">Please upload right banner</span>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <label for="input-file-to-destroy">Right Banner</label>
+                                    <input type="file" id="input-file-to-destroy" name="rightbanner" class="dropify"
+                                        data-allowed-formats="portrait square" data-max-file-size="2M"
+                                        data-max-height="2000" />
+                                </div>
                             </div>
+                        </div>
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>

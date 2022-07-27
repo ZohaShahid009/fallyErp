@@ -22,9 +22,15 @@
                 <form class="form" action="{{ url('add/client/1') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
-                        <div class="form-group">
-                            <input id="logo" name="logo" type="file">
-                            <span class="form-text text-muted">Please upload logo</span>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="input-file-to-destroy">Please upload logo</label>
+                                    <input type="file" id="input-file-to-destroy" name="logo" class="dropify"
+                                        data-allowed-formats="portrait square" data-max-file-size="2M"
+                                        data-max-height="2000" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="card-footer">

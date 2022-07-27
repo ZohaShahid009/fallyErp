@@ -32,17 +32,39 @@
                             <label for="comment">sub title:</label>
                             <textarea class="form-control" rows="5" id="summernote" name="subtitle"></textarea>
                         </div>
-                        <div class="form-group">
-                            <input id="image1" name="image1" type="file">
-                        </div>
-                        <div class="form-group">
-                            <input id="image2" name="image2" type="file">
-                        </div>
-                        <div class="form-group">
-                            <input id="image3" name="image3" type="file">
-                        </div>
-                        <div class="form-group">
-                            <input id="image4" name="image4" type="file">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="input-file-to-destroy">Slider Image</label>
+                                    <input type="file" id="input-file-to-destroy" name="image1" class="dropify"
+                                        data-allowed-formats="portrait square" data-max-file-size="2M"
+                                        data-max-height="2000" />
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="input-file-to-destroy">Slider Image</label>
+                                    <input type="file" id="input-file-to-destroy" name="image2" class="dropify"
+                                        data-allowed-formats="portrait square" data-max-file-size="2M"
+                                        data-max-height="2000" />
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="input-file-to-destroy">Slider Image</label>
+                                    <input type="file" id="input-file-to-destroy" name="image3" class="dropify"
+                                        data-allowed-formats="portrait square" data-max-file-size="2M"
+                                        data-max-height="2000" />
+                                </div>
+                            </div>
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="input-file-to-destroy">Slider Image</label>
+                                    <input type="file" id="input-file-to-destroy" name="image4" class="dropify"
+                                        data-allowed-formats="portrait square" data-max-file-size="2M"
+                                        data-max-height="2000" />
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="card-footer">
