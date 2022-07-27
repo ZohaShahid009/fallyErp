@@ -114,6 +114,16 @@ Route::delete('sub-categories/{id}', [CategoriesController::class, 'deletesubcat
 Route::match(['get', 'post'], 'add/front-page', [FrontController::class, 'createPage']);
 Route::get('front-page/list', [FrontController::class, 'frontpagelist']);
 
+Route::match(['get', 'post'], 'add/slider/{id}', [FrontController::class, 'addslider']);
+Route::match(['get', 'post'], 'add/client/{id}', [FrontController::class, 'addclient']);
+Route::match(['get', 'post'], 'add/latestproject/{id}', [FrontController::class, 'addlatestproject']);
+Route::post('add/featuredcategory/{id}', [FrontController::class, 'featuredcategory']);
+Route::match(['get', 'post'], 'add/cta/{id}', [FrontController::class, 'addcta']);
+Route::post('add/blog/{id}', [FrontController::class, 'addblog']);
+Route::match(['get', 'post'], 'add/seo/{id}', [FrontController::class, 'addseo']);
+Route::match(['get', 'post'], 'add/how/{id}', [FrontController::class, 'addhow']);
+// Front settings routes Ends.
+
 
 
 // route of admin FAQ

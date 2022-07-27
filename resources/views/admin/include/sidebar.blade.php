@@ -283,9 +283,9 @@
                                      <i class="menu-bullet menu-bullet-line">
                                          <span></span>
                                      </i>
-                                     <span class="menu-text">Not available</span>
+                                     <span class="menu-text">Modify</span>
                                      <span class="menu-label">
-                                         <span class="label label-rounded label-primary">2</span>
+                                         <span class="label label-rounded label-primary">6</span>
                                      </span>
                                      <i class="menu-arrow"></i>
                                  </a>
@@ -293,21 +293,54 @@
                                      <i class="menu-arrow"></i>
                                      <ul class="menu-subnav">
                                          <li class="menu-item" aria-haspopup="true">
-                                             <a href="#" class="menu-link">
+                                             <a href="{{ url('add/slider/1') }}" class="menu-link">
                                                  <i class="menu-bullet menu-bullet-dot">
                                                      <span></span>
                                                  </i>
-                                                 <span class="menu-text">not available</span>
+                                                 <span class="menu-text">Slider</span>
                                              </a>
                                          </li>
                                          <li class="menu-item" aria-haspopup="true">
-                                             <a href="#" class="menu-link">
-                                                 <i class="menu-bullet menu-bullet-dot">
-                                                     <span></span>
-                                                 </i>
-                                                 <span class="menu-text">Not available</span>
-                                             </a>
-                                         </li>
+                                            <a href="{{ url('add/client/1') }}" class="menu-link">
+                                                <i class="menu-bullet menu-bullet-dot">
+                                                    <span></span>
+                                                </i>
+                                                <span class="menu-text">Client</span>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item" aria-haspopup="true">
+                                            <a href="{{ url('add/latestproject/1') }}" class="menu-link">
+                                                <i class="menu-bullet menu-bullet-dot">
+                                                    <span></span>
+                                                </i>
+                                                <span class="menu-text">Project and features</span>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item" aria-haspopup="true">
+                                            <a href="{{ url('add/cta/1') }}" class="menu-link">
+                                                <i class="menu-bullet menu-bullet-dot">
+                                                    <span></span>
+                                                </i>
+                                                <span class="menu-text">CTA and Blog</span>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item" aria-haspopup="true">
+                                            <a href="{{ url('add/how/1') }}" class="menu-link">
+                                                <i class="menu-bullet menu-bullet-dot">
+                                                    <span></span>
+                                                </i>
+                                                <span class="menu-text">How it Works</span>
+                                            </a>
+                                        </li>
+                                        <li class="menu-item" aria-haspopup="true">
+                                            <a href="{{ url('add/seo/1') }}" class="menu-link">
+                                                <i class="menu-bullet menu-bullet-dot">
+                                                    <span></span>
+                                                </i>
+                                                <span class="menu-text">SEO</span>
+                                            </a>
+                                        </li>
+
                                      </ul>
                                  </div>
                              </li>
