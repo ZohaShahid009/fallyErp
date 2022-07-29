@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\SupportTicketController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SubscriptionController;
@@ -12,7 +13,6 @@ use App\Http\Controllers\AdminFAQController;
 use App\Http\Controllers\GlobalsettingseController;
 use App\Http\Controllers\EmailController;
 use App\Models\Plan;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,8 +23,6 @@ use App\Models\Plan;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
 Route::get('dashboard', [AuthController::class, 'dashboard'])->middleware('isLogged');
 Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('custom-login', [AuthController::class, 'login'])->name('login.custom');
@@ -48,25 +46,17 @@ Route::get('show-company/{id}', [AdminController::class, 'showCompany']);
 Route::get('edit-company/{id}', [AdminController::class, 'editCompany']);
 Route::delete('companies/{id}', [AdminController::class, 'delete'])->name('delete-company');
 Route::post('company/detail', [AdminController::class, 'company_detail'])->name('company.detail');
-
-
 // End Company routes
 // new zoI RFFF
 Auth::routes();
-
-
-
 
 // Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-
-
 Route::post('single-charge', [HomeController::class, 'singleCharge'])->name('single.charge');
 Route::get('plans/create', [SubscriptionController::class, 'showPlanForm'])->name('plans.create');
 Route::post('plans/store', [SubscriptionController::class, 'savePlan'])->name('plans.store');
-
 
 Route::get('plans', [SubscriptionController::class, 'allPlans'])->name('plans.all');
 Route::get('plans/checkout/{planId}', [SubscriptionController::class, 'checkout'])->name('plans.checkout');
@@ -76,7 +66,7 @@ Route::get('subscriptions/all', [SubscriptionController::class, 'allSubscription
 
 // RFF END
 
-// Staff Routes
+// Staff Routes Starts.
 Route::get('add-staff-form', function () {
     return view('admin.pages.staff.create');
 });
@@ -86,7 +76,8 @@ Route::get('edit-staff/{id}', [AdminController::class, 'editstaff']);
 Route::delete('staffs/{id}', [AdminController::class, 'deletestaff'])->name('delete-staff');
 Route::post('update-staff/{id}', [AdminController::class, 'updatestaff']);
 Route::post('staff/detail', [AdminController::class, 'staff_detail'])->name('staff.detail');
-
+// Staff Routes Ends.
+//<---------------------------------->\\
 // Super Admin Crud By Aqeel Start
 Route::get('add-superadmin-form', function () {
     return view('admin.pages.superadmin.create');
@@ -98,23 +89,24 @@ Route::delete('superadmins/{id}', [AdminController::class, 'deletesuperadmin'])-
 Route::post('update-superadmin/{id}', [AdminController::class, 'updatesuperadmin']);
 Route::post('superadmin/detail', [AdminController::class, 'superadmin_detail'])->name('superadmin.detail');
 // Super Admin Crud by Aqeel End
-
+//<---------------------------------->\\
 // Categories Crud routes starts
 Route::match(['get', 'post'], 'add/categories', [CategoriesController::class, 'addCategories']);
 Route::get('categories/list', [CategoriesController::class, 'categorieslist']);
 Route::match(['get', 'post'], 'edit/categories/{id}', [CategoriesController::class, 'editCategories']);
 Route::delete('categories/{id}', [CategoriesController::class, 'deletecategories'])->name('delete/categories');
-
+// Categories Crud routes Ends.
+//<---------------------------------->\\
 // Sub Categories Crud routes starts.
 Route::match(['get', 'post'], 'add/sub-categories', [CategoriesController::class, 'addsubCategories']);
 Route::get('sub-categories/list', [CategoriesController::class, 'subcategorieslist']);
 Route::match(['get', 'post'], 'edit/sub-categories/{id}', [CategoriesController::class, 'editsubCategories']);
 Route::delete('sub-categories/{id}', [CategoriesController::class, 'deletesubcategories'])->name('delete/sub-categories');
-
+// Sub Categories Crud routes Ends.
+//<---------------------------------->\\
 // Front settings routes starts.
 Route::match(['get', 'post'], 'add/front-page', [FrontController::class, 'createPage']);
 Route::get('front-page/list', [FrontController::class, 'frontpagelist']);
-
 Route::match(['get', 'post'], 'add/slider/{id}', [FrontController::class, 'addslider']);
 Route::match(['get', 'post'], 'add/client/{id}', [FrontController::class, 'addclient']);
 Route::match(['get', 'post'], 'add/latestproject/{id}', [FrontController::class, 'addlatestproject']);
@@ -124,6 +116,12 @@ Route::post('add/blog/{id}', [FrontController::class, 'addblog']);
 Route::match(['get', 'post'], 'add/seo/{id}', [FrontController::class, 'addseo']);
 Route::match(['get', 'post'], 'add/how/{id}', [FrontController::class, 'addhow']);
 // Front settings routes Ends.
+//<---------------------------------->\\
+// Support Ticket Routes Starts
+Route::match(['get', 'post'], 'add/supportticket', [SupportTicketController::class, 'AddSupportTicket']);
+Route::get('view/supportticket', [SupportTicketController::class, 'viewSupportTicket']);
+Route::get('details/supportticket/{id}', [SupportTicketController::class, 'detailsSupportTicket']);
+// Support Ticket Routes Ends
 
 
 
