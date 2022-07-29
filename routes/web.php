@@ -157,11 +157,10 @@ Route::post('product/detail', [ProductController::class, 'product_detail'])->nam
 Route::get('edit-settings/{id}', [GlobalsettingseController::class, 'editsettings']);
 Route::post('/updatesettings/{id}', [GlobalsettingseController::class, 'updatesettings']);
 // for email
-// Route::get('add-email-form', function () {
-//     return view('admin.pages.email.create');
-// });
 Route::post('add-email', [EmailController::class, 'addemail']);
 Route::get('add-email-form', [EmailController::class, 'email']);
 Route::get('welcome', function () {
-    return view('admin.pages.email.welcome');
+    return view('admin.pages.settings.email.welcome');
 });
+// for languages
+Route::get('add-languages', [EmailController::class, 'languages']);

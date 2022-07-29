@@ -15,7 +15,7 @@ class EmailController extends Controller
     //    $email=EmailSettings::first();
     //    Notification::send($email, new welcomenotification);
     //  dd('done');
-     return view('admin.pages.email.create');
+     return view('admin.pages.settings.email.create');
     }
     
     public function addemail(Request $request)
@@ -43,5 +43,11 @@ class EmailController extends Controller
         $email->debug_mode=$request->get('debug_mode');
         $email->save();
         return redirect('/add-email-form')->with('message', 'Email has been added');
+    }
+    
+    public function languages()
+    {
+    
+     return view('admin.pages.settings.languages.create');
     }
 }
