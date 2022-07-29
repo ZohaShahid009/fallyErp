@@ -47,7 +47,12 @@ class EmailController extends Controller
     
     public function languages()
     {
-    
      return view('admin.pages.settings.languages.create');
     }
+
+    public function  paymentcredentials()
+    {
+     return view('admin.pages.settings.payment.create');
+    }
+   
 }

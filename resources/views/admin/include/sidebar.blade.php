@@ -249,11 +249,19 @@
                                              </a>
                                          </li>
                                           <li class="menu-item" aria-haspopup="true">
-                                            <a href="{{ url('/welcome') }}" class="menu-link">
+                                            <a href="{{ url('/add-languages') }}" class="menu-link">
                                                 <i class="menu-bullet menu-bullet-dot">
                                                     <span></span>
                                                 </i>
-                                                <span class="menu-text">Welcome Email</span>
+                                                <span class="menu-text">Language Settings</span>
+                                            </a>
+                                        </li> 
+                                        <li class="menu-item" aria-haspopup="true">
+                                            <a href="{{ url('/add-payment') }}" class="menu-link">
+                                                <i class="menu-bullet menu-bullet-dot">
+                                                    <span></span>
+                                                </i>
+                                                <span class="menu-text">Payment Credentials</span>
                                             </a>
                                         </li> 
                                      </ul>

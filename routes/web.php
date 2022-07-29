@@ -164,3 +164,5 @@ Route::get('welcome', function () {
 });
 // for languages
 Route::get('add-languages', [EmailController::class, 'languages']);
+// for payment
+Route::get('/add-payment', [EmailController::class, 'paymentcredentials']);
