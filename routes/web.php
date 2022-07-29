@@ -10,6 +10,7 @@ use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminFAQController;
 use App\Http\Controllers\GlobalsettingseController;
+use App\Http\Controllers\EmailController;
 use App\Models\Plan;
 
 /*
@@ -155,3 +156,8 @@ Route::post('product/detail', [ProductController::class, 'product_detail'])->nam
 
 Route::get('edit-settings/{id}', [GlobalsettingseController::class, 'editsettings']);
 Route::post('/updatesettings/{id}', [GlobalsettingseController::class, 'updatesettings']);
+// for email
+Route::get('add-email-form', function () {
+    return view('admin.pages.email.create');
+});
+Route::post('add-email', [EmailController::class, 'addemail']);
