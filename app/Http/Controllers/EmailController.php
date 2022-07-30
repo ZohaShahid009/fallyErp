@@ -6,21 +6,22 @@ use Illuminate\Http\Request;
 use App\Models\EmailSettings;
 use App\Notifications\welcomenotification;
 use Illuminate\Support\Facades\Notification;
+use App\Models\User;
 
 
 class EmailController extends Controller
 {
     public function email()
     {
-    //    $email=EmailSettings::first();
+    //    $email=User::first();
     //    Notification::send($email, new welcomenotification);
     //  dd('done');
-     return view('admin.pages.settings.email.create');
+    //  return view('admin.pages.settings.email.create');
     }
-    
+
     public function addemail(Request $request)
     {
-       
+
 
             $request->validate([
             'smtp_protocol' => 'required',
@@ -44,7 +45,7 @@ class EmailController extends Controller
         $email->save();
         return redirect('/add-email-form')->with('message', 'Email has been added');
     }
-    
+
     public function languages()
     {
      return view('admin.pages.settings.languages.create');
@@ -54,5 +55,5 @@ class EmailController extends Controller
     {
      return view('admin.pages.settings.payment.create');
     }
-   
+
 }

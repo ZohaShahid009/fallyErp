@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 use Hash;
 use Session;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\BetMail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\welcomenotification;
+use Illuminate\Support\Facades\Notification;
+// use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -33,9 +38,29 @@ class AuthController extends Controller
             'name'=>'required|min:2',
             'password'=>'required|min:8'
         ]);
-        $data = $request->all();
-        $check = $this->create($data);
-        return redirect('dashboard')->withSuccess('Logged In Successfully');
+    //     $data = $request->all();
+    //     $check = $this->create($data);
+    //     $email=User::first();
+    //     Notification::send($email, new welcomenotification);
+    //
+//     $data=['name'=>"zoha",'data'=>"hello zoi"];
+// $user['to']='zohashahid604@gmail.com';
+// Mail::send('mail',$data,function($message) use ($user){
+//     $message->to('zohashahid604@gmail.com');
+//     $message->subject('hello its done');
+// });
+// dd('done');
+//  $data=['name'=>"",'data'=>" has  successfully Register","email"=>$request->input('email')];
+// $user['to']='zohashahid604@gmail.com';
+// Mail::send( 'data', function ($messages) use ($request) {
+//     $messages->from('zoha@gmail.com','wjjkask');
+//     $messages->to($request->email,'fyp')->subject('Walcom Email');
+
+// });
+// Alert::success('Register sucessfully', 'Success Message');
+// return back();
+
+         return redirect('dashboard')->withSuccess('Logged In Successfully');
     }
 
     public function create(array $data){
