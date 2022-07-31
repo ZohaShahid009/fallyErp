@@ -12,24 +12,41 @@
                         <!--begin::Card-->
                         <div class="card card-custom gutter-b example example-compact">
                             <div class="card-header">
-                                <h3 class="card-title">Default Action Bar</h3>
+                                <h3 class="card-title">paypal configuration</h3>
                             </div>
                             <!--begin::Form-->
                             <form class="form">
                                 <div class="card-body">
+                                    <div class="form-group row">
+                                        <label class="col-form-label text-right col-lg-3 col-sm-12">Activation</label>
+                                        <div class="col-lg-9 col-md-9 col-sm-12">
+                                            <input data-switch="true" type="checkbox" checked="checked" data-on-text="ON" data-off-text="Off" data-on-color="primary" />
+
+                                        </div>
+                                    </div>
+                                    {{-- zoha1 --}}
                                     <div class="form-group">
-                                        <label>Full Name:</label>
-                                        <input type="email" class="form-control" placeholder="Enter full name" />
+                                        <label>Payment Client ID:</label>
+                                        <input type="Client_ID" class="form-control" placeholder="Payment Client ID" />
 
                                     </div>
-                                    <div class="form-group">
-                                        <label>Email address:</label>
-                                        <input type="email" class="form-control" placeholder="Enter email">
-                                    </div>
+                                    {{-- zoha2 --}}
+
+                                <div class="form-group">
+                                    <label>Payment Client Secret:</label>
+                                    <input type="Password" class="form-control" placeholder="Payment Client Secret:">
                                 </div>
+                                <div class="form-group row">
+                                                    <label class="col-form-label  col-lg-3 col-sm-12">Sandbox Activation</label>
+                                                    <div class="col-lg-9 col-md-9 col-sm-12">
+                                                        <input data-switch="true" type="checkbox" checked="checked" data-on-text="ON" data-off-text="Off" data-on-color="primary" />
+
+                                                    </div>
+                                                </div>
+                            </div>
+                            {{-- zoha3 --}}
                                 <div class="card-footer">
-                                    <button type="reset" class="btn btn-primary mr-2">Submit</button>
-                                    <button type="reset" class="btn btn-secondary">Cancel</button>
+                                    <button type="reset" class="btn btn-primary mr-2">Update</button>
                                 </div>
                             </form>
                             <!--end::Form-->
@@ -39,7 +56,7 @@
                         <!--begin::Card-->
                         <div class="card card-custom gutter-b example example-compact">
                             <div class="card-header">
-                                <h3 class="card-title">Default Action Bar</h3>
+                                <h3 class="card-title">Stripe configuration</h3>
                             </div>
                             <!--begin::Form-->
                             <form class="form">
@@ -51,10 +68,11 @@
 														<label class="col-form-label text-right col-lg-3 col-sm-12">Activation</label>
 														<div class="col-lg-9 col-md-9 col-sm-12">
 															<input data-switch="true" type="checkbox" checked="checked" data-on-text="ON" data-off-text="Off" data-on-color="primary" />
-	
+
 														</div>
 													</div>
                     <!-- rff end -->
+
                                     <div class="form-group">
                                         <label>Payment Client ID:</label>
                                         <input type="Client_ID" class="form-control" placeholder="Payment Client ID" />
@@ -68,13 +86,13 @@
 														<label class="col-form-label  col-lg-3 col-sm-12">Sandbox Activation</label>
 														<div class="col-lg-9 col-md-9 col-sm-12">
 															<input data-switch="true" type="checkbox" checked="checked" data-on-text="ON" data-off-text="Off" data-on-color="primary" />
-	
+
 														</div>
 													</div>
                                 </div>
                                 <div class="card-footer">
-                                    <button type="reset" class="btn btn-primary mr-2">Submit</button>
-                                    <button type="reset" class="btn btn-secondary">Cancel</button>
+                                    <button type="reset" class="btn btn-primary mr-2">Update</button>
+
                                 </div>
                             </form>
                             <!--end::Form-->
@@ -82,6 +100,104 @@
                     </div>
                 </div>
             </div>
+        </div>
+             {{-- zoha max --}}
+             <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <!--begin::Card-->
+                        <div class="card card-custom gutter-b example example-compact">
+                            <div class="card-header">
+                                <h3 class="card-title">paypal configuration</h3>
+                            </div>
+                            <!--begin::Form-->
+                            <form class="form">
+                                <div class="card-body">
+                                    <div class="form-group row">
+                                        <label class="col-form-label text-right col-lg-3 col-sm-12">Activation</label>
+                                        <div class="col-lg-9 col-md-9 col-sm-12">
+                                            <input data-switch="true" type="checkbox" checked="checked" data-on-text="ON" data-off-text="Off" data-on-color="primary" />
+
+                                        </div>
+                                    </div>
+                                    {{-- zoha1 --}}
+                                    <div class="form-group">
+                                        <label>Payment Client ID:</label>
+                                        <input type="Client_ID" class="form-control" placeholder="Payment Client ID" />
+
+                                    </div>
+                                    {{-- zoha2 --}}
+
+                                <div class="form-group">
+                                    <label>Payment Client Secret:</label>
+                                    <input type="Password" class="form-control" placeholder="Payment Client Secret:">
+                                </div>
+                                <div class="form-group row">
+                                                    <label class="col-form-label  col-lg-3 col-sm-12">Sandbox Activation</label>
+                                                    <div class="col-lg-9 col-md-9 col-sm-12">
+                                                        <input data-switch="true" type="checkbox" checked="checked" data-on-text="ON" data-off-text="Off" data-on-color="primary" />
+
+                                                    </div>
+                                                </div>
+                            </div>
+                            {{-- zoha3 --}}
+                                <div class="card-footer">
+                                    <button type="reset" class="btn btn-primary mr-2">Update</button>
+                                </div>
+                            </form>
+                            <!--end::Form-->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <!--begin::Card-->
+                        <div class="card card-custom gutter-b example example-compact">
+                            <div class="card-header">
+                                <h3 class="card-title">Stripe configuration</h3>
+                            </div>
+                            <!--begin::Form-->
+                            <form class="form">
+                                <div class="card-body">
+
+
+                                <!-- rff -->
+                                <div class="form-group row">
+														<label class="col-form-label text-right col-lg-3 col-sm-12">Activation</label>
+														<div class="col-lg-9 col-md-9 col-sm-12">
+															<input data-switch="true" type="checkbox" checked="checked" data-on-text="ON" data-off-text="Off" data-on-color="primary" />
+
+														</div>
+													</div>
+                    <!-- rff end -->
+
+                                    <div class="form-group">
+                                        <label>Payment Client ID:</label>
+                                        <input type="Client_ID" class="form-control" placeholder="Payment Client ID" />
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Payment Client Secret:</label>
+                                        <input type="Password" class="form-control" placeholder="Payment Client Secret:">
+                                    </div>
+                                    <div class="form-group row">
+														<label class="col-form-label  col-lg-3 col-sm-12">Sandbox Activation</label>
+														<div class="col-lg-9 col-md-9 col-sm-12">
+															<input data-switch="true" type="checkbox" checked="checked" data-on-text="ON" data-off-text="Off" data-on-color="primary" />
+
+														</div>
+													</div>
+                                </div>
+                                <div class="card-footer">
+                                    <button type="reset" class="btn btn-primary mr-2">Update</button>
+
+                                </div>
+                            </form>
+                            <!--end::Form-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
     </div>
 </div>

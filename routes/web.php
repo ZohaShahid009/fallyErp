@@ -23,6 +23,8 @@ use App\Models\Plan;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
 Route::get('dashboard', [AuthController::class, 'dashboard'])->middleware('isLogged');
 Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::post('custom-login', [AuthController::class, 'login'])->name('login.custom');
@@ -48,9 +50,12 @@ Route::delete('companies/{id}', [AdminController::class, 'delete'])->name('delet
 Route::post('company/detail', [AdminController::class, 'company_detail'])->name('company.detail');
 // End Company routes
 // new zoI RFFF
-Auth::routes();
+// Auth::routes();
 
 // Auth::routes();
+Auth::routes([
+    'verify'=>true
+]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -61,7 +66,6 @@ Route::post('plans/store', [SubscriptionController::class, 'savePlan'])->name('p
 Route::get('plans', [SubscriptionController::class, 'allPlans'])->name('plans.all');
 Route::get('plans/checkout/{planId}', [SubscriptionController::class, 'checkout'])->name('plans.checkout');
 Route::post('plans/process', [SubscriptionController::class, 'processPlan'])->name('plan.process');
-
 Route::get('subscriptions/all', [SubscriptionController::class, 'allSubscriptions'])->name('subscriptions.all');
 
 // RFF END

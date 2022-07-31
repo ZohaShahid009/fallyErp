@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Hash;
 use Session;
-use Illuminate\Support\Facades\Mail;
+// use Illuminate\Support\Facades\Mail;
 use App\Mail\BetMail;
 use App\Models\User;
 use Illuminate\Http\Request;
