@@ -15,6 +15,7 @@ class CreateLangaugeSettingsTable extends Migration
     {
         Schema::create('langauge_settings', function (Blueprint $table) {
             $table->id();
+
             $table->timestamps();
         });
     }
