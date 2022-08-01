@@ -486,7 +486,7 @@
                                      <i class="menu-arrow"></i>
                                  </a>
                              </li>
-                             {{--  zoha  --}}
+
                              <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="{{ url('/plans') }}" class="menu-link menu-toggle">
                                     <i class="menu-bullet menu-bullet-line">
@@ -496,7 +496,19 @@
                                     <i class="menu-arrow"></i>
                                 </a>
                             </li>
+
+                              {{--  zoha  --}}
+                              <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                <a href="{{ url('/subscriptions/all') }}" class="menu-link menu-toggle">
+                                    <i class="menu-bullet menu-bullet-line">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">View Your Subscrption</span>
+                                    <i class="menu-arrow"></i>
+                                </a>
+                            </li>
                              {{--  zoha end   --}}
+
 
                          </ul>
                      </div>

@@ -106,8 +106,18 @@ class SubscriptionController extends Controller
             // dd('trial');
         }
         $subscriptions = Subscription::where('user_id', auth()->id())->get();
+        // dd($subscriptions );
         return view('stripe.subscriptions.index', compact('subscriptions'));
     }
+
+    // public function allSubscriptions()
+    // {
+    //     if (auth()->user()->onTrial('default')) {
+    //         dd('trial');
+    //     }
+    //     $subscriptions = Subscription::where('user_id', auth()->id())->get();
+    //     return view('stripe.subscriptions.index', compact('subscriptions'));
+    // }
     public function cancelSubscriptions(Request $request)
     {
         $subscriptionName = $request->subscriptionName;
