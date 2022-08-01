@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLangaugeSettingsTable extends Migration
+class CreateLanguagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class CreateLangaugeSettingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('langauge_settings', function (Blueprint $table) {
+        Schema::create('languages', function (Blueprint $table) {
             $table->id();
-
+            $table->string('language')->nullable(true);
+            $table->string('language_code')->nullable(true);
+            $table->text('description');
+            $table->enum('status',[0,1])->default(0);
+            $table->enum('default',[0,1])->default(0);
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ class CreateLangaugeSettingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('langauge_settings');
+        Schema::dropIfExists('languages');
     }
 }

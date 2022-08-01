@@ -15,53 +15,60 @@
                         </div>
                     @endif
                     {{-- zoha --}}
-                    <form method="POST" action="{{ url('add-language-form') }}" class="form" enctype="multipart/form-data">
+                    <form method="POST" action="{{ url('update-language', $language->id) }}" class="form" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
                             <div class="separator separator-solid my-10"></div>
                             <div class="my-5">
-                                <h3 class=" text-dark font-weight-bold mb-10">Languages:</h3>
+                                <h3 class=" text-dark font-weight-bold mb-10">Languages Setting Update:</h3>
                             </div>
                             <div class="form-group row">
                                 <div class="col-lg-6">
                                     <label>Language:</label>
-                                    <input name="language" id="language" type="text" class="form-control" />
+                                    <input name="language" id="language" type="text" class="form-control"
+                                    value="{{ $language->language}}"/>
                                 </div>
                                 <div class="col-lg-6">
                                     <label>Language Code:</label>
-                                    <input name="language_code" id="language_code" type="text" class="form-control" />
+                                    <input name="language_code" id="language_code" type="text" class="form-control"
+                                    value="{{ $language->language_code}}" />
                                 </div>
                             </div>
                             <div class="form-group row">
                                     <div class="col-lg-6">
-                                        {{--  <input class="form-check-input " type="checkbox" name="default" value="0" id="flexCheckChecked" onclick="calc()">
-
-                                        <label class="form-check-label" for="flexCheckChecked">Default</label>  --}}
-
-                                        <input type="hidden" name="default" value="0">
-                                            <input class="form-check-input" type="checkbox" name="default" value="1" id="flexCheckChecked">
-                                            <label class="form-check-label" for="flexCheckChecked">Default</label>
+                                            <label>Default</label>
+                                            @if($language->default == "1")
+                                          <input type="checkbox" checked name="default" value="1">
+                                            @else
+                                            {{--  <input type="hidden" name="default" value="0">  --}}
+                                           <input type="checkbox" name="default" onChange="$(this).val(this.checked? '1': '0');" >
+                                           {{--  <input type="hidden" name="default" >  --}}
+                                        
+@endif
                                         </div>
-                                        <div class="col-lg-6">
-                                            <input type="hidden" name="status" value="0">
-                                                <input class="form-check-input" type="checkbox" name="status" value="1" id="flexCheckCheckedit">
-                                                <label class="form-check-label" for="flexCheckChecked">Status</label>
+
+                                       <div class="col-lg-6">
+                                                <label>Status</label>
+                                                @if($language->status == "1")
+                                                <input type="checkbox" checked name="status" value="1">
+                                                @else
+                                                {{--  <input type="hidden" name="status" value="0">  --}}
+                                                <input type="checkbox" name="status" onChange="$(this).val(this.checked? '1': '0');">
+                                          
+                                                @endif
                                             </div>
-                                            {{--  <input class="form-check-input" type="checkbox" name="status" value="1" id="flexCheckChecked">
-                                            <label class="form-check-label" for="flexCheckChecked">Status</label>
-                                            </div>  --}}
                                         </div>
                             <div class="form-group row">
                                 <label>Translations</label>
                                 <div class="col-lg-12">
-  <textarea class="form-control"  name="description"id="textAreaExample1" rows="8"></textarea>
+  <textarea class="form-control"  name="description"id="textAreaExample1" rows="8">{{ $language->description}}</textarea>
                                 </div>
                                 </div>
                             <div class="card-footer">
                                 <div class="row">
                                     <div class="col-lg-4"></div>
                                     <div class="col-lg-8">
-                                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                                        <input type="submit" value="Update" class="btn btn-success mt-2">
                                         <button type="reset" class="btn btn-secondary">Cancel</button>
                                     </div>
                                 </div>
@@ -81,4 +88,3 @@
 <!--end::Global Theme Bundle-->
 <!--begin::Page Scripts(used by this page)-->
 <script src="assets/js/pages/crud/forms/widgets/bootstrap-switch.js"></script>
-

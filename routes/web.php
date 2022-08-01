@@ -11,6 +11,7 @@ use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminFAQController;
 use App\Http\Controllers\GlobalsettingseController;
+use App\Http\Controllers\LanguageSettingController;
 use App\Http\Controllers\EmailController;
 use App\Models\Plan;
 /*
@@ -165,6 +166,11 @@ Route::get('welcome', function () {
     return view('admin.pages.settings.email.welcome');
 });
 // for languages
-Route::get('add-languages', [EmailController::class, 'languages']);
+Route::get('add-languages', [LanguageSettingController::class, 'languages']);
+Route::post('add-language-form', [LanguageSettingController::class, 'add']);
+Route::get('list-languages', [LanguageSettingController::class, 'list']);
+Route::get('edit-language/{id}', [LanguageSettingController::class, 'editLang']);
+Route::post('update-language/{id}', [LanguageSettingController::class, 'updateLang']);
+Route::delete('language/{id}', [LanguageSettingController::class, 'deleteLanguage'])->name('delete-Language');
 // for payment
 Route::get('/add-payment', [EmailController::class, 'paymentcredentials']);

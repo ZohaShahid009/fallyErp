@@ -1,23 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\EmailSettings;
-use App\Notifications\welcomenotification;
-use Illuminate\Support\Facades\Notification;
 use App\Models\User;
+use Validator;
+
+// use App\Notifications\welcomenotification;
+// use Illuminate\Support\Facades\Notification;
 
 
 class EmailController extends Controller
 {
-    public function email()
-    {
+    // public function email()
+    // {
     //    $email=User::first();
     //    Notification::send($email, new welcomenotification);
     //  dd('done');
     //  return view('admin.pages.settings.email.create');
-    }
+    // }
 
     public function addemail(Request $request)
     {
@@ -45,15 +46,10 @@ class EmailController extends Controller
         $email->save();
         return redirect('/add-email-form')->with('message', 'Email has been added');
     }
-
-    public function languages()
-    {
-     return view('admin.pages.settings.languages.create');
-    }
-
     public function  paymentcredentials()
     {
      return view('admin.pages.settings.payment.create');
     }
+
 
 }

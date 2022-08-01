@@ -21,7 +21,10 @@
         <script src="{{asset('/')}}assets/js/pages/features/miscellaneous/sweetalert2.js"></script>
         <script src="{{asset('/')}}assets/js/pages/crud/file-upload/dropzonejs.js"></script>
 
-
+        <script src="assets/plugins/global/plugins.bundle.js"></script>
+        <script src="assets/plugins/custom/prismjs/prismjs.bundle.js"></script>
+        <script src="assets/js/scripts.bundle.js"></script>
+        <script src="assets/js/pages/crud/forms/widgets/bootstrap-switch.js"></script>
 
 
 
