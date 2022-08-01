@@ -25,11 +25,13 @@ class CreateSupportTicketsTable extends Migration
             $table->string('clent_id')->nullable(true);
             $table->string('client_company')->nullable(true);
             $table->string('subject')->nullable(true);
-            $table->string('description')->nullable(true);
+            $table->longText('description')->nullable(true);
             $table->string('image')->nullable(true);
             $table->string('reply')->nullable(true);
             $table->string('last_reply')->nullable(true);
             $table->string('notes')->nullable(true);
+            $table->string('assign_to')->nullable(true);
+
             $table->timestamps();
         });
     }

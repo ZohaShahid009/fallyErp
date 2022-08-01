@@ -126,6 +126,9 @@ Route::match(['get', 'post'], 'add/how/{id}', [FrontController::class, 'addhow']
 Route::match(['get', 'post'], 'add/supportticket', [SupportTicketController::class, 'AddSupportTicket']);
 Route::get('view/supportticket', [SupportTicketController::class, 'viewSupportTicket']);
 Route::get('details/supportticket/{id}', [SupportTicketController::class, 'detailsSupportTicket']);
+Route::get('assign/supportticket/{id}', [SupportTicketController::class, 'assignSupportTicket']);
+Route::get('add/notes/{id}', [SupportTicketController::class, 'addnotes']);
+
 // Support Ticket Routes Ends
 
 
