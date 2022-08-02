@@ -4,3 +4,4 @@
 <meta name="description" content="SweetAlert2 notification examples" />
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 
+

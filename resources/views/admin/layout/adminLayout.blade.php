@@ -7,7 +7,7 @@
     <!--begin::Main-->
     <!--begin::Header Mobile-->
     <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
-        <!--begin::Logo-->
+        <!--begin::Logo-->>
         <a href="index.html">
             <img alt="Logo" src="assets/media/logos/logo-light.png" />
         </a>
@@ -55,6 +55,7 @@
             @include('admin.include.topnavbar')
             @yield('content')
             @include('admin.assets.js')
+
 
             <!--end::Footer-->
         </div>
@@ -1486,5 +1487,5 @@
         toastr.warning("{{ session('warning') }}");
     @endif
 </script>
-
+@yield('scripts')
 </html>

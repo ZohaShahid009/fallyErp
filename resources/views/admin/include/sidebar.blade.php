@@ -206,14 +206,7 @@
                                                  <span class="menu-text">Global Settings</span>
                                              </a>
                                          </li>
-                                         {{-- <li class="menu-item" aria-haspopup="true">
-                                            <a href="{{ url('sub-categories/list') }}" class="menu-link">
-                                                <i class="menu-bullet menu-bullet-dot">
-                                                    <span></span>
-                                                </i>
-                                                <span class="menu-text">Sub Categories</span>
-                                            </a>
-                                        </li> --}}
+                                        
                                      </ul>
                                  </div>
                                  <div class="menu-submenu">
@@ -469,6 +462,15 @@
                                  </span>
                              </li>
                              <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                <a href="{{ url('/home') }}" class="menu-link menu-toggle">
+                                    <i class="menu-bullet menu-bullet-line">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">Single Charge</span>
+                                    <i class="menu-arrow"></i>
+                                </a>
+                            </li>
+                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                  <a href="{{ url('/plans/create') }}" class="menu-link menu-toggle">
                                      <i class="menu-bullet menu-bullet-line">
                                          <span></span>
@@ -478,25 +480,14 @@
                                  </a>
                              </li>
                              <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                                 <a href="{{ url('/home') }}" class="menu-link menu-toggle">
+                                 <a href="{{ url('/plans') }}" class="menu-link menu-toggle">
                                      <i class="menu-bullet menu-bullet-line">
                                          <span></span>
                                      </i>
-                                     <span class="menu-text">Choose Plan</span>
+                                     <span class="menu-text">View Plans</span>
                                      <i class="menu-arrow"></i>
                                  </a>
                              </li>
-
-                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                                <a href="{{ url('/plans') }}" class="menu-link menu-toggle">
-                                    <i class="menu-bullet menu-bullet-line">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">View Your Plan</span>
-                                    <i class="menu-arrow"></i>
-                                </a>
-                            </li>
-
                               {{--  zoha  --}}
                               <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="{{ url('/subscriptions/all') }}" class="menu-link menu-toggle">
@@ -508,8 +499,6 @@
                                 </a>
                             </li>
                              {{--  zoha end   --}}
-
-
                          </ul>
                      </div>
 

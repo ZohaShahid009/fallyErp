@@ -1,5 +1,6 @@
-@extends('layouts.app')
-
+@extends('admin.layout.adminLayout')
+{{--  @extends('layouts.app')  --}}
+@section('content')
 @section('styles')
 <style>
     .StripeElement {
@@ -22,38 +23,45 @@
     }
 </style>
 @endsection
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('alert-success'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('alert-success') }}
+    <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
+        <div class="container mb-5">
+            <div class="card card-custom example example-compact">
+                <div class="container mt-4">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
                         </div>
                     @endif
-
-
-                    <form action="{{ route('plan.process') }}" method="POST" id="subscribe-form">
+                    {{-- zoha --}}
+                    <form method="POST" action="{{ route('plan.process') }}" class="form" id="subscribe-form" enctype="multipart/form-data">
                         @csrf
                         <span><b>Your Subscription is </b> {{ strtoupper($plan->name) }}</span> <span style="float: right"> £{{ $plan->price }}</span> <br>
-
-                        <input type="hidden" name="plan_id" value="{{ $plan->plan_id }}">
+                        {{--  <div class="card-body">
+                            <div class="separator separator-solid my-10"></div>
+                            <div class="my-5">
+                                <h3 class=" text-dark font-weight-bold mb-10">Subscription</h3>
+                            </div>  --}}
+                            {{--  first  --}}
+                            <div class="form-group row">
+                                <div class="col-lg-12">
+                                                    <input type="hidden" name="plan_id" value="{{ $plan->plan_id }}">
                         <label for="card-holder-name">Card Holder Name</label> <br>
                         <input id="card-holder-name" type="text" class="form-control">
-
-                        <div class="form-row">
-                            <label for="card-element">Credit or debit card</label>
-                            <div id="card-element" class="form-control">
+                                </div>
                             </div>
-                            <!-- Used to display form errors. -->
-                            <div id="card-errors" role="alert"></div>
-                        </div>
-                        <div class="stripe-errors"></div>
+                            <div class="form-row">
+                                <label for="card-element">Credit or debit card</label>
+                                <div id="card-element" class="form-control">
+                                </div>
+                                <!-- Used to display form errors. -->
+                                <div id="card-errors" role="alert"></div>
+                            </div>
+                            <div class="stripe-errors"></div>
                         @if (count($errors) > 0)
                         <div class="alert alert-danger">
                             @foreach ($errors->all() as $error)
@@ -62,18 +70,30 @@
                         </div>
                         @endif
                         <br>
-                        <div class="form-group text-center">
-                            <button  id="card-button" data-secret="{{ $intent->client_secret }}" class="btn btn-lg btn-success btn-block">Process Subscription</button>
+
+                                   {{--  rff end  --}}
+
+
+
+                            <div class="card-footer">
+                                <div class="row">
+                                    <div class="col-lg-4"></div>
+                                        <div class="form-group text-center">
+                                            <button  id="card-button" data-secret="{{ $intent->client_secret }}" class="btn btn-lg btn-success btn-block">Process Subscription</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- rff end --}}
                         </div>
                     </form>
-
-
                 </div>
             </div>
         </div>
     </div>
-</div>
+
 @endsection
+
 
 @section('scripts')
 <script src="https://js.stripe.com/v3/"></script>
@@ -137,4 +157,6 @@
         form.submit();
     }
 </script>
+<script src="{{ asset('js/app.js') }}" defer></script>
+
 @endsection

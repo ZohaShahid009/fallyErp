@@ -1,5 +1,6 @@
-@extends('layouts.app')
-
+@extends('admin.layout.adminLayout')
+{{--  @extends('layouts.app')  --}}
+@section('content')
 @section('styles')
 <style>
     .StripeElement {
@@ -22,50 +23,74 @@
     }
 </style>
 @endsection
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+    <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
+        <div class="container mb-5">
+            <div class="card card-custom example example-compact">
+                <div class="container mt-4">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
                         </div>
                     @endif
-                    <form action="{{ route('single.charge') }}" method="POST" id="subscribe-form">
+                    {{-- zoha --}}
+                    <form method="POST" action="{{ route('single.charge') }}" class="form" id="subscribe-form" enctype="multipart/form-data">
                         <input type="number" name="amount" id="amount" class="form-control"> <br>
                         <label for="card-holder-name form-control">Card Holder Name</label> <br>
                         <input id="card-holder-name" type="text" class="form-control">
                         @csrf
-                        <div class="form-row">
-                            <label for="card-element">Credit or debit card</label>
-                            <div id="card-element" class="form-control">
+                        
+            
+                            <div class="form-group row">
+                                <div class="col-lg-12">
+                                                    <label for="card-element">Credit or debit card</label>
+                                                    <div id="card-element" class="form-control">
+                                                    </div>
+                                </div>
                             </div>
-                            <!-- Used to display form errors. -->
-                            <div id="card-errors" role="alert"></div>
-                        </div>
-                        <div class="stripe-errors"></div>
-                        @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            @foreach ($errors->all() as $error)
-                            {{ $error }}<br>
-                            @endforeach
-                        </div>
-                        @endif
-                        <div class="form-group text-center">
-                            <button  id="card-button" data-secret="{{ $intent->client_secret }}" class="btn btn-lg btn-success btn-block">SUBMIT</button>
+                           
+                                {{--  zoi  --}}
+                          
+                          
+                                <!-- Used to display form errors. -->
+                                <div id="card-errors" role="alert"></div>
+                            </div>
+                            <div class="stripe-errors"></div>
+                            @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                @foreach ($errors->all() as $error)
+                                {{ $error }}<br>
+                                @endforeach
+                            </div>
+                            @endif
+                        <br>
+
+                                   {{--  rff end  --}}
+
+
+
+                            <div class="card-footer">
+                                <div class="row">
+                                    <div class="col-lg-4"></div>
+                                        <div class="form-group text-center">
+                                            <button  id="card-button" data-secret="{{ $intent->client_secret }}" class="btn btn-lg btn-success btn-block">SUBMIT</button>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- rff end --}}
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
 @endsection
+
 
 @section('scripts')
 <script src="https://js.stripe.com/v3/"></script>
@@ -129,4 +154,68 @@
         form.submit();
     }
 </script>
+<script src="{{ asset('js/app.js') }}" defer></script>
+
 @endsection
+{{--  <script src="https://js.stripe.com/v3/"></script>
+<script src="{{ asset('js/app.js') }}" defer></script>
+<script>
+    var stripe = Stripe('{{ env('STRIPE_KEY') }}');
+    var elements = stripe.elements();
+    var style = {
+        base: {
+            color: '#32325d',
+            fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+            fontSmoothing: 'antialiased',
+            fontSize: '16px',
+            '::placeholder': {
+                color: '#aab7c4'
+            }
+        },
+        invalid: {
+            color: '#fa755a',
+            iconColor: '#fa755a'
+        }
+    };
+    var card = elements.create('card', {hidePostalCode: true,
+        style: style});
+    card.mount('#card-element');
+    card.addEventListener('change', function(event) {
+        var displayError = document.getElementById('card-errors');
+        if (event.error) {
+            displayError.textContent = event.error.message;
+        } else {
+            displayError.textContent = '';
+        }
+    });
+    const cardHolderName = document.getElementById('card-holder-name');
+    const cardButton = document.getElementById('card-button');
+    const clientSecret = cardButton.dataset.secret;
+    cardButton.addEventListener('click', async (e) => {
+        e.preventDefault();
+        console.log("attempting");
+        const { setupIntent, error } = await stripe.confirmCardSetup(
+            clientSecret, {
+                payment_method: {
+                    card: card,
+                    billing_details: { name: cardHolderName.value }
+                }
+            }
+            );
+        if (error) {
+            var errorElement = document.getElementById('card-errors');
+            errorElement.textContent = error.message;
+        } else {
+            paymentMethodHandler(setupIntent.payment_method);
+        }
+    });
+    function paymentMethodHandler(payment_method) {
+        var form = document.getElementById('subscribe-form');
+        var hiddenInput = document.createElement('input');
+        hiddenInput.setAttribute('type', 'hidden');
+        hiddenInput.setAttribute('name', 'payment_method');
+        hiddenInput.setAttribute('value', payment_method);
+        form.appendChild(hiddenInput);
+        form.submit();
+    }
+</script>  --}}
