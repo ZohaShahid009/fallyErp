@@ -51,5 +51,9 @@ class EmailController extends Controller
      return view('admin.pages.settings.payment.create');
     }
 
+    public function  socialize()
+    {
+     return view('admin.pages.settings.sociallogin.create');
+    }
 
 }

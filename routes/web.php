@@ -13,7 +13,10 @@ use App\Http\Controllers\AdminFAQController;
 use App\Http\Controllers\GlobalsettingseController;
 use App\Http\Controllers\LanguageSettingController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\SocialController;
 use App\Models\Plan;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +27,7 @@ use App\Models\Plan;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 
 
 Route::get('dashboard', [AuthController::class, 'dashboard'])->middleware('isLogged');
@@ -178,3 +182,17 @@ Route::post('update-language/{id}', [LanguageSettingController::class, 'updateLa
 Route::delete('language/{id}', [LanguageSettingController::class, 'deleteLanguage'])->name('delete-Language');
 // for payment
 Route::get('/add-payment', [EmailController::class, 'paymentcredentials']);
+// for social links
+Route::get('/add-socialize', [EmailController::class, 'socialize']);
+
+Route::get('login/facebook',[SocialController::class,'facebookRedirect']);
+Route::get('login/facebook/callback',[SocialController::class,'loginWithFacebook']);
+
+Route::get('login/google',[SocialController::class,'googleRedirect']);
+Route::get('login/google/callback',[SocialController::class,'loginWithGoogle']);
+
+
+Route::get('login/linkedin', [SocialController::class, 'linkedinRedirect']);
+Route::get('login/linkedin/callback', [SocialController::class, 'loginWithLinkedin']);
+
+
