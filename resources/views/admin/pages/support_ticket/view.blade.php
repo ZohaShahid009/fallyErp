@@ -119,47 +119,6 @@
                                                                 </select>
                                                             </div>
                                                         </label>
-
-                                                    </div>
-
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Save changes</button>
-                                            </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button type="button" class="btn btn-primary" data-toggle="modal"
-                                    data-target="#exampleModal1">
-                                    Add notes
-                                </button>
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Assign ticket</h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form action="{{ url('add/notes', $SupportTicket->id) }}">
-                                                    <div class="form-group row my-2">
-                                                        <label class="col-10 col-form-label">
-                                                            <div class="form-group">
-                                                                <div class="form-group">
-                                                                    <label for="comment">Add notes:</label>
-                                                                    <textarea class="form-control" rows="5" id="" name="notes"></textarea>
-                                                                </div>
-                                                            </div>
-                                                        </label>
-
                                                     </div>
                                             </div>
                                             <div class="modal-footer">
@@ -174,6 +133,77 @@
                                 <a href="#" class="btn btn-light-primary font-weight-bold">Learn more</a>
                             </div>
                             <!--end::Footer-->
+                        </div>
+                        <div class="card card-custom mt-4">
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <span class="card-icon">
+                                        <i class="flaticon2-chat-1 text-primary"></i>
+                                    </span>
+                                    <h3 class="card-label">
+                                        Notes
+                                        {{-- <small>sub title</small> --}}
+                                    </h3>
+                                </div>
+                                <div class="card-toolbar">
+                                    {{-- <a href="#" class="btn btn-sm btn-success font-weight-bold">
+                                        <i class="flaticon2-cube"></i> Reports
+                                    </a> --}}
+                                    <button type="button" class="btn btn-sm btn-success font-weight-bold"
+                                        data-toggle="modal" data-target="#exampleModal1">
+                                        <i class="flaticon2-cube"></i>
+                                        Add notes
+                                    </button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Add notes</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="{{ url('add/notes', $SupportTicket->id) }}">
+                                                        <div class="form-group row my-2">
+                                                            <label class="col-10 col-form-label">
+                                                                <div class="form-group">
+                                                                    <div class="form-group">
+                                                                        <label for="comment">Add notes:</label>
+                                                                        <textarea class="form-control" rows="5" id="" name="notes"></textarea>
+                                                                    </div>
+                                                                </div>
+                                                            </label>
+                                                        </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                @if (isset($ticketnote))
+                                    @foreach ($ticketnote as $ticketnotes)
+                                        <div>{{ $ticketnotes->notes }}</div>
+                                    @endforeach
+                                @else
+                                    <p>Add notes.</p>
+                                @endif
+                                {{-- {{ $ticketnote->notes }} --}}
+                            </div>
+                            <div class="card-footer d-flex justify-content-between">
+                                <a href="#" class="btn btn-light-primary font-weight-bold">Manage</a>
+                                <a href="#" class="btn btn-outline-secondary font-weight-bold">Learn more</a>
+                            </div>
                         </div>
                     </div>
                     <div class="col-7">

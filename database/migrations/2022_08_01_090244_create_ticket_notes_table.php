@@ -15,7 +15,7 @@ class CreateTicketNotesTable extends Migration
     {
         Schema::create('ticket_notes', function (Blueprint $table) {
             $table->id();
-            $table->string('ticket_id')->nullable(true);
+            $table->integer('ticket_id')->nullable(true);
             $table->string('notes')->nullable(true);
             $table->timestamps();
         });

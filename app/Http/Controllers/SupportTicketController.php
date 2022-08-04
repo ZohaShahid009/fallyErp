@@ -8,6 +8,7 @@ use App\Models\Company;
 use App\Models\User;
 use App\Models\Staff;
 use App\Models\TicketNotes;
+use DB;
 
 class SupportTicketController extends Controller
 {
@@ -45,9 +46,13 @@ class SupportTicketController extends Controller
 
     public function detailsSupportTicket(Request $request, $id){
         $SupportTicket =  SupportTicket::find($id);
+        // $ticketnote = DB::table('ticket_notes')->where('ticket_id', $id)->first();
+        $ticketnote = TicketNotes::orderBy('id','desc')->where('ticket_id', $id)->get();
+        // $ticketnote =  TicketNotes::all();
+        // dd ($ticketnote);
         $admin =  User::all();
         $staff = Staff::all();
-        return view('admin.pages.support_ticket.view', compact('SupportTicket','admin','staff'));
+        return view('admin.pages.support_ticket.view', compact('SupportTicket','admin','staff','ticketnote'));
     }
 
     public function assignSupportTicket(Request $request, $id){
