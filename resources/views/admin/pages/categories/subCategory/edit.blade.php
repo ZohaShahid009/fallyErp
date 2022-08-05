@@ -51,14 +51,13 @@
                             {{-- <label for="input-file-to-destroy">Product Image</label>
                                     <input type="file" id="input-file-to-destroy"  name="profile_avatar"  class="dropify" data-allowed-formats="portrait square" data-max-file-size="2M" data-max-height="2000"
                                     /> --}}
-                                    <label for="input-file-to-destroy">Product Image</label>
-                                    <input type="file" id="input-file-to-destroy" name="profile_avatar" class="dropify"
-                                        data-allowed-formats="portrait square" data-max-file-size="2M"
-                                        data-max-height="2000" />
-                                    @if (!empty($subcategory->image))
-                                        <img style="width:100px;margin-top:10px;" id="blah"
-                                            src="{{ asset('images/' . subcategory->	image) }}">
-                                    @endif
+                            <label for="input-file-to-destroy">Product Image</label>
+                            <input type="file" id="input-file-to-destroy" name="image" class="dropify"
+                                data-allowed-formats="portrait square" data-max-file-size="2M" data-max-height="2000"
+                                data-default-file="{{ asset('images/' . $subcategory->image) }}" />
+
+
+
                         </div>
                         <h3 class="font-size-lg text-dark font-weight-bold mb-6">2. Category Info:</h3>
                         <div class="mb-15">
@@ -73,11 +72,14 @@
                         </div>
                         <div class="mb-15">
                             <div class="form-group row">
-                                <label class="col-lg-3 col-form-label text-right">Parent category ID:</label>
-                                <div class="col-lg-6">
-                                    <input id="parent_cat_id" name="parent_cat_id" type="text" class="form-control"
-                                        value="{{ $subcategory->title }}" />
-                                    <span class="form-text text-muted">Please enter ID</span>
+                                <div class="col-3"></div>
+                                <div class="col-6">
+                                    <label for="exampleSelect1">Parent category:<span class="text-danger">*</span></label>
+                                    <select class="form-control" name="parent_cat_id" id="parent_cat_id">
+                                        @foreach ($category as $categories)
+                                            <option value="{{ $categories->id }}">{{ $categories->title }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>

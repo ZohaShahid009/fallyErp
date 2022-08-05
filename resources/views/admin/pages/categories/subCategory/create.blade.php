@@ -47,7 +47,8 @@
                         {{-- </div> --}}
                         <div class="form-group">
                             <label for="input-file-to-destroy">Product Image</label>
-                                    <input type="file" id="input-file-to-destroy"  name="profile_avatar"  class="dropify" data-allowed-formats="portrait square" data-max-file-size="2M" data-max-height="2000" />
+                            <input type="file" id="input-file-to-destroy" name="image" class="dropify"
+                                data-allowed-formats="portrait square" data-max-file-size="2M" data-max-height="2000" />
                         </div>
                         <div class="form-group">
                             <label>Title:</label>
@@ -55,17 +56,11 @@
                                 placeholder="Enter Title" />
                             <span class="form-text text-muted">Please enter Title</span>
                         </div>
-                        {{-- <div class="form-group">
-                            <label>Title:</label>
-                            <input name="parent_cat_id" id="parent_cat_id" type="text"
-                                class="form-control form-control-solid" placeholder="Enter Title" />
-                            <span class="form-text text-muted">Please enter ID</span>
-                        </div> --}}
                         <div class="form-group">
                             <label for="exampleSelect1">Parent category:<span class="text-danger">*</span></label>
                             <select class="form-control" name="parent_cat_id" id="parent_cat_id">
                                 @foreach ($category as $categories)
-                                <option value="{{ $categories->id }}">{{ $categories->title }}</option>
+                                    <option value="{{ $categories->id }}">{{ $categories->title }}</option>
                                 @endforeach
                             </select>
                         </div>

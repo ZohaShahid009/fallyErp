@@ -14,6 +14,7 @@ use App\Http\Controllers\GlobalsettingseController;
 use App\Http\Controllers\LanguageSettingController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\SocialController;
+use App\Http\Controllers\CompanyController;
 use App\Models\Plan;
 
 
@@ -133,9 +134,11 @@ Route::get('view/supportticket', [SupportTicketController::class, 'viewSupportTi
 Route::get('details/supportticket/{id}', [SupportTicketController::class, 'detailsSupportTicket']);
 Route::get('assign/supportticket/{id}', [SupportTicketController::class, 'assignSupportTicket']);
 Route::get('add/notes/{id}', [SupportTicketController::class, 'addnotes']);
-
 // Support Ticket Routes Ends
-
+//<---------------------------------->\\
+// Company Settings Routes Starts
+Route::match(['get', 'post'], 'company/details/{id}', [CompanyController::class, 'companyDetails']);
+// Company Settings Routes Ends
 
 
 // route of admin FAQ

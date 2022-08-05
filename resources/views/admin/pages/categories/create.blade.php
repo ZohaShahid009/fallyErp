@@ -46,7 +46,8 @@
                         </div> --}}
                         <div class="form-group">
                             <label for="input-file-to-destroy">Product Image</label>
-                                    <input type="file" id="input-file-to-destroy"  name="profile_avatar"  class="dropify" data-allowed-formats="portrait square" data-max-file-size="2M" data-max-height="2000" />
+                            <input type="file" id="input-file-to-destroy" name="image" class="dropify"
+                                data-allowed-formats="portrait square" data-max-file-size="2M" data-max-height="2000" />
                         </div>
                         <div class="form-group">
                             <label>Title:</label>

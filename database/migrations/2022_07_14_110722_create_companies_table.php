@@ -20,6 +20,10 @@ class CreateCompaniesTable extends Migration
             $table->string('company_email');
             $table->string('website_url')->nullable(true);
             $table->string('company_phone')->nullable(true);
+            $table->string('company_size')->nullable(true);
+            $table->string('company_logo')->nullable(true);
+            $table->string('industry')->nullable(true);
+            $table->text('email_signature')->nullable(true);
             $table->string('vat_number')->nullable(true);
             $table->string('address')->nullable(true);
             $table->string('zip_code')->nullable(true);

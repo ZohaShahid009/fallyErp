@@ -18,20 +18,16 @@ class CategoriesController extends Controller
         $request->validate([
             'title'=> 'required',
         ]);
-        $imageName = "blank.png";
-        if($request->hasFile('profile_avatar')){
-            $img_tmp = $request->file('profile_avatar');
-                if($img_tmp->isValid()){
-                    $extension = $img_tmp->getClientOriginalExtension();
-                    $imageName = rand(111,99999).'.'.$extension;
-                    $imagePath = 'uploaded_images/cat_images/'.$imageName;
-                    Image::make($img_tmp)->save($imagePath);
-                    };
-            };
+
         $category = new Category([
             'title'=> $request->get('title'),
-            'image'=> $imageName,
+            // 'image'=> $imageName,
         ]);
+        if (isset($request->image)  && ($request->image->extension() != '')) {
+            $imageName = rand(0, 999999999) . time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+            $category->image =  $imageName;
+        }
         $category->save();
         return redirect('/categories/list')->with('info', 'Category updated successfully');
     }
@@ -48,27 +44,19 @@ class CategoriesController extends Controller
         };
         $category = Category::find($id);
         $category->title = $request->get('title');
-        if($request->hasFile('profile_avatar')){
-            $img_tmp = $request->file('profile_avatar');
-                if($img_tmp->isValid()){
-                    $extension = $img_tmp->getClientOriginalExtension();
-                    $imageName = rand(111,99999).'.'.$extension;
-                    $imagePath = 'uploaded_images/cat_images/'.$imageName;
-                    Image::make($img_tmp)->save($imagePath);
-                    }
-                    $category->image = $imageName;
-            }
+        if (isset($request->image)  && ($request->image->extension() != '')) {
+            $imageName = rand(0, 999999999) . time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+            $category->image =  $imageName;
+        }
         $category->update();
         return redirect('/categories/list')->with('info', 'Category updated successfully');
     }
-
 
     public function deletecategories($id){
         Category::find($id)->delete();
         return back();
     }
-
-
 
     // Sub category Section Started
     public function addsubCategories(Request $request){
@@ -80,21 +68,17 @@ class CategoriesController extends Controller
         $request->validate([
             'title'=> 'required',
         ]);
-        $imageName = "blank.png";
-        if($request->hasFile('profile_avatar')){
-            $img_tmp = $request->file('profile_avatar');
-                if($img_tmp->isValid()){
-                    $extension = $img_tmp->getClientOriginalExtension();
-                    $imageName = rand(111,99999).'.'.$extension;
-                    $imagePath = 'uploaded_images/sub_cat_images/'.$imageName;
-                    Image::make($img_tmp)->save($imagePath);
-                    };
-            };
+
         $subcategory = new SubCategory([
             'title'=> $request->get('title'),
             'parent_cat_id'=> $request->get('parent_cat_id'),
-            'image'=> $imageName,
+
         ]);
+        if (isset($request->image)  && ($request->image->extension() != '')) {
+            $imageName = rand(0, 999999999) . time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+            $subcategory->image =  $imageName;
+        }
         $subcategory->save();
         return redirect('/sub-categories/list')->with('info', 'Sub Category updated successfully');
     }
@@ -107,25 +91,20 @@ class CategoriesController extends Controller
     public function editsubCategories(Request $request, $id){
         if ($request->isMethod('get')) {
                 $subcategory =  SubCategory::find($id);
-                return view('admin.pages.categories.subCategory.edit', compact('subcategory'));
+                $category = Category::all();
+                return view('admin.pages.categories.subCategory.edit', compact('subcategory','category'));
         };
         $subcategory = SubCategory::find($id);
         $subcategory->title = $request->get('title');
         $subcategory->parent_cat_id = $request->get('parent_cat_id');
-        if($request->hasFile('profile_avatar')){
-            $img_tmp = $request->file('profile_avatar');
-                if($img_tmp->isValid()){
-                    $extension = $img_tmp->getClientOriginalExtension();
-                    $imageName = rand(111,99999).'.'.$extension;
-                    $imagePath = 'uploaded_images/sub_cat_images/'.$imageName;
-                    Image::make($img_tmp)->save($imagePath);
-                    }
-                    $subcategory->image = $imageName;
-            }
+        if (isset($request->image)  && ($request->image->extension() != '')) {
+            $imageName = rand(0, 999999999) . time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+            $subcategory->image =  $imageName;
+        }
         $subcategory->update();
         return redirect('/sub-categories/list')->with('info', 'Category updated successfully');
     }
-
 
     public function deletesubcategories($id){
         SubCategory::find($id)->delete();

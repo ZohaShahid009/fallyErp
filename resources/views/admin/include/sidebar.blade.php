@@ -230,7 +230,7 @@
                                         </li> --}}
                                      </ul>
                                  </div>
-                               <div class="menu-submenu">
+                                 <div class="menu-submenu">
                                      <i class="menu-arrow"></i>
                                      <ul class="menu-subnav">
                                          <li class="menu-item" aria-haspopup="true">
@@ -241,22 +241,22 @@
                                                  <span class="menu-text"> Welcome Email</span>
                                              </a>
                                          </li>
-                                          <li class="menu-item" aria-haspopup="true">
-                                            <a href="{{ url('/list-languages') }}" class="menu-link">
-                                                <i class="menu-bullet menu-bullet-dot">
-                                                    <span></span>
-                                                </i>
-                                                <span class="menu-text">Language Settings</span>
-                                            </a>
-                                        </li>
-                                        <li class="menu-item" aria-haspopup="true">
-                                            <a href="{{ url('/add-payment') }}" class="menu-link">
-                                                <i class="menu-bullet menu-bullet-dot">
-                                                    <span></span>
-                                                </i>
-                                                <span class="menu-text">Payment Credentials</span>
-                                            </a>
-                                        </li>
+                                         <li class="menu-item" aria-haspopup="true">
+                                             <a href="{{ url('/list-languages') }}" class="menu-link">
+                                                 <i class="menu-bullet menu-bullet-dot">
+                                                     <span></span>
+                                                 </i>
+                                                 <span class="menu-text">Language Settings</span>
+                                             </a>
+                                         </li>
+                                         <li class="menu-item" aria-haspopup="true">
+                                             <a href="{{ url('/add-payment') }}" class="menu-link">
+                                                 <i class="menu-bullet menu-bullet-dot">
+                                                     <span></span>
+                                                 </i>
+                                                 <span class="menu-text">Payment Credentials</span>
+                                             </a>
+                                         </li>
                                      </ul>
                                  </div>
                              </li>
@@ -344,45 +344,45 @@
                                              </a>
                                          </li>
                                          <li class="menu-item" aria-haspopup="true">
-                                            <a href="{{ url('add/client/1') }}" class="menu-link">
-                                                <i class="menu-bullet menu-bullet-dot">
-                                                    <span></span>
-                                                </i>
-                                                <span class="menu-text">Client</span>
-                                            </a>
-                                        </li>
-                                        <li class="menu-item" aria-haspopup="true">
-                                            <a href="{{ url('add/latestproject/1') }}" class="menu-link">
-                                                <i class="menu-bullet menu-bullet-dot">
-                                                    <span></span>
-                                                </i>
-                                                <span class="menu-text">Project and features</span>
-                                            </a>
-                                        </li>
-                                        <li class="menu-item" aria-haspopup="true">
-                                            <a href="{{ url('add/cta/1') }}" class="menu-link">
-                                                <i class="menu-bullet menu-bullet-dot">
-                                                    <span></span>
-                                                </i>
-                                                <span class="menu-text">CTA and Blog</span>
-                                            </a>
-                                        </li>
-                                        <li class="menu-item" aria-haspopup="true">
-                                            <a href="{{ url('add/how/1') }}" class="menu-link">
-                                                <i class="menu-bullet menu-bullet-dot">
-                                                    <span></span>
-                                                </i>
-                                                <span class="menu-text">How it Works</span>
-                                            </a>
-                                        </li>
-                                        <li class="menu-item" aria-haspopup="true">
-                                            <a href="{{ url('add/seo/1') }}" class="menu-link">
-                                                <i class="menu-bullet menu-bullet-dot">
-                                                    <span></span>
-                                                </i>
-                                                <span class="menu-text">SEO</span>
-                                            </a>
-                                        </li>
+                                             <a href="{{ url('add/client/1') }}" class="menu-link">
+                                                 <i class="menu-bullet menu-bullet-dot">
+                                                     <span></span>
+                                                 </i>
+                                                 <span class="menu-text">Client</span>
+                                             </a>
+                                         </li>
+                                         <li class="menu-item" aria-haspopup="true">
+                                             <a href="{{ url('add/latestproject/1') }}" class="menu-link">
+                                                 <i class="menu-bullet menu-bullet-dot">
+                                                     <span></span>
+                                                 </i>
+                                                 <span class="menu-text">Project and features</span>
+                                             </a>
+                                         </li>
+                                         <li class="menu-item" aria-haspopup="true">
+                                             <a href="{{ url('add/cta/1') }}" class="menu-link">
+                                                 <i class="menu-bullet menu-bullet-dot">
+                                                     <span></span>
+                                                 </i>
+                                                 <span class="menu-text">CTA and Blog</span>
+                                             </a>
+                                         </li>
+                                         <li class="menu-item" aria-haspopup="true">
+                                             <a href="{{ url('add/how/1') }}" class="menu-link">
+                                                 <i class="menu-bullet menu-bullet-dot">
+                                                     <span></span>
+                                                 </i>
+                                                 <span class="menu-text">How it Works</span>
+                                             </a>
+                                         </li>
+                                         <li class="menu-item" aria-haspopup="true">
+                                             <a href="{{ url('add/seo/1') }}" class="menu-link">
+                                                 <i class="menu-bullet menu-bullet-dot">
+                                                     <span></span>
+                                                 </i>
+                                                 <span class="menu-text">SEO</span>
+                                             </a>
+                                         </li>
 
                                      </ul>
                                  </div>
@@ -391,47 +391,47 @@
                      </div>
                  </li>
                  <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                    <a href="javascript:;" class="menu-link menu-toggle">
-                        <span class="svg-icon menu-icon">
-                            <!--begin::Svg Icon | path:assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24" />
-                                    <rect fill="#000000" x="4" y="4" width="7" height="7"
-                                        rx="1.5" />
-                                    <path
-                                        d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z"
-                                        fill="#000000" opacity="0.3" />
-                                </g>
-                            </svg>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-text">Support Ticket</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="menu-submenu">
-                        <i class="menu-arrow"></i>
-                        <ul class="menu-subnav">
-                            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                                <a href="{{ url('add/supportticket') }}" class="menu-link menu-toggle">
-                                    <i class="menu-bullet menu-bullet-line">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">Create Support Ticket</span>
-                                </a>
-                            </li>
-                            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                                <a href="{{ url('view/supportticket') }}" class="menu-link menu-toggle">
-                                    <i class="menu-bullet menu-bullet-line">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">View all Ticket</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+                     <a href="javascript:;" class="menu-link menu-toggle">
+                         <span class="svg-icon menu-icon">
+                             <!--begin::Svg Icon | path:assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
+                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                     <rect x="0" y="0" width="24" height="24" />
+                                     <rect fill="#000000" x="4" y="4" width="7"
+                                         height="7" rx="1.5" />
+                                     <path
+                                         d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z"
+                                         fill="#000000" opacity="0.3" />
+                                 </g>
+                             </svg>
+                             <!--end::Svg Icon-->
+                         </span>
+                         <span class="menu-text">Support Ticket</span>
+                         <i class="menu-arrow"></i>
+                     </a>
+                     <div class="menu-submenu">
+                         <i class="menu-arrow"></i>
+                         <ul class="menu-subnav">
+                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                 <a href="{{ url('add/supportticket') }}" class="menu-link menu-toggle">
+                                     <i class="menu-bullet menu-bullet-line">
+                                         <span></span>
+                                     </i>
+                                     <span class="menu-text">Create Support Ticket</span>
+                                 </a>
+                             </li>
+                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                 <a href="{{ url('view/supportticket') }}" class="menu-link menu-toggle">
+                                     <i class="menu-bullet menu-bullet-line">
+                                         <span></span>
+                                     </i>
+                                     <span class="menu-text">View all Ticket</span>
+                                 </a>
+                             </li>
+                         </ul>
+                     </div>
+                 </li>
                  <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                      <a href="javascript:;" class="menu-link menu-toggle">
                          <span class="svg-icon menu-icon">
@@ -462,14 +462,14 @@
                                  </span>
                              </li>
                              <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                                <a href="{{ url('/home') }}" class="menu-link menu-toggle">
-                                    <i class="menu-bullet menu-bullet-line">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">Single Charge</span>
-                                    <i class="menu-arrow"></i>
-                                </a>
-                            </li>
+                                 <a href="{{ url('/home') }}" class="menu-link menu-toggle">
+                                     <i class="menu-bullet menu-bullet-line">
+                                         <span></span>
+                                     </i>
+                                     <span class="menu-text">Single Charge</span>
+                                     <i class="menu-arrow"></i>
+                                 </a>
+                             </li>
                              <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                  <a href="{{ url('/plans/create') }}" class="menu-link menu-toggle">
                                      <i class="menu-bullet menu-bullet-line">
@@ -488,111 +488,147 @@
                                      <i class="menu-arrow"></i>
                                  </a>
                              </li>
-                              {{--  zoha  --}}
-                              <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                                <a href="{{ url('/subscriptions/all') }}" class="menu-link menu-toggle">
-                                    <i class="menu-bullet menu-bullet-line">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">View Your Subscrption</span>
-                                    <i class="menu-arrow"></i>
-                                </a>
-                            </li>
+                             {{-- zoha --}}
+                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                 <a href="{{ url('/subscriptions/all') }}" class="menu-link menu-toggle">
+                                     <i class="menu-bullet menu-bullet-line">
+                                         <span></span>
+                                     </i>
+                                     <span class="menu-text">View Your Subscrption</span>
+                                     <i class="menu-arrow"></i>
+                                 </a>
+                             </li>
 
                          </ul>
-                          {{--  zoha end   --}}
+                         {{-- zoha end --}}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                         {{--  ZOHA end  --}}
+                         {{-- ZOHA end --}}
                      </div>
 
                  </li>
-                 {{--  rfff  --}}
+                 {{-- rfff --}}
                  <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                    <a href="javascript:;" class="menu-link menu-toggle">
-                        <span class="svg-icon menu-icon">
-                            <!--begin::Svg Icon | path:assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                                width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                    <rect x="0" y="0" width="24" height="24" />
-                                    <rect fill="#000000" x="4" y="4" width="7"
-                                        height="7" rx="1.5" />
-                                    <path
-                                        d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z"
-                                        fill="#000000" opacity="0.3" />
-                                </g>
-                            </svg>
-                            <!--end::Svg Icon-->
-                        </span>
-                        <span class="menu-text">Invoices</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="menu-submenu">
-                        <i class="menu-arrow"></i>
-                        <ul class="menu-subnav">
+                     <a href="javascript:;" class="menu-link menu-toggle">
+                         <span class="svg-icon menu-icon">
+                             <!--begin::Svg Icon | path:assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
+                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                     <rect x="0" y="0" width="24" height="24" />
+                                     <rect fill="#000000" x="4" y="4" width="7"
+                                         height="7" rx="1.5" />
+                                     <path
+                                         d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z"
+                                         fill="#000000" opacity="0.3" />
+                                 </g>
+                             </svg>
+                             <!--end::Svg Icon-->
+                         </span>
+                         <span class="menu-text">Invoices</span>
 
-                            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                                <a href="{{ url('/www') }}" class="menu-link menu-toggle">
-                                    <i class="menu-bullet menu-bullet-line">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">Clients list</span>
-                                    <i class="menu-arrow"></i>
-                                </a>
-                            </li>
-                            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                                <a href="{{ url('/Tasks list') }}" class="menu-link menu-toggle">
-                                    <i class="menu-bullet menu-bullet-line">
-                                        <span></span>
-                                    </i>
-                                    <span class="menu-text">Tasks list</span>
-                                    <i class="menu-arrow"></i>
-                                </a>
-                            </li>
+                         <i class="menu-arrow"></i>
+                     </a>
+                     <div class="menu-submenu">
+                         <i class="menu-arrow"></i>
+                         <ul class="menu-subnav">
 
                              <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                               <a href="{{ url('/Invoices list') }}" class="menu-link menu-toggle">
-                                   <i class="menu-bullet menu-bullet-line">
-                                       <span></span>
-                                   </i>
-                                   <span class="menu-text"> Invoices list</span>
-                                   <i class="menu-arrow"></i>
-                               </a>
-                           </li>
-                           <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                            <a href="{{ url('/Payments list') }}" class="menu-link menu-toggle">
-                                <i class="menu-bullet menu-bullet-line">
-                                    <span></span>
-                                </i>
-                                <span class="menu-text"> Payments list</span>
-                                <i class="menu-arrow"></i>
-                            </a>
-                        </li>
+                                 <a href="{{ url('/www') }}" class="menu-link menu-toggle">
+                                     <i class="menu-bullet menu-bullet-line">
+                                         <span></span>
+                                     </i>
+                                     <span class="menu-text">Clients list</span>
+                                     <i class="menu-arrow"></i>
+                                 </a>
+                             </li>
+                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                 <a href="{{ url('/Tasks list') }}" class="menu-link menu-toggle">
+                                     <i class="menu-bullet menu-bullet-line">
+                                         <span></span>
+                                     </i>
+                                     <span class="menu-text">Tasks list</span>
+                                     <i class="menu-arrow"></i>
+                                 </a>
+                             </li>
 
-                        </ul>
-                    </div>
+                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                 <a href="{{ url('/Invoices list') }}" class="menu-link menu-toggle">
+                                     <i class="menu-bullet menu-bullet-line">
+                                         <span></span>
+                                     </i>
+                                     <span class="menu-text"> Invoices list</span>
+                                     <i class="menu-arrow"></i>
+                                 </a>
+                             </li>
+                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                 <a href="{{ url('/Payments list') }}" class="menu-link menu-toggle">
+                                     <i class="menu-bullet menu-bullet-line">
+                                         <span></span>
+                                     </i>
+                                     <span class="menu-text"> Payments list</span>
+                                     <i class="menu-arrow"></i>
+                                 </a>
+                             </li>
 
-                  </li>
-                 {{--  rfff  --}}
+
+                         </ul>
+                     </div>
+
+                 </li>
+                 {{-- rfff --}}
+                 </li>
+                 <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                     <a href="javascript:;" class="menu-link menu-toggle">
+                         <span class="svg-icon menu-icon">
+                             <!--begin::Svg Icon | path:assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
+                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                     <rect x="0" y="0" width="24" height="24" />
+                                     <rect fill="#000000" x="4" y="4" width="7"
+                                         height="7" rx="1.5" />
+                                     <path
+                                         d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z"
+                                         fill="#000000" opacity="0.3" />
+                                 </g>
+                             </svg>
+                             <!--end::Svg Icon-->
+                         </span>
+                         <span class="menu-text">Business settings</span>
+                         <i class="menu-arrow"></i>
+                     </a>
+                     <div class="menu-submenu">
+                         <i class="menu-arrow"></i>
+                         <ul class="menu-subnav">
+
+
+
+
+
+
+                             <li class="menu-item menu-item-parent" aria-haspopup="true">
+
+                                 <span class="menu-link">
+                                     <span class="menu-text">Company Details</span>
+                                 </span>
+                             </li>
+                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                 <a href="{{ url('/company/details/1') }}" class="menu-link menu-toggle">
+                                     <i class="menu-bullet menu-bullet-line">
+                                         <span></span>
+                                     </i>
+                                     <span class="menu-text">Company Details</span>
+                                     <i class="menu-arrow"></i>
+                                 </a>
+                             </li>
+
+                         </ul>
+                     </div>
+
+                 </li>
+                 {{-- rfff --}}
+                 </li>
              </ul>
              <!--end::Menu Nav-->
          </div>
