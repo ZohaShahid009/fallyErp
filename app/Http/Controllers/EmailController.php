@@ -12,13 +12,13 @@ use Validator;
 
 class EmailController extends Controller
 {
-    // public function email()
-    // {
+    public function email()
+    {
     //    $email=User::first();
     //    Notification::send($email, new welcomenotification);
     //  dd('done');
-    //  return view('admin.pages.settings.email.create');
-    // }
+     return view('admin.pages.settings.email.create');
+    }
 
     public function addemail(Request $request)
     {
