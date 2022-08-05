@@ -14,6 +14,7 @@ use App\Http\Controllers\GlobalsettingseController;
 use App\Http\Controllers\LanguageSettingController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\SocialController;
+use App\Http\Controllers\ClientController;
 use App\Models\Plan;
 
 
@@ -194,5 +195,16 @@ Route::get('login/google/callback',[SocialController::class,'loginWithGoogle']);
 
 Route::get('login/linkedin', [SocialController::class, 'linkedinRedirect']);
 Route::get('login/linkedin/callback', [SocialController::class, 'loginWithLinkedin']);
+// route for the cutomers
+Route::get('add-client-form', function () {
+    return view('admin.pages.invoice.customer.add');
+});
+ Route::post('add-client', [ClientController::class, 'addClient']);
+Route::get('client-list', [ClientController::class, 'ClientList']);
+Route::get('edit-client/{id}', [ClientController::class, 'EditClient']);
+Route::post('/updateclient/{id}', [ClientController::class, 'UpdateClient']);
+Route::delete('client/{id}', [ClientController::class, 'delete'])->name('delete-client');
+ Route::post('client/detail', [ClientController::class, 'client_detail'])->name('client.detail');
+
 
 
