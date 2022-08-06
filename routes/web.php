@@ -208,6 +208,17 @@ Route::get('edit-client/{id}', [ClientController::class, 'EditClient']);
 Route::post('/updateclient/{id}', [ClientController::class, 'UpdateClient']);
 Route::delete('client/{id}', [ClientController::class, 'delete'])->name('delete-client');
  Route::post('client/detail', [ClientController::class, 'client_detail'])->name('client.detail');
+//  for task
+Route::get('add-task-form', function () {
+    return view('admin.pages.invoice.task.add');
+});
+ Route::post('add-task', [ClientController::class, 'addTask']);
+Route::get('task-list', [ClientController::class, 'TaskList']);
+Route::get('edit-task/{id}', [ClientController::class, 'EditTask']);
+Route::post('/updatetask/{id}', [ClientController::class, 'UpdateTask']);
+Route::delete('task/{id}', [ClientController::class, 'deleteTask'])->name('delete-task');
+ Route::post('task/detail', [ClientController::class, 'task_detail'])->name('task.detail');
+
 
 
 
