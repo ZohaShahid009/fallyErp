@@ -217,8 +217,9 @@ Route::get('task-list', [ClientController::class, 'TaskList']);
 Route::get('edit-task/{id}', [ClientController::class, 'EditTask']);
 Route::post('/updatetask/{id}', [ClientController::class, 'UpdateTask']);
 Route::delete('task/{id}', [ClientController::class, 'deleteTask'])->name('delete-task');
- Route::post('task/detail', [ClientController::class, 'task_detail'])->name('task.detail');
+Route::post('task/detail', [ClientController::class, 'task_detail'])->name('task.detail');
 
+//  for Next??
 
 
 
