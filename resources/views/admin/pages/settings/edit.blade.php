@@ -1,5 +1,13 @@
 @extends('admin.layout.adminLayout')
 @section('content')
+
+<style>
+    .kbw-signature { width: 100%; height: 200px;}
+    #sig canvas{
+        width: 100% !important;
+        height: auto;
+    }
+</style>
     <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
         <div class="container mb-5">
             <div class="card card-custom example example-compact">
@@ -37,7 +45,32 @@
                                         value="{{ $settings->company_contact }}" />
                                 </div>
                             </div>
-                            {{--  zohay  --}}
+                            {{--  zoi  --}}
+
+                        <div class="form-group row">
+                            <div class="col-lg-6">
+                                <label>Industry</label>
+                                <select class="form-control" name="industry">
+                                    <option>{{ $settings->industry}}</option>
+                                    <option value="Technology">Technology</option>
+                                        <option value="Health">Health</option>
+                                        <option value="Media">Media</option>
+                                        <option value="Construction">Construction</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-6">
+                                <label>Company Size</label>
+                                <select class="form-control" name="company_size">
+                                    <option>{{$settings->company_size}}</option>
+                                    <option value="Micro-sized business">Micro-sized business</option>
+                                    <option value="Small-sized business">Small-sized business</option>
+                                    <option value="Medium-sized business">Medium-sized business</option>
+                                    <option value="Large-sized business">Large-sized business</option>
+                                </select>
+                            </div>
+                        </div>
+
+                            {{--  end  --}}
                             <div class="form-group row">
                             <div class="col-lg-6">
                                 <label>Country</label>
@@ -51,14 +84,12 @@
                                     @endforeach
                                 </select>
                             </div>
-                            </div>
-                            {{--  <div class="form-group row">
                             <div class="col-lg-6">
-                                <label>Company Country:</label>
-                                <input name="company_contact" id="company_country" type="text" class="form-control"
-                                    value="{{ $settings->company_country }}" />
+                                <label>Company Email</label>
+                                <input name="company_email" id="unit" class="form-control"
+                                    value="{{ $settings->company_email }}" />
                             </div>
-                        </div>  --}}
+                            </div>
                             {{--  end  --}}
 
                             <div class="form-group row">
@@ -74,18 +105,9 @@
                                         value="{{ $settings->company_city }}" />
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <div class="col-lg-6">
-                                    <label>Company Phone</label>
-                                    <input name="company_phone" id="company_phone" type="text" class="form-control"
-                                        value="{{ $settings->company_phone }}" />
-                                </div>
-                                <div class="col-lg-6">
-                                    <label>Company Email</label>
-                                    <input name="company_email" id="unit" class="form-control"
-                                        value="{{ $settings->company_email }}" />
-                                </div>
-                            </div>
+
+
+
                             <div class="form-group row">
                                 <div class="col-lg-6">
                                     <label>Company Domain</label>
@@ -166,7 +188,6 @@
 
                                 <div class="col-lg-6">
                                     <label for="example-date-input">Date </label>
-
                                     <input name="date_formate" class="form-control" type="date" value="2011-08-19"
                                         id="example-date-input" value="{{ $settings->date_formate }}" />
 
@@ -266,21 +287,8 @@
                                             src="{{ asset('images/' . $settings->invoice_logo) }}">
                                     @endif
                                 </div>
+
                             </div>
-                            {{-- zoha  rfff--}}
-                            {{-- <div class="form-group row">
-                                <div class="col-lg-6">
-                                    <label for="input-file-to-destroy">Invoice Logo</label>
-                                    <input type="file" id="input-file-to-destroy" name="invoice_logo[]" class="dropify"
-                                        data-allowed-formats="portrait square" data-max-file-size="2M"
-                                        data-max-height="2000"  multiple/>
-                                    @if (!empty($settings->invoice_logo))
-                                        <img style="width:100px;margin-top:10px;" id="blah"
-                                            src="{{ asset('images/' . $settings->invoice_logo) }}">
-                                    @endif
-                                </div>
-                            </div> --}}
-                            {{-- zoha  rff ens--}}
                         </div>
                         <div class="card-footer">
                             <div class="row">
@@ -300,3 +308,4 @@
     </div>
 
 @endsection
+

@@ -27,7 +27,7 @@ class GlobalsettingseController extends Controller
         $timezones = Timezone::Orderby('offset')->get();
         $countries = Country::all();
         $settings = GlobalSettings::find($id);
-
+// dd($settings);
         return view('admin.pages.settings.edit', compact('settings' ,'countries','timezones'));
     }
 
@@ -35,14 +35,17 @@ class GlobalsettingseController extends Controller
     {
 
         $timezone =  GlobalSettings::find($id);
+        // dd($timezone);
         $timezone->company_name = $request->get('company_name');
         $timezone->company_contact = $request->get('company_contact');
+        $timezone->industry = $request->get('industry');
+        $timezone->company_size = $request->get('company_size');
+        $timezone->country = $request->get('country');
+        $timezone->company_email = $request->get('company_email');
         $timezone->company_address = $request->get('company_address');
         $timezone->company_city = $request->get('company_city');
-        $timezone->country = $request->get('country');
-        $timezone->company_phone = $request->get('company_phone');
-        $timezone->company_email = $request->get('company_email');
         $timezone->company_domain = $request->get('company_domain');
+        $timezone->currency_position = $request->get('currency_position');
         $timezone->invoice_detail = $request->get('invoice_detail');
         $timezone->tax = $request->get('tax');
         $timezone->second_tax = $request->get('second_tax');
@@ -52,14 +55,11 @@ class GlobalsettingseController extends Controller
         $timezone->time_formate = $request->get('time_formate');
         $timezone->timezone = $request->get('timezone');
         $timezone->money_formate = $request->get('money_formate');
-        $timezone->currency_position = $request->get('currency_position');
-
         if (isset($request->company_logo)  && ($request->company_logo->extension() != '')) {
             $imageName = rand(0, 999999999) . time() . '.' . $request->company_logo->extension();
             $request->company_logo->move(public_path('images'), $imageName);
             $timezone->company_logo =  $imageName;
         }
-        // zoha
         if (isset($request->footer_logo)  && ($request->footer_logo->extension() != '')) {
             $imageName = rand(0, 999999999) . time() . '.' . $request->footer_logo->extension();
             $request->footer_logo->move(public_path('images'), $imageName);
@@ -81,6 +81,7 @@ class GlobalsettingseController extends Controller
             $timezone->invoice_logo =  $imageName;
         }
 
+
         $timezone->update();
         return back()->with('info', 'Settings updated successfully');
     }
@@ -98,4 +99,24 @@ class GlobalsettingseController extends Controller
 //         $countries = Country::all();
 //         return view('admin.pages.settings.country',compact('countries'));
 //     }
+public function indexit()
+{
+    return view('admin.pages.settings.index');
+}
+public function upload(Request $request)
+{
+    $folderPath = public_path('upload/');
+
+    $image_parts = explode(";base64,", $request->signed);
+
+    $image_type_aux = explode("image/", $image_parts[0]);
+
+    $image_type = $image_type_aux[1];
+
+    $image_base64 = base64_decode($image_parts[1]);
+
+    $file = $folderPath . uniqid() . '.'.$image_type;
+    file_put_contents($file, $image_base64);
+    return back()->with('success', 'success Full upload signature');
+}
 }

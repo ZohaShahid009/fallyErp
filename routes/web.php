@@ -169,6 +169,13 @@ Route::post('product/detail', [ProductController::class, 'product_detail'])->nam
 // end products
 // Settings
 
+
+
+Route::get('signaturepad', [GlobalsettingseController::class, 'indexit']);
+
+Route::post('signaturepad', [GlobalsettingseController::class, 'upload'])->name('signaturepad.upload');
+
+
 Route::get('edit-settings/{id}', [GlobalsettingseController::class, 'editsettings']);
 Route::post('/updatesettings/{id}', [GlobalsettingseController::class, 'updatesettings']);
 // Route::get('countries', [GlobalsettingseController::class, 'index']);

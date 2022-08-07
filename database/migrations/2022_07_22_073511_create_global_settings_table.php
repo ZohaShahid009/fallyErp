@@ -17,17 +17,14 @@ class CreateGlobalSettingsTable extends Migration
             $table->id();
             $table->string('company_name')->nullable(true);
             $table->string('company_contact')->nullable(true);
+            $table->string('industry')->nullable(true);
+            $table->string('company_size')->nullable(true);
+            $table->string('country')->nullable(true);
+            $table->string('company_email')->nullable(true);
             $table->string('company_address')->nullable(true);
             $table->string('company_city')->nullable(true);
-            $table->string('country')->nullable(true);
-            $table->string('company_phone')->nullable(true);
-            $table->string('company_email')->nullable(true);
             $table->string('company_domain')->nullable(true);
-            $table->string('company_logo')->nullable(true);
-            $table->string('footer_logo')->nullable(true);
-            $table->string('auth_logo')->nullable(true);
-            $table->string('admin_logo')->nullable(true);
-            $table->string('invoice_logo')->nullable(true);
+            $table->string('currency_position')->nullable(true);
             $table->string('invoice_detail')->nullable(true);
             $table->integer('tax')->nullable(true);
             $table->integer('second_tax')->nullable(true);
@@ -37,7 +34,11 @@ class CreateGlobalSettingsTable extends Migration
             $table->string('time_formate')->nullable(true);
             $table->string('timezone')->nullable(true);
             $table->string('money_formate')->nullable(true);
-            $table->string('currency_position')->nullable(true);
+            $table->string('company_logo')->nullable(true);
+            $table->string('footer_logo')->nullable(true);
+            $table->string('auth_logo')->nullable(true);
+            $table->string('admin_logo')->nullable(true);
+            $table->string('invoice_logo')->nullable(true);
             $table->timestamps();
         });
     }
