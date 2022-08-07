@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Timezone;
+use App\Models\Country;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\GlobalSettings;
@@ -24,9 +25,10 @@ class GlobalsettingseController extends Controller
     public function editsettings(Request $request, $id)
     {
         $timezones = Timezone::Orderby('offset')->get();
+        $countries = Country::all();
         $settings = GlobalSettings::find($id);
-        // dd($settings );
-        return view('admin.pages.settings.edit', compact('settings' ,'timezones'));
+
+        return view('admin.pages.settings.edit', compact('settings' ,'countries','timezones'));
     }
 
     public function  updatesettings(Request $request, $id)
@@ -37,6 +39,7 @@ class GlobalsettingseController extends Controller
         $timezone->company_contact = $request->get('company_contact');
         $timezone->company_address = $request->get('company_address');
         $timezone->company_city = $request->get('company_city');
+        $timezone->country = $request->get('country');
         $timezone->company_phone = $request->get('company_phone');
         $timezone->company_email = $request->get('company_email');
         $timezone->company_domain = $request->get('company_domain');
@@ -79,7 +82,7 @@ class GlobalsettingseController extends Controller
         }
 
         $timezone->update();
-        return redirect('/setting-list')->with('info', 'Settings updated successfully');
+        return back()->with('info', 'Settings updated successfully');
     }
     // zoh rfff
     // if (isset($request->invoice_logo)  && ($request->invoice_logo->extension() != '')) {
@@ -89,4 +92,10 @@ class GlobalsettingseController extends Controller
     // }
 
     // zoha rff end
+    // for countries
+//  public function index()
+//     {
+//         $countries = Country::all();
+//         return view('admin.pages.settings.country',compact('countries'));
+//     }
 }

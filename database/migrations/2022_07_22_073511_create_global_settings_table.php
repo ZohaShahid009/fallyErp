@@ -19,6 +19,7 @@ class CreateGlobalSettingsTable extends Migration
             $table->string('company_contact')->nullable(true);
             $table->string('company_address')->nullable(true);
             $table->string('company_city')->nullable(true);
+            $table->string('country')->nullable(true);
             $table->string('company_phone')->nullable(true);
             $table->string('company_email')->nullable(true);
             $table->string('company_domain')->nullable(true);

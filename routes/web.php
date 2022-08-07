@@ -171,6 +171,7 @@ Route::post('product/detail', [ProductController::class, 'product_detail'])->nam
 
 Route::get('edit-settings/{id}', [GlobalsettingseController::class, 'editsettings']);
 Route::post('/updatesettings/{id}', [GlobalsettingseController::class, 'updatesettings']);
+// Route::get('countries', [GlobalsettingseController::class, 'index']);
 // for email
 Route::post('add-email', [EmailController::class, 'addemail']);
 Route::get('add-email-form', [EmailController::class, 'email']);

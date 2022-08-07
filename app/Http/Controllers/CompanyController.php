@@ -27,8 +27,8 @@ class CompanyController extends Controller
         $company->industry = $request->get('industry');
         $company->state = $request->get('state');
         if (isset($request->company_logo)  && ($request->company_logo->extension() != '')) {
-            $imageName = rand(0, 999999999) . time() . '.' . $request->company_logo->extension();
-            $request->company_logo->move(public_path('images'), $imageName);
+       $imageName = rand(0, 999999999) . time() . '.' . $request->company_logo->extension();
+    $request->company_logo->move(public_path('images'), $imageName);
             $company->company_logo =  $imageName;
         }
 

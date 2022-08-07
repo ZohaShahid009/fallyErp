@@ -25,6 +25,7 @@
                             <div class="form-group row">
                                 <div class="col-lg-6">
                                     <label>Company Name</label>
+
                                     <input name="company_name" id="company_name" type="text" class="form-control"
                                         value="{{ $settings->company_name }}" />
 
@@ -36,6 +37,29 @@
                                         value="{{ $settings->company_contact }}" />
                                 </div>
                             </div>
+                            {{--  zohay  --}}
+                            <div class="form-group row">
+                            <div class="col-lg-6">
+                                <label>Country</label>
+                                <select class="form-control" name="country">
+                                    <option>{{ $settings->country}}</option>
+                                    @foreach ($countries as $country)
+                                        <option value="{{ $country->name }}">
+                                            {{ $country->name }}
+                                          ({{ $country->code }})
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            </div>
+                            {{--  <div class="form-group row">
+                            <div class="col-lg-6">
+                                <label>Company Country:</label>
+                                <input name="company_contact" id="company_country" type="text" class="form-control"
+                                    value="{{ $settings->company_country }}" />
+                            </div>
+                        </div>  --}}
+                            {{--  end  --}}
 
                             <div class="form-group row">
                                 <div class="col-lg-6">

@@ -22,6 +22,7 @@ class SeetingSeeder extends Seeder
                     'company_contact'=>'03008864',
                     'company_address'=>'Germany',
                     'company_city'=>'uk',
+                    'country'=>'paris',
                     'company_phone'=>'03008864',
                     'company_email'=>'AUDI@gmail.com',
                     'company_domain'=>'inet',
