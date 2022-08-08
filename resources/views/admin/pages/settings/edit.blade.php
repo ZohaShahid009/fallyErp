@@ -285,7 +285,7 @@
                                 </div>
 {{--  rff  --}}
 <div class="col-lg-6">
-    <label class="" for="">Draw Signature:</label>
+    <label class="" for="">Signature:</label>
     <br/>
     <div id="sig"></div>
     <br><br>
