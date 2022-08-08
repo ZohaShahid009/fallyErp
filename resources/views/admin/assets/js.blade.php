@@ -183,3 +183,16 @@ function formatCurrency(input, blur) {
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     @yield('scripts')
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+
+    <script type="text/javascript" src="http://keith-wood.name/js/jquery.signature.js"></script>
+
+    <script type="text/javascript">
+        var sig = $('#sig').signature({syncField: '#signature', syncFormat: 'PNG'});
+        $('#clear').click(function(e) {
+            e.preventDefault();
+            sig.signature('clear');
+            $("#signature").val('');
+        });
+    </script>

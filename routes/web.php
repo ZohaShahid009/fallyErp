@@ -171,7 +171,7 @@ Route::post('product/detail', [ProductController::class, 'product_detail'])->nam
 
 
 
-Route::get('signaturepad', [GlobalsettingseController::class, 'indexit']);
+// Route::get('signaturepad', [GlobalsettingseController::class, 'indexit']);
 
 Route::post('signaturepad', [GlobalsettingseController::class, 'upload'])->name('signaturepad.upload');
 

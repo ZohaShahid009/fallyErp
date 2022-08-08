@@ -39,6 +39,7 @@ class CreateGlobalSettingsTable extends Migration
             $table->string('auth_logo')->nullable(true);
             $table->string('admin_logo')->nullable(true);
             $table->string('invoice_logo')->nullable(true);
+            $table->string('signed')->nullable(true);
             $table->timestamps();
         });
     }

@@ -1,13 +1,12 @@
 @extends('admin.layout.adminLayout')
 @section('content')
 
+
 <style>
     .kbw-signature { width: 100%; height: 200px;}
-    #sig canvas{
-        width: 100% !important;
-        height: auto;
-    }
+    #sig canvas{ width: 100% !important; height: auto;}
 </style>
+
     <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
         <div class="container mb-5">
             <div class="card card-custom example example-compact">
@@ -105,9 +104,6 @@
                                         value="{{ $settings->company_city }}" />
                                 </div>
                             </div>
-
-
-
                             <div class="form-group row">
                                 <div class="col-lg-6">
                                     <label>Company Domain</label>
@@ -287,8 +283,25 @@
                                             src="{{ asset('images/' . $settings->invoice_logo) }}">
                                     @endif
                                 </div>
+{{--  rff  --}}
+<div class="col-lg-6">
+    <label class="" for="">Draw Signature:</label>
+    <br/>
+    <div id="sig"></div>
+    <br><br>
+    <button id="clear" class="btn btn-danger">Clear Signature</button>
+    {{--  <button class="btn btn-success">Save</button>  --}}
+    <textarea id="signature" name="signed" style="display: none"></textarea>
+    @if (!empty($settings->signed))
+    <img style="width:100px;margin-top:10px;" id="blah"
+        src="{{ asset('images/' . $settings->signed) }}">
+@endif
+</div>
+{{--  end  --}}
+
 
                             </div>
+
                         </div>
                         <div class="card-footer">
                             <div class="row">

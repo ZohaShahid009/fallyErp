@@ -80,43 +80,26 @@ class GlobalsettingseController extends Controller
             $request->invoice_logo->move(public_path('images'), $imageName);
             $timezone->invoice_logo =  $imageName;
         }
+        if (isset($request->signed))
+        {
 
+            $folderPath = public_path('images/');
 
+            $image = explode(";base64,", $request->signed);
+
+            $image_type = explode("image/",  $image[0]);
+
+            $image_type_png = $image_type[1];
+
+            $image_base64 = base64_decode($image[1]);
+
+            $file = $folderPath . uniqid() . '.'.$image_type_png;
+
+            file_put_contents($file, $image_base64);
+            $timezone->signed = $image ;
+        }
         $timezone->update();
         return back()->with('info', 'Settings updated successfully');
     }
-    // zoh rfff
-    // if (isset($request->invoice_logo)  && ($request->invoice_logo->extension() != '')) {
-    //     $imageName = rand(0, 999999999) . time() . '.' . $request->invoice_logo->extension();
-    //     $request->invoice_logo->move(public_path('images'), $imageName);
-    //     $timezone->invoice_logo[] =  $imageName;
-    // }
 
-    // zoha rff end
-    // for countries
-//  public function index()
-//     {
-//         $countries = Country::all();
-//         return view('admin.pages.settings.country',compact('countries'));
-//     }
-public function indexit()
-{
-    return view('admin.pages.settings.index');
-}
-public function upload(Request $request)
-{
-    $folderPath = public_path('upload/');
-
-    $image_parts = explode(";base64,", $request->signed);
-
-    $image_type_aux = explode("image/", $image_parts[0]);
-
-    $image_type = $image_type_aux[1];
-
-    $image_base64 = base64_decode($image_parts[1]);
-
-    $file = $folderPath . uniqid() . '.'.$image_type;
-    file_put_contents($file, $image_base64);
-    return back()->with('success', 'success Full upload signature');
-}
 }
