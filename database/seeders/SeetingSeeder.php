@@ -18,6 +18,10 @@ class SeetingSeeder extends Seeder
         $GlobalSettings = [
             [
                 DB::table('global_settings')->insert([
+                    'first_name'=>'Admin1',
+                    'last_name'=>'Erp',
+                    'email_address'=>'Admin@gmail.com',
+                    'phone_number'=>'030088755',
                     'company_name'=>'AUDI AG',
                     'company_contact'=>'03008864',
                     'industry'=>'Agriculture',

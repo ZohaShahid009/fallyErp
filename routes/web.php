@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\MollieController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoriesController;
@@ -228,6 +228,7 @@ Route::delete('task/{id}', [ClientController::class, 'deleteTask'])->name('delet
 Route::post('task/detail', [ClientController::class, 'task_detail'])->name('task.detail');
 
 //  for Next??
-
+Route::get('mollie-paymnet',[MollieController::Class,'preparePayment'])->name('mollie.payment');
+Route::get('payment-success',[MollieController::Class, 'paymentSuccess'])->name('payment.success');
 
 

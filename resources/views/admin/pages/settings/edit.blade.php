@@ -31,6 +31,31 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-lg-6">
+                                    <label>First Name</label>
+                                    <input name="first_name" id="first_name" type="text" class="form-control"
+                                        value="{{ $settings->first_name }}" />
+                                </div>
+                                <div class="col-lg-6">
+                                    <label>Last Name</label>
+                                    <input name="last_name" id="last_name" type="text" class="form-control"
+                                        value="{{ $settings->last_name}}" />
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-lg-6">
+                                    <label>Email Address</label>
+                                    <input name="email_address"  id="email_address" type="" class="form-control"
+                                        value="{{ $settings->email_address}}" />
+                                </div>
+                                <div class="col-lg-6">
+                                    <label>Phone Number</label>
+                                    <input name="phone_number" id="phone_number" type="" class="form-control"
+                                        value="{{$settings->phone_number}}" />
+
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-lg-6">
                                     <label>Company Name</label>
 
                                     <input name="company_name" id="company_name" type="text" class="form-control"

@@ -36,6 +36,10 @@ class GlobalsettingseController extends Controller
 
         $timezone =  GlobalSettings::find($id);
         // dd($timezone);
+        $timezone->first_name = $request->get('first_name');
+        $timezone->last_name = $request->get('last_name');
+        $timezone->email_address = $request->get('email_address');
+        $timezone->phone_number = $request->get('phone_number');
         $timezone->company_name = $request->get('company_name');
         $timezone->company_contact = $request->get('company_contact');
         $timezone->industry = $request->get('industry');
