@@ -56,6 +56,7 @@ return [
 
     'asset_url' => env('ASSET_URL', null),
 
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
@@ -68,6 +69,7 @@ return [
     */
 
     'timezone' => 'UTC',
+
 
     /*
     |--------------------------------------------------------------------------
@@ -162,6 +164,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        Srmklive\PayPal\Providers\PayPalServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -231,6 +234,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Omnipay' => Ignited\LaravelOmnipay\Facades\OmnipayFacade::class,
+
 
     ],
 
