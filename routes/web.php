@@ -16,6 +16,7 @@ use App\Http\Controllers\EmailController;
 use App\Http\Controllers\SocialController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\InvoiceController;
 use App\Models\Plan;
 
 
@@ -140,6 +141,13 @@ Route::get('add/notes/{id}', [SupportTicketController::class, 'addnotes']);
 // Company Settings Routes Starts
 Route::match(['get', 'post'], 'company/details/{id}', [CompanyController::class, 'companyDetails']);
 // Company Settings Routes Ends
+//<---------------------------------->\\
+// invoice Routes Starts
+Route::match(['get', 'post'], 'create/invoice/', [InvoiceController::class, 'createinvoice']);
+Route::match(['get', 'post'], 'list/invoice/', [InvoiceController::class, 'listinvoice']);
+Route::get('view/invoice/{id}', [InvoiceController::class, 'viewinvoice']);
+// Invoice Routes Ends
+
 
 
 // route of admin FAQ
