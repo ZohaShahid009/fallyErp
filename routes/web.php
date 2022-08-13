@@ -17,6 +17,8 @@ use App\Http\Controllers\SocialController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\PayPalController;
+use App\Http\Controllers\PaymentController;
 use App\Models\Plan;
 
 
