@@ -105,5 +105,5 @@ class GlobalsettingseController extends Controller
         $timezone->update();
         return back()->with('info', 'Settings updated successfully');
     }
-
+    
 }

@@ -238,5 +238,12 @@ Route::post('task/detail', [ClientController::class, 'task_detail'])->name('task
 //  for Next??
 Route::get('mollie-paymnet',[MollieController::Class,'preparePayment'])->name('mollie.payment');
 Route::get('payment-success',[MollieController::Class, 'paymentSuccess'])->name('payment.success');
+// for paypal
+
+Route::get('payment', [PaymentController::Class, 'index']);
+Route::post('charge', [PaymentController::Class, 'charge']);
+Route::get('success', [PaymentController::Class, 'success']);
+Route::get('error',   [PaymentController::Class, 'error']);
+
 
 
