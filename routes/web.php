@@ -19,8 +19,9 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\PayPalController;
 // use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PaymentController;
-
-
+use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\UserManagmentController;
+use App\Http\Controllers\FrontendController\IndexController;
 
 use App\Models\Plan;
 
@@ -35,7 +36,14 @@ use App\Models\Plan;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+// for frontend
+Route::get('show', [IndexController::class, 'show']);
+Route::get('sale', [IndexController::class, 'sale']);
+Route::get('price', [IndexController::class, 'price']);
+Route::get('apps', [IndexController::class, 'apps']);
+Route::get('signin', [IndexController::class, 'signin']);
+Route::get('signup', [IndexController::class, 'signup']);
+// end frontend
 
 
 Route::get('dashboard', [AuthController::class, 'dashboard'])->middleware('isLogged');
@@ -242,6 +250,24 @@ Route::get('payment', [PaymentController::Class, 'index']);
 Route::post('charge', [PaymentController::Class, 'charge']);
 Route::get('success', [PaymentController::Class, 'success']);
 Route::get('error',   [PaymentController::Class, 'error']);
+
+
+// for change password
+Route::get('change-password',[ChangePasswordController::Class,'index']);
+Route::post('change-password',[ChangePasswordController::Class, 'store'])->name('change.password');
+// for user managment
+// Route::get('add',[UserManagmentController::Class,'add-user']);
+// Route::get('add-user-form', function () {
+//     return view('admin.pages.settings.user-manag.add');
+// });
+Route::get('add-user-form', [UserManagmentController::class, 'show']);
+Route::post('add-user', [UserManagmentController::class, 'adduser']);
+Route::get('user-list', [UserManagmentController::class, 'userlist']);
+Route::get('edit-user/{id}', [UserManagmentController::class, 'edituser']);
+Route::delete('users/{id}', [UserManagmentController::class, 'deleteuser'])->name('delete-user');
+Route::post('/updateuser/{id}', [UserManagmentController::class, 'updateuserdata']);
+Route::post('user/detail', [UserManagmentController::class, 'user_detail'])->name('user.detail');
+
 
 
 
