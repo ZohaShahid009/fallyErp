@@ -30,11 +30,16 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label>Refrence number:</label>
                             <input name="ref_number" id="ref_number" type="text"
                                 class="form-control form-control-solid" />
                             <span class="form-text text-muted">Please enter refrence number</span>
+                        </div> --}}
+                        <div class="form-group">
+                            Refrence number:
+                            <input type="text" name="ref_number" id="ref_number"
+                                value="INV-{{ date('Y-m-d') }}-{{ $num }}" class="form-control" readonly />
                         </div>
                         <div class="form-group">
                             Invoice Date:
@@ -71,21 +76,23 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+
                                         <tr id='addr0'>
                                             <td>1</td>
-                                            <td><input type="text" name='products[1][name]'
+                                            <td><input type="text" name='name[]'
                                                     placeholder='Enter Product Name' class="form-control" /></td>
                                             <td>
-                                                <textarea type="text" name='products[1][desc]' placeholder='Enter item_description' class="form-control"></textarea>
+                                                <textarea type="text" name='desc[]' placeholder='Enter item_description' class="form-control"></textarea>
                                             </td>
-                                            <td><input type="number" name='products[1][qty]' placeholder='Enter Qty'
+                                            <td><input type="number" name='qty[]' placeholder='Enter Qty'
                                                     class="form-control qty" step="0" min="0" /></td>
-                                            <td><input type="number" name='products[1][price]'
+                                            <td><input type="number" name='price[]'
                                                     placeholder='Enter Unit Price' class="form-control price" step="0.00"
                                                     min="0" /></td>
-                                            <td><input type="number" name='products[1][total]' placeholder='0.00'
+                                            <td><input type="number" name='total[]' placeholder='0.00'
                                                     class="form-control total" readonly /></td>
                                         </tr>
+
                                         <tr id='addr1'></tr>
                                     </tbody>
                                 </table>
@@ -143,14 +150,21 @@
         </div>
 
     </div>
+
     <script>
         $(document).ready(function() {
             var i = 1;
             $("#add_row").click(function() {
                 b = i - 1;
                 $('#addr' + i).html($('#addr' + b).html()).find('td:first-child').html(i + 1);
+                // $('#addr' + i).html($('#addr' + b).html()).find('td:nth-child(2)').find('input').attr("name",products[+i][name]);
+                // $('.zzz').attr("name", +i);
+
                 $('#tab_logic').append('<tr id="addr' + (i + 1) + '"></tr>');
+
+
                 i++;
+                // z++;
             });
             $("#delete_row").click(function() {
                 if (i > 1) {
