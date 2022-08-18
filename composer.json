@@ -22,6 +22,7 @@
         "omnipay/paypal": "^3.0",
         "qoraiche/laravel-mail-editor": "^4.0",
         "srmklive/paypal": "~3.0",
+        "srmklive/paypal": "^3.0",
         "stripe/stripe-php": "^8.10"
     },
     "require-dev": {

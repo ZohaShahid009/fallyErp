@@ -185,6 +185,15 @@
                                                         title="View details">
                                                         <i class="la la-eye"></i>
                                                     </a>
+                                                    <form class="btn btn-sm btn-clean btn-icon" method="POST"
+                                                        action="{{ route('delete/invoice', $invoices->id) }}">
+                                                        @csrf
+                                                        <input name="_method" type="hidden" value="DELETE">
+                                                        <button
+                                                            class="kt_sweetalert_demo_9 btn btn-sm btn-clean btn-icon show_confirm"
+                                                            data-toggle="tooltip" type="submit" title='Delete'><i
+                                                                class="la la-trash"></i></button>
+                                                    </form>
                                                     {{-- <form class="btn btn-sm btn-clean btn-icon" method="POST"
                                                             action="{{ route('delete-company', $company->id) }}">
                                                             @csrf

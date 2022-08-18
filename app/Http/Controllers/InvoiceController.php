@@ -11,8 +11,9 @@ class InvoiceController extends Controller
 {
     public function createinvoice(Request $request){
         if ($request->isMethod('get')) {
+            $num = rand(0, 9999);
             $company =  Company::all();
-            return view('admin.invoices.create', compact('company'));
+            return view('admin.invoices.create', compact('company','num'));
         };
         // dd($request);
         $Invoice = new Invoice([
@@ -25,20 +26,22 @@ class InvoiceController extends Controller
             'amount'=> $request->get('total_amount'),
         ]);
         $Invoice->save();
-
-        foreach($request->products as $product) {
+        // Saving products details.
+        foreach($request->name as $index => $name)
+        {
+            $transformed_data[] = array(
             $Invoice->products()->create([
-                // 'invoice_id' => $Invoice->id,
-                'item_name' => $product['name'],
-                'item_description' => $product['desc'],
-                'quantity' => $product['qty'],
-                'unit_cost' => $product['price'],
-                'line_total' => $product['total'],
-            ]);
+                'invoice_id' => $Invoice->id,
+                'item_name' => $request->name[$index],
+                'item_description' => $request->desc[$index],
+                'quantity' => $request->qty[$index],
+                'unit_cost' => $request->price[$index],
+                'line_total' => $request->total[$index],
+                ])
+            );
         }
 
-        return redirect('/create/invoice/')->with('message', 'Invoice has been added');
-
+        return redirect('/list/invoice/')->with('message', 'Invoice has been added');
     }
 
     public function listinvoice(Request $request){
@@ -48,9 +51,18 @@ class InvoiceController extends Controller
         };
     }
     public function viewinvoice(Request $request, $id){
-        $product = InvoiceProduct::orderBy('id','desc')->where('invoice_id', $id)->get();
+        // $product = InvoiceProduct::orderBy('id','desc')->where('invoice_id', $id)->get();
+        // dd($product);
         $invoice = Invoice::find($id);
+        $product = $invoice->products()->get();
+        // dd($asdf);
         return view('admin.invoices.view', compact('invoice','product'));
+    }
+    public function deleteinvoice($id){
+        $invoice = Invoice::find($id);
+        $invoice->products()->delete();
+        $invoice->delete();
+         return back();
     }
 
 }
