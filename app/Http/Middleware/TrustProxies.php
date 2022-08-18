@@ -12,6 +12,7 @@ class TrustProxies extends Middleware
      *
      * @var array<int, string>|string|null
      */
+
     protected $proxies;
 
     /**
@@ -19,6 +20,7 @@ class TrustProxies extends Middleware
      *
      * @var int
      */
+    
     protected $headers =
         Request::HEADER_X_FORWARDED_FOR |
         Request::HEADER_X_FORWARDED_HOST |

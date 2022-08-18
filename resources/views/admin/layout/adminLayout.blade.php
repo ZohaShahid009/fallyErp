@@ -1488,4 +1488,4 @@
     @endif
 </script>
 @yield('scripts')
-</html>
+

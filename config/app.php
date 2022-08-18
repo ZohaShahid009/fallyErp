@@ -165,6 +165,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         Srmklive\PayPal\Providers\PayPalServiceProvider::class,
+        
 
         /*
          * Package Service Providers...
