@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\theme;
 use Illuminate\Http\Request;
 use App\Models\UserManage;
 
@@ -72,11 +73,7 @@ class UserManagmentController extends Controller
         return view('admin.pages.settings.user-manag.add');
     }
 
-
-
-
-
-
+// for email template
 
 
 

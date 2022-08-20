@@ -9,7 +9,7 @@
 							</div>
 							<!--end::Copyright-->
 							<!--begin::Nav-->
-                           
+
 							<div class="nav nav-dark">
 								<a href="#" target="_blank" class="nav-link pl-0 pr-5">About</a>
 								<a href="#" target="_blank" class="nav-link pl-0 pr-5">Team</a>
@@ -20,5 +20,8 @@
 						<!--end::Container-->
 					</div>
 					<!--end::Footer-->
+
+
+
 
 

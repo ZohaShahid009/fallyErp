@@ -6,6 +6,8 @@ use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\SupportTicketController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\BetMail;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\ProductController;
@@ -21,9 +23,12 @@ use App\Http\Controllers\PayPalController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\UserManagmentController;
+use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\FrontendController\IndexController;
-
 use App\Models\Plan;
+use App\Models\theme;
+use App\Models\User;
+use Illuminate\Http\Request;
 
 
 /*
@@ -268,7 +273,7 @@ Route::get('error',   [PaymentController::Class, 'error']);
 Route::get('change-password',[ChangePasswordController::Class,'index']);
 Route::post('change-password',[ChangePasswordController::Class, 'store'])->name('change.password');
 // for user managment
-// Route::get('add',[UserManagmentController::Class,'add-user']);
+// Route::get('add',[UserManagmentController::Class,'add-user']);clear
 // Route::get('add-user-form', function () {
 //     return view('admin.pages.settings.user-manag.add');
 // });
@@ -283,3 +288,28 @@ Route::post('user/detail', [UserManagmentController::class, 'user_detail'])->nam
 
 
 
+// for email themes
+Route::get('/send-email', [ThemeController::class, 'sendEmail']);
+Route::get('theme', [ThemeController::class, 'email_theme']);
+
+Route::post('theme/activation', function(Request $request)
+{
+    theme::create([
+        'status' => $request->status,
+        'name' => $request->theme,
+    ]);
+    return redirect('/theme-list');
+})->name('theme.activation');
+Route::get('theme-list', [ThemeController::class, 'theme']);
+
+
+
+Route::get('hadi-test', function() {
+    return view('admin.email.theme.theme2');
+});
+
+
+
+
+// for  theme activation status
+Route::post('/admin/update-banner-status',[ThemeController::class, 'updateStatus']);

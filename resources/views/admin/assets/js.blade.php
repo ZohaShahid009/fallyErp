@@ -196,3 +196,48 @@ function formatCurrency(input, blur) {
             $("#signature").val('');
         });
     </script>
+  {{--  for status  --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+  integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+  crossorigin="anonymous" referrerpolicy="no-referrer">
+</script>
+
+<script>
+
+    //Update Banner Status
+    $(".BannerStatus").change(function(){
+        var id = $(this).attr('rel');
+        if($(this).prop("checked")==true){
+           $.ajax({
+              headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+              type : 'post',
+              url : '/admin/update-banner-status',
+              data : {status:'1',id:id},
+              success:function(data){
+                 $("#message_success").show();
+                 setTimeout(function() { $("#message_success").fadeOut('slow'); }, 2000);
+              },error:function(){
+                 alert("Error");
+              }
+           });
+
+        }else{
+          $.ajax({
+              headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+              type : 'post',
+              url : '/admin/update-banner-status',
+              data : {status:'0',id:id},
+              success:function(resp){
+                 $("#message_error").show();
+                 setTimeout(function() { $("#message_error").fadeOut('slow'); }, 2000);
+              },error:function(){
+                 alert("Error");
+              }
+           });
+        }
+       });
+    </script>

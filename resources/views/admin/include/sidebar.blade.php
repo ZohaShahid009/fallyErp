@@ -626,17 +626,18 @@
                                     <i class="menu-arrow"></i>
                                 </a>
                             </li>
-
+                            {{--  rf  --}}
 
                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                                <a href="{{ url('/welcome') }}" class="menu-link menu-toggle">
+                                <a href="{{ url('/theme-list') }}" class="menu-link menu-toggle">
                                     <i class="menu-bullet menu-bullet-line">
                                         <span></span>
                                     </i>
-                                    <span class="menu-text"> Welcome Email</span>
+                                    <span class="menu-text">Select Email theme</span>
                                     <i class="menu-arrow"></i>
                                 </a>
                             </li>
+                          
                             {{-- next --}}
                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="{{ url('/list-languages') }}" class="menu-link menu-toggle">
