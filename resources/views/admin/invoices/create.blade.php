@@ -208,5 +208,4 @@
             $('#total_amount').val((tax_sum + total).toFixed(2));
         }
     </script>
-
 @endsection

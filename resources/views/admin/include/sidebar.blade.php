@@ -531,6 +531,22 @@
 
                         </ul>
                     </div>
+                    <div class="menu-submenu">
+                        <i class="menu-arrow"></i>
+                        <ul class="menu-subnav">
+
+                            <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                <a href="{{ url('/list/invoice/payment') }}" class="menu-link menu-toggle">
+                                    <i class="menu-bullet menu-bullet-line">
+                                        <span></span>
+                                    </i>
+                                    <span class="menu-text">Payment received</span>
+                                    <i class="menu-arrow"></i>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
 
                 </li>
                 {{-- rfff  for settings --}}
@@ -588,7 +604,7 @@
                                 </a>
                             </li>
                             {{--  end  --}}
-                           
+
                                {{--  rff  --}}
                                <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="{{ url('/user-list') }}" class="menu-link menu-toggle">
@@ -600,7 +616,7 @@
                                 </a>
                             </li>
                             {{--  end  --}}
-                            
+
                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="{{ url('/add-email-form') }}" class="menu-link menu-toggle">
                                     <i class="menu-bullet menu-bullet-line">

@@ -14,63 +14,7 @@
                 <!--begin::Container-->
                 <div class="container-fluid">
                     <!--begin::Notice-->
-                    <div class="row">
-                        <div class="col-xl-3">
-                            <!--begin::Stats Widget 26-->
-                            <div class="card card-custom bg-light-danger gutter-b">
-                                <!--begin::ody-->
-                                <div class="card-body">
 
-                                    <span
-                                        class="card-title font-weight-bolder text-dark-75 font-size-h2 mb-0 d-block">${{ $total_outstanding }}.00</span>
-                                    <span class="font-weight-bold text-muted font-size-sm">Total Outstanding Invoices</span>
-                                </div>
-                                <!--end::Body-->
-                            </div>
-                            <!--end::Stats Widget 26-->
-                        </div>
-                        <div class="col-xl-3">
-                            <!--begin::Stats Widget 30-->
-                            <div class="card card-custom bg-info gutter-b">
-                                <!--begin::Body-->
-                                <div class="card-body">
-                                    <span
-                                        class="card-title font-weight-bolder text-white font-size-h2 mb-0 d-block">${{ $invoices_total }}.00</span>
-                                    <span class="font-weight-bold text-white font-size-sm">Total Invoices Amount</span>
-                                </div>
-                                <!--end::Body-->
-                            </div>
-                            <!--end::Stats Widget 30-->
-                        </div>
-                        <div class="col-xl-3">
-                            <!--begin::Stats Widget 31-->
-                            <div class="card card-custom bg-danger gutter-b">
-                                <!--begin::Body-->
-                                <div class="card-body">
-
-                                    <span
-                                        class="card-title font-weight-bolder text-white font-size-h2 mb-0 d-block">$50,000</span>
-                                    <span class="font-weight-bold text-white font-size-sm">Overdue Invoices Amount</span>
-                                </div>
-                                <!--end::Body-->
-                            </div>
-                            <!--end::Stats Widget 31-->
-                        </div>
-                        <div class="col-xl-3">
-                            <!--begin::Stats Widget 32-->
-                            <div class="card card-custom bg-light-success gutter-b">
-                                <!--begin::Body-->
-                                <div class="card-body">
-
-                                    <span
-                                        class="card-title font-weight-bolder text-dark-75 font-size-h2 mb-0 d-block">${{ $invoices_total_paid }}.00</span>
-                                    <span class="font-weight-bold text-muted font-size-sm">Total Paid Invoices</span>
-                                </div>
-                                <!--end::Body-->
-                            </div>
-                            <!--end::Stats Widget 32-->
-                        </div>
-                    </div>
                     <!--end::Notice-->
                     <!--begin::Card-->
 
@@ -78,7 +22,7 @@
                         <div class="card card-custom">
                             <div class="card-header flex-wrap py-5">
                                 <div class="card-title">
-                                    <h3 class="card-label">Invoices
+                                    <h3 class="card-label">Received Payments
                                 </div>
                                 <div class="card-toolbar">
                                     <!--begin::Dropdown-->
@@ -157,7 +101,7 @@
                                     </div>
                                     <!--end::Dropdown-->
                                     <!--begin::Button-->
-                                    <a href="{{ url('create/invoice/') }}" class="btn btn-primary font-weight-bolder">
+                                    <a href="{{ url('create/invoice/payment') }}" class="btn btn-primary font-weight-bolder">
                                         <span class="svg-icon svg-icon-md">
                                             <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
                                             <svg xmlns="http://www.w3.org/2000/svg"
@@ -165,15 +109,14 @@
                                                 viewBox="0 0 24 24" version="1.1">
                                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                     <rect x="0" y="0" width="24" height="24" />
-                                                    <circle fill="#000000" cx="9" cy="15"
-                                                        r="6" />
+                                                    <circle fill="#000000" cx="9" cy="15" r="6" />
                                                     <path
                                                         d="M8.8012943,7.00241953 C9.83837775,5.20768121 11.7781543,4 14,4 C17.3137085,4 20,6.6862915 20,10 C20,12.2218457 18.7923188,14.1616223 16.9975805,15.1987057 C16.9991904,15.1326658 17,15.0664274 17,15 C17,10.581722 13.418278,7 9,7 C8.93357256,7 8.86733422,7.00080962 8.8012943,7.00241953 Z"
                                                         fill="#000000" opacity="0.3" />
                                                 </g>
                                             </svg>
                                             <!--end::Svg Icon-->
-                                        </span>New Invoice</a>
+                                        </span>Make Payment</a>
                                     <!--end::Button-->
                                 </div>
                             </div>
@@ -183,11 +126,11 @@
                                     <thead>
                                         <tr>
                                             <th>SR#</th>
-                                            <th>Invoice</th>
-                                            <th>invoice Date</th>
-                                            <th>Due Date</th>
-                                            <th>Client name</th>
-                                            <th>status</th>
+                                            <th>payment date</th>
+                                            <th>Invoice Date</th>
+                                            <th>Client</th>
+                                            <th>Amount</th>
+                                            <th>Payment Method</th>
                                             <th>Actions</th>
 
                                         </tr>
@@ -197,40 +140,21 @@
                                         @php
                                             $i = 0;
                                         @endphp
-                                        @foreach ($invoice as $invoices)
+                                        @foreach ($payment as $payments)
                                             <tr></tr>
                                             <tr>
                                                 <td>{{ ++$i }}</td>
-                                                <td>{{ $invoices->invoice_number }}</td>
-                                                <td>{{ $invoices->invoice_date }}</td>
-                                                <td> <?php echo date('F d, Y', strtotime($invoices->due_date)); ?>
-                                                    <?php
-                                                    $date = new DateTime($invoices->due_date);
-                                                    $now = new DateTime();
-                                                    ?>
-                                                    @if ($date < $now)
-                                                        <span class="label label-danger label-pill label-inline mr-2">
-                                                            Overdue
-                                                        </span>
-                                                    @endif
-                                                </td>
-                                                <td>{{ $invoices->client->company_name }}</td>
+                                                <td>{{ $payments->payment_date }}</td>
+                                                <td>{{ $payments->invoice->invoice_date }}</td>
+                                                <td>{{ $payments->client->company_name }}</td>
+                                                <td>{{ $payments->payment_amount }}</td>
+                                                <td>{{ $payments->payment_type }}</td>
                                                 <td>
-                                                    @php
-                                                       $status = ($invoices->status);
-                                                    @endphp
-                                                    @if ($status == 0)
-                                                    <span class="label label-dark label-inline mr-2">Draft</span>
-                                                    @elseif ($status == 1)
-                                                    <span class="label label-primary label-inline font-weight-bold mr-2">sent</span>
-                                                    @elseif ($status == 2)
-                                                    <span class="label label-danger label-pill label-inline mr-2">Not Paid</span>
-                                                    @elseif ($status == 3)
-                                                    <span class="label label-info label-inline mr-2">Partially Paid</span>
-                                                    @elseif ($status == 4)
-                                                    <span class="label label-success label-inline mr-2">Fully Paid</span>
-                                                @endif
-                                                <td>
+                                                    <a href="{{ url('view/invoicepayment', $payments->id) }}"
+                                                        class="btn btn-sm btn-clean btn-icon view_details" id=""
+                                                        title="View details">
+                                                        <i class="la la-eye"></i>
+                                                    </a>
                                                     {{-- <div class="dropdown dropdown-inline">
                                                             <a href="javascript:;" class="btn btn-sm btn-clean btn-icon"
                                                                 data-toggle="dropdown">
@@ -261,11 +185,10 @@
                                                             class="btn btn-sm btn-clean btn-icon" title="Edit details">
                                                             <i class="la la-edit"></i>
                                                         </a> --}}
-                                                    <a href="{{ url('view/invoice', $invoices->id) }}"
+                                                    {{-- <a href="{{ url('view/invoice', $invoices->id) }}"
                                                         class="btn btn-sm btn-clean btn-icon view_details" id=""
                                                         title="View details">
                                                         <i class="la la-eye"></i>
-
                                                     </a>
                                                     <form class="btn btn-sm btn-clean btn-icon" method="POST"
                                                         action="{{ route('delete/invoice', $invoices->id) }}">
@@ -275,7 +198,7 @@
                                                             class="kt_sweetalert_demo_9 btn btn-sm btn-clean btn-icon show_confirm"
                                                             data-toggle="tooltip" type="submit" title='Delete'><i
                                                                 class="la la-trash"></i></button>
-                                                    </form>
+                                                    </form> --}}
                                                     {{-- <form class="btn btn-sm btn-clean btn-icon" method="POST"
                                                             action="{{ route('delete-company', $company->id) }}">
                                                             @csrf

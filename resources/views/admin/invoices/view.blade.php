@@ -104,10 +104,22 @@
                                         </div>
                                     </div>
                                     <div class="d-flex flex-column text-md-right">
-                                        <span class="font-size-lg font-weight-bolder mb-1">TOTAL AMOUNT</span>
+                                        <div class="d-flex flex-column mb-10 mb-md-0">
+                                            <div class="d-flex justify-content-between mb-3">
+                                                <span class="mr-20 font-weight-bold">Total:</span>
+                                                <span class="text-right text-danger font-weight-boldest">${{ $invoice->amount }}</span>
+                                            </div>
+                                            <div class="d-flex justify-content-between mb-3">
+                                                <span class="mr-30 font-weight-bold">Paid Amount:</span>
+                                                <span class="text-right text-danger font-weight-boldest">${{ $invoice->deposit_amount }}.00</span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between pt-10 mb-1">
+                                        <span class="font-size-h2 font-weight-bolder mb-1">TOTAL DUE:</span>
                                         <span
-                                            class="font-size-h2 font-weight-boldest text-danger mb-1">${{ $invoice->amount }}</span>
-                                        <span>Taxes Included</span>
+                                            class="font-size-h2 font-weight-boldest text-danger mb-1">${{ $invoice->balance }}.00</span>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>

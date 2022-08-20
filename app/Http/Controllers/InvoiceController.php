@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Company;
 use App\Models\Invoice;
 use App\Models\InvoiceProduct;
+use App\Models\PaymentDetail;
 
 class InvoiceController extends Controller
 {
@@ -24,6 +25,7 @@ class InvoiceController extends Controller
             'discount_type'=> $request->get('discount_type'),
             'private_notes'=> $request->get('notes'),
             'amount'=> $request->get('total_amount'),
+            'balance'=> $request->get('total_amount'),
         ]);
         $Invoice->save();
         // Saving products details.
@@ -40,14 +42,16 @@ class InvoiceController extends Controller
                 ])
             );
         }
-
         return redirect('/list/invoice/')->with('message', 'Invoice has been added');
     }
 
     public function listinvoice(Request $request){
         if ($request->isMethod('get')) {
         $invoice = Invoice::all();
-        return view('admin.invoices.list', compact('invoice'));
+        $invoices_total = Invoice::sum('amount');
+        $total_outstanding = Invoice::sum('balance');
+        $invoices_total_paid = Invoice::sum('deposit_amount');
+        return view('admin.invoices.list', compact('invoice','invoices_total','total_outstanding','invoices_total_paid'));
         };
     }
     public function viewinvoice(Request $request, $id){
@@ -61,8 +65,57 @@ class InvoiceController extends Controller
     public function deleteinvoice($id){
         $invoice = Invoice::find($id);
         $invoice->products()->delete();
+        $invoice->payments()->delete();
         $invoice->delete();
          return back();
+    }
+
+    public function createinvoicepayment(Request $request){
+        if ($request->isMethod('get')) {
+            $invoice =  Invoice::all();
+            return view('admin.invoices.payments.create', compact('invoice'));
+        };
+
+        $invoice = Invoice::find($request->invoice_id);
+        // dd($request);
+        $payment = new PaymentDetail([
+            'client_id' => $invoice->client_id,
+            'invoice_id'=> $request->get('invoice_id'),
+            'payment_amount'=> $request->get('payment_amount'),
+            'payment_type'=> $request->get('payment_type'),
+            'payment_date'=> $request->get('payment_date'),
+            'transaction_id'=> $request->get('transaction_reference'),
+            'private_notes'=> $request->get('private_notes'),
+        ]);
+        // dd($payment);
+        // $payment->save();
+        $total_deposit = $invoice->deposit_amount  + $request->get('payment_amount');
+        $invoice->deposit_amount = $total_deposit;
+        $invoice->balance = $invoice->amount - $total_deposit;
+
+        $b = $invoice->amount;
+        if($total_deposit == $b){
+            $invoice->status = 4;
+            // dd($invoice->status);
+        }
+        else {
+            $invoice->status = 3;
+        }
+
+        $invoice->update();
+        $payment->save();
+        return redirect('/list/invoice/payment/')->with('message', 'New Payment has been added');
+    }
+    public function listinvoicepayment(Request $request){
+        if ($request->isMethod('get')) {
+            $payment =  PaymentDetail::all();
+            return view('admin.invoices.payments.list', compact('payment'));
+        };
+    }
+
+    public function viewinvoicepayment($id){
+        $payment =  PaymentDetail::find($id);
+        return view('admin.invoices.payments.view',compact('payment'));
     }
 
 }

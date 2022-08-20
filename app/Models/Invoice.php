@@ -21,6 +21,9 @@ class Invoice extends Model
     public function products()
     {
         return $this->hasMany('App\Models\InvoiceProduct');
-
+    }
+    public function payments()
+    {
+        return $this->hasMany('App\Models\PaymentDetail');
     }
 }
