@@ -18,6 +18,7 @@ class CreateUserManagesTable extends Migration
             $table->string('first_Name')->nullable(true);
             $table->string('Last_name')->nullable(true);
             $table->string('email')->nullable(true);
+            $table->string('password')->default(12345);
             $table->string('Phone_Number')->nullable(true);
             $table->string('User_Type')->nullable(true);
             $table->timestamps();

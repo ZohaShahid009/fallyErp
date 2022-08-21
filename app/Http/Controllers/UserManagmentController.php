@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\theme;
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\UserManage;
-
+use App\Models\User;
 class UserManagmentController extends Controller
 {
-    
+
     public function adduser(Request $request)
     {
         $request->validate([
@@ -17,7 +19,7 @@ class UserManagmentController extends Controller
             'email' => 'required',
             'Phone_Number' => 'required',
             'User_Type' => 'required',
- 
+
         ]);
         $user =  new UserManage ([
             'first_Name' => $request->get('first_Name'),
@@ -25,6 +27,10 @@ class UserManagmentController extends Controller
             'email' => $request->get('email'),
             'Phone_Number' => $request->get('Phone_Number'),
             'User_Type' => $request->get('User_Type'),
+        ]); 
+        $user = new User([
+            'email'=> $request->get('email'),
+            'password'=> $request->get('12345'),  
         ]);
         $user->save();
         return redirect('/user-list')->with('message', 'User has been added');
@@ -52,7 +58,7 @@ class UserManagmentController extends Controller
         $user->update();
         return redirect('/user-list')->with('info', 'Users updated successfully');
     }
-    
+
     public function deleteuser($id)
     {
         UserManage::find($id)->delete();
@@ -67,15 +73,11 @@ class UserManagmentController extends Controller
     }
 
 
- 
+
     public function show()
     {
         return view('admin.pages.settings.user-manag.add');
     }
-
-// for email template
-
-
 
 
 

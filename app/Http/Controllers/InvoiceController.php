@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Company;
 use App\Models\Invoice;
 use App\Models\InvoiceProduct;
+use App\Notifications\InvoiceEmailNotification;
+use Illuminate\Support\Facades\Notification;
 
 class InvoiceController extends Controller
 {
@@ -15,7 +17,6 @@ class InvoiceController extends Controller
             $company =  Company::all();
             return view('admin.invoices.create', compact('company','num'));
         };
-        // dd($request);
         $Invoice = new Invoice([
             'client_id' => $request->get('client_id'),
             'invoice_number'=> $request->get('ref_number'),
@@ -25,7 +26,12 @@ class InvoiceController extends Controller
             'private_notes'=> $request->get('notes'),
             'amount'=> $request->get('total_amount'),
         ]);
+        $Invoice->send(new InvoiceEmailNotification());
+        dd("after email send");
+        //  $Invoice::notify($Invoice, new InvoiceEmailNotification);
         $Invoice->save();
+
+
         // Saving products details.
         foreach($request->name as $index => $name)
         {

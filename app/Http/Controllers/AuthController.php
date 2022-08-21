@@ -5,10 +5,10 @@ use Hash;
 use Session;
 // use Illuminate\Support\Facades\Mail;
 use App\Mail\BetMail;
+use App\Mail\WelcomeMail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Notifications\welcomenotification;
 use Illuminate\Support\Facades\Notification;
 // use App\Models\User;
 
@@ -38,27 +38,8 @@ class AuthController extends Controller
             'name'=>'required|min:2',
             'password'=>'required|min:8'
         ]);
-    //     $data = $request->all();
-    //     $check = $this->create($data);
-    //     $email=User::first();
-    //     Notification::send($email, new welcomenotification);
-    //
-//     $data=['name'=>"zoha",'data'=>"hello zoi"];
-// $user['to']='zohashahid604@gmail.com';
-// Mail::send('mail',$data,function($message) use ($user){
-//     $message->to('zohashahid604@gmail.com');
-//     $message->subject('hello its done');
-// });
-// dd('done');
-//  $data=['name'=>"",'data'=>" has  successfully Register","email"=>$request->input('email')];
-// $user['to']='zohashahid604@gmail.com';
-// Mail::send( 'data', function ($messages) use ($request) {
-//     $messages->from('zoha@gmail.com','wjjkask');
-//     $messages->to($request->email,'fyp')->subject('Walcom Email');
 
-// });
-// Alert::success('Register sucessfully', 'Success Message');
-// return back();
+
 
          return redirect('dashboard')->withSuccess('Logged In Successfully');
     }
@@ -68,7 +49,21 @@ class AuthController extends Controller
             'name'=>$data['name'],
             'email'=>$data['email'],
             'password'=>Hash::make($data['password'])
-        ]);
+       ]);
+// email data
+$email_data = array(
+    'name' => $data['name'],
+    'email' => $data['email'],
+);
+
+// send email with the template
+Mail::send('welcome_email', $email_data, function ($message) use ($email_data) {
+    $message->to($email_data['email'], $email_data['name'])
+        ->subject('Welcome to MyNotePaper')
+        ->from('info@mynotepaper.com', 'MyNotePaper');
+});
+
+return $user;
     }
 
 
