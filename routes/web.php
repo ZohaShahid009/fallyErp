@@ -165,6 +165,10 @@ Route::match(['get', 'post'], 'create/invoice/', [InvoiceController::class, 'cre
 Route::match(['get', 'post'], 'list/invoice/', [InvoiceController::class, 'listinvoice']);
 Route::get('view/invoice/{id}', [InvoiceController::class, 'viewinvoice']);
 Route::delete('delete/invoice/{id}', [InvoiceController::class, 'deleteinvoice'])->name('delete/invoice');
+
+Route::match(['get', 'post'], 'create/invoice/payment', [InvoiceController::class, 'createinvoicepayment']);
+Route::match(['get', 'post'], 'list/invoice/payment', [InvoiceController::class, 'listinvoicepayment']);
+Route::get('view/invoicepayment/{id}', [InvoiceController::class, 'viewinvoicepayment']);
 // Invoice Routes Ends
 
 

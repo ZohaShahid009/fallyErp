@@ -17,6 +17,6 @@
 		<link href="{{asset('/')}}assets/css/themes/layout/aside/dark.css" rel="stylesheet" type="text/css" />
 		<!--end::Layout Themes-->
 		<link rel="shortcut icon" href="{{asset('/')}}assets/media/logos/favicon.ico" />
-        
+
 
 

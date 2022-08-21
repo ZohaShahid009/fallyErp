@@ -25,7 +25,7 @@ class CreateInvoicesTable extends Migration
             $table->string('discount')->nullable();
             $table->string('discount_type')->nullable();
             $table->longText('private_notes')->nullable();
-            $table->string('status')->default('Draft');
+            $table->string('status')->default('0');
             $table->timestamps();
         });
     }
