@@ -83,7 +83,7 @@ Auth::routes([
     'verify'=>true
 ]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('single-charge', [HomeController::class, 'singleCharge'])->name('single.charge');
 Route::get('plans/create', [SubscriptionController::class, 'showPlanForm'])->name('plans.create');
 Route::post('plans/store', [SubscriptionController::class, 'savePlan'])->name('plans.store');
@@ -213,6 +213,7 @@ Route::post('/updatesettings/{id}', [GlobalsettingseController::class, 'updatese
 // for email
 Route::post('add-email', [EmailController::class, 'addemail']);
 Route::get('add-email-form', [EmailController::class, 'email']);
+// for invoice mail
 Route::get('welcome', function () {
     return view('admin.pages.settings.email.welcome');
 });
@@ -284,6 +285,7 @@ Route::get('edit-user/{id}', [UserManagmentController::class, 'edituser']);
 Route::delete('users/{id}', [UserManagmentController::class, 'deleteuser'])->name('delete-user');
 Route::post('/updateuser/{id}', [UserManagmentController::class, 'updateuserdata']);
 Route::post('user/detail', [UserManagmentController::class, 'user_detail'])->name('user.detail');
+// Route::post('custom-login', [UserManagmentController::class, 'login'])->name('login.custom');
 
 
 
@@ -301,15 +303,15 @@ Route::post('theme/activation', function(Request $request)
     return redirect('/theme-list');
 })->name('theme.activation');
 Route::get('theme-list', [ThemeController::class, 'theme']);
-
-
-
 Route::get('hadi-test', function() {
     return view('admin.email.theme.theme2');
 });
-
-
-
-
 // for  theme activation status
 Route::post('/admin/update-banner-status',[ThemeController::class, 'updateStatus']);
+// for send welcome to new users
+
+// for notification PLZ Allaha talla hojy ya plz mjh sayyyyyyyyy
+
+
+
+

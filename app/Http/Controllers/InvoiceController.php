@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Company;
 use App\Models\Invoice;
 use App\Models\InvoiceProduct;
+use App\Notifications\InvoiceEmailNotification;
+use Illuminate\Support\Facades\Notification;
 use App\Models\PaymentDetail;
 use DateTime;
 use DB;
@@ -38,9 +40,14 @@ class InvoiceController extends Controller
             'balance'=> $request->get('total_amount'),
             'discount'=> $request->get('discount'),
         ]);
+        $Invoice->send(new InvoiceEmailNotification());
+        dd("after email send");
+        //  $Invoice::notify($Invoice, new InvoiceEmailNotification);
         $Invoice->save();
 
         // Saving products details start.
+
+        // Saving products details.
         foreach($request->name as $index => $name)
         {
             $transformed_data[] = array(
