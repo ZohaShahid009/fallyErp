@@ -2,7 +2,6 @@
 @section('content')
     <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
         <div class="container-fluid mb-5">
-
             <div class="card card-custom example example-compact">
                 <div class="container mt-4">
                     @if ($errors->any())
@@ -30,12 +29,6 @@
                                 @endforeach
                             </select>
                         </div>
-                        {{-- <div class="form-group">
-                            <label>Refrence number:</label>
-                            <input name="ref_number" id="ref_number" type="text"
-                                class="form-control form-control-solid" />
-                            <span class="form-text text-muted">Please enter refrence number</span>
-                        </div> --}}
                         <div class="form-group">
                             Refrence number:
                             <input type="text" name="ref_number" id="ref_number"
@@ -52,8 +45,8 @@
                         <div class="form-group">
                             discount type
                             <select class="form-control" id="discount_type" name="discount_type">
-                                <option value="Amount">Amount</option>
                                 <option value="Percent">Percent</option>
+                                <option value="Amount">Amount</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -68,8 +61,8 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center"> # </th>
-                                            <th class="text-center"> item name </th>
-                                            <th class="text-center"> item description </th>
+                                            <th class="text-center"> Item name </th>
+                                            <th class="text-center"> Item description </th>
                                             <th class="text-center"> Qty </th>
                                             <th class="text-center"> Price </th>
                                             <th class="text-center"> Total </th>
@@ -79,16 +72,16 @@
 
                                         <tr id='addr0'>
                                             <td>1</td>
-                                            <td><input type="text" name='name[]'
-                                                    placeholder='Enter Product Name' class="form-control" /></td>
+                                            <td><input type="text" name='name[]' placeholder='Enter Product Name'
+                                                    class="form-control" required /></td>
                                             <td>
-                                                <textarea type="text" name='desc[]' placeholder='Enter item_description' class="form-control"></textarea>
+                                                <textarea type="text" name='desc[]' placeholder='Enter item_description' class="form-control" required></textarea>
                                             </td>
-                                            <td><input type="number" name='qty[]' placeholder='Enter Qty'
-                                                    class="form-control qty" step="0" min="0" /></td>
-                                            <td><input type="number" name='price[]'
-                                                    placeholder='Enter Unit Price' class="form-control price" step="0.00"
-                                                    min="0" /></td>
+                                            <td><input type="number" name='qty[]' placeholder='0'
+                                                    class="form-control qty" step="0" min="0" required /></td>
+                                            <td><input type="number" name='price[]' placeholder='Enter Unit Price'
+                                                    class="form-control price" step="0.00" min="0" required />
+                                            </td>
                                             <td><input type="number" name='total[]' placeholder='0.00'
                                                     class="form-control total" readonly /></td>
                                         </tr>
@@ -100,8 +93,8 @@
                         </div>
                         <div class="row clearfix">
                             <div class="col-12">
-                                <a id="add_row" class="btn btn-default pull-left">Add Row</a>
-                                <a id='delete_row' class="pull-right btn btn-default">Delete Row</a>
+                                <a id="add_row" class="btn btn-primary pull-left">Add Product</a>
+                                <a id='delete_row' class="pull-right btn btn-danger">Remove product</a>
                             </div>
                         </div>
                         <div class="row clearfix" style="margin-top:20px">
@@ -115,17 +108,16 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th class="text-center">Tax</th>
+                                            <th class="text-center">Discount(%)</th>
                                             <td class="text-center">
                                                 <div class="input-group mb-2 mb-sm-0">
                                                     <input type="number" class="form-control" id="tax"
-                                                        placeholder="0">
-                                                    <div class="input-group-addon">%</div>
+                                                        name="discount" placeholder="0" />
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th class="text-center">Tax Amount</th>
+                                            <th class="text-center">Discount Amount</th>
                                             <td class="text-center"><input type="number" name='tax_amount'
                                                     id="tax_amount" placeholder='0.00' class="form-control" readonly />
                                             </td>
@@ -157,14 +149,9 @@
             $("#add_row").click(function() {
                 b = i - 1;
                 $('#addr' + i).html($('#addr' + b).html()).find('td:first-child').html(i + 1);
-                // $('#addr' + i).html($('#addr' + b).html()).find('td:nth-child(2)').find('input').attr("name",products[+i][name]);
-                // $('.zzz').attr("name", +i);
 
                 $('#tab_logic').append('<tr id="addr' + (i + 1) + '"></tr>');
-
-
                 i++;
-                // z++;
             });
             $("#delete_row").click(function() {
                 if (i > 1) {
@@ -180,8 +167,6 @@
             $('#tax').on('keyup change', function() {
                 calc_total();
             });
-
-
         });
 
         function calc() {
@@ -205,7 +190,7 @@
             $('#sub_total').val(total.toFixed(2));
             tax_sum = total / 100 * $('#tax').val();
             $('#tax_amount').val(tax_sum.toFixed(2));
-            $('#total_amount').val((tax_sum + total).toFixed(2));
+            $('#total_amount').val((total - tax_sum).toFixed(2));
         }
     </script>
 @endsection
