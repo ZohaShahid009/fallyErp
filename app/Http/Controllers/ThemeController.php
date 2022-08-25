@@ -6,6 +6,7 @@ use App\Mail\BetMail;
 use Illuminate\Http\Request;
 use App\Models\theme;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class ThemeController extends Controller
@@ -49,6 +50,7 @@ class ThemeController extends Controller
 //  return new BetMail($data);
         //  $email = 'hadiniazo@gmail.com';
         //  for view your email in gmail
+        
         Mail::to($user->email)->send(new BetMail($data));
         return 'email send' ;
     }
@@ -67,4 +69,8 @@ class ThemeController extends Controller
         theme::where('id',$data['id'])->update(['status'=>$data['status']]);
 
     }
+    // public function test(){
+    //    dd(Auth::user()->email);
+
+    // }
 }

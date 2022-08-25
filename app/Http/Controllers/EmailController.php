@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\EmailSettings;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use Laravel\Cashier\Subscription;
 use Validator;
 
 // use App\Notifications\welcomenotification;
@@ -46,10 +48,39 @@ class EmailController extends Controller
         $email->save();
         return redirect('/add-email-form')->with('message', 'Email has been added');
     }
-    public function  paymentcredentials()
-    {
-     return view('admin.pages.settings.payment.create');
-    }
+
+public function editpayment(Request $request, $id)
+
+{
+  $subscriptions = Subscription::where('user_id', auth()->id())->first();
+// dd($subscriptions);
+    return view('admin.pages.settings.payment.create', compact('subscriptions'));
+}
+
+
+public function updatepayment(Request $request, $id)
+{
+    $subscriptions = Subscription::find($id);
+    $subscriptions->user_id= $request->get('user_id');
+    // $subscriptions->stripe_id= $request->get('stripe_id');
+    $subscriptions->stripe_status= $request->get('stripe_status');
+    $subscriptions->update();
+    return redirect('edit-payment')->with('info', 'Payment Settings For Stripe updated successfully');
+}
+// rfff end
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function  socialize()
     {

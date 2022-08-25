@@ -224,8 +224,10 @@ Route::get('list-languages', [LanguageSettingController::class, 'list']);
 Route::get('edit-language/{id}', [LanguageSettingController::class, 'editLang']);
 Route::post('update-language/{id}', [LanguageSettingController::class, 'updateLang']);
 Route::delete('language/{id}', [LanguageSettingController::class, 'deleteLanguage'])->name('delete-Language');
-// for payment
-Route::get('/add-payment', [EmailController::class, 'paymentcredentials']);
+// for payment configration
+// Route::get('/add-payment', [EmailController::class, 'paymentcredentials']);
+Route::get('edit-payment/{id}', [EmailController::class, 'editpayment']);
+Route::post('updatepayment/{id}', [EmailController::class, 'updatepayment']);
 // for social links
 Route::get('/add-socialize', [EmailController::class, 'socialize']);
 
@@ -312,6 +314,7 @@ Route::post('/admin/update-banner-status',[ThemeController::class, 'updateStatus
 
 // for notification PLZ Allaha talla hojy ya plz mjh sayyyyyyyyy
 
+Route::get('/test',[ThemeController::class, 'test']);
 
 
 

@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Company;
 use App\Models\Invoice;
 use App\Models\InvoiceProduct;
-use App\Notifications\InvoiceEmailNotification;
-use Illuminate\Support\Facades\Notification;
+// use App\Notifications\InvoiceEmailNotification;
+// use Illuminate\Support\Facades\Notification;
 use App\Models\PaymentDetail;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\InvoiceMail;
+use App\Models\User;
 
 class InvoiceController extends Controller
 {
@@ -27,11 +31,48 @@ class InvoiceController extends Controller
             'private_notes'=> $request->get('notes'),
             'amount'=> $request->get('total_amount'),
             'balance'=> $request->get('total_amount'),
-        ]);
-        $Invoice->send(new InvoiceEmailNotification());
-        dd("after email send");
+        ]);       
+           $Invoice->save();
+        //    rfff
+                // dd($themeName);
+                // $user = User::where('name','zoha', 'email','zohashahid604@gmail.com')->first();
+              
+            $users = DB::table('users')
+            ->select('name', 'email')
+            ->get();
+            // dd($users);
+           $invoice = Invoice::first();
+           $data=[
+            'client_id' => $invoice->client_id,
+            'email' =>$invoice->email,
+            'invoice_number'=>$invoice->invoice_number,
+            'invoice_date'=> $invoice->invoice_date,
+            'due_date'=> $invoice->due_date,
+            'discount_type'=> $invoice->discount_type,
+            'private_notes'=> $invoice->notes,
+            'amount'=> $invoice->total_amount,
+        ];
+        //  dd($invoice);
+    
+        Mail::to($invoice->email)->send(new InvoiceMail($data));
+        return 'email send' ;
+
+
+
+
+        //    $invoice_date=$request->get('invoice_date');
+        //    $invoice_number= $request->get('ref_number');
+        //    $amount= $request->get('total_amount');
+        //    $client_id = $request->get('client_id');
+        //    $reciver= Invoice::Latest('client_id')->first();
+        //    dd($reciver);
+        //    $reciver_id=$reciver->id;
+        //    Notification::send($reciver_id,new InvoiceEmailNotification( $invoice_date,$invoice_number,$amount,$client_id));
+
+        //  dd("after email send");
         //  $Invoice::notify($Invoice, new InvoiceEmailNotification);
-        $Invoice->save();
+        // send($Invoice,new InvoiceEmailNotification($student,$sender,$taskid));
+       
 
 
         // Saving products details.

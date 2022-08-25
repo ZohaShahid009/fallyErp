@@ -637,7 +637,7 @@
                                     <i class="menu-arrow"></i>
                                 </a>
                             </li>
-                          
+
                             {{-- next --}}
                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="{{ url('/list-languages') }}" class="menu-link menu-toggle">
@@ -650,7 +650,7 @@
                             </li>
                             {{-- next --}}
                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
-                                <a href="{{ url('/add-payment') }}" class="menu-link menu-toggle">
+                                <a href="{{ url('/edit-payment/{id}') }}" class="menu-link menu-toggle">
                                     <i class="menu-bullet menu-bullet-line">
                                         <span></span>
                                     </i>

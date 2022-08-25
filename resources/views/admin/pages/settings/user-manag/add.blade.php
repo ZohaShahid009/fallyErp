@@ -40,11 +40,19 @@
                                     <input name="email" id="email" type="email" class="form-control" />
                                 </div>
                                 <div class="col-lg-6">
+                                    <label>Password</label>
+                                    <input name="password" id="password" type="password" class="form-control" />
+                                </div>
+                            </div>
+
+                           
+                               
+                            
+                            <div class="form-group row">
+                                <div class="col-lg-6">
                                     <label>Phone Number:</label>
                                     <input name="Phone_Number" id="Phone_Number" type="" class="form-control" />
                                 </div>
-                            </div>
-                            <div class="form-group row">
                                 <div class="col-lg-6">
                                     <label>User Type</label>
                                     <select class="form-control" name="User_Type">
@@ -55,6 +63,7 @@
                                             
                                     </select>
                                 </div>
+                               
                             </div>
                             
                             <div class="card-footer">
