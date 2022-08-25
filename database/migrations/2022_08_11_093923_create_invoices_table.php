@@ -26,6 +26,14 @@ class CreateInvoicesTable extends Migration
             $table->string('discount_type')->nullable();
             $table->longText('private_notes')->nullable();
             $table->string('status')->default('0');
+            //<--- Status Details --->\\
+            // status = 0 is Draft.
+            // status = 1 is Sent.
+            // status = 2 is Not paid.
+            // status = 3 is partially paid.
+            // status = 4 is fully paid.
+            // status = 5 is over due.
+            // status = 6 is Paid late.
             $table->timestamps();
         });
     }
