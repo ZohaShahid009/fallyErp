@@ -59,6 +59,7 @@ class GlobalsettingseController extends Controller
         $timezone->time_formate = $request->get('time_formate');
         $timezone->timezone = $request->get('timezone');
         $timezone->money_formate = $request->get('money_formate');
+        $timezone->signed = $request->get('signed');
         if (isset($request->company_logo)  && ($request->company_logo->extension() != '')) {
             $imageName = rand(0, 999999999) . time() . '.' . $request->company_logo->extension();
             $request->company_logo->move(public_path('images'), $imageName);
@@ -84,26 +85,26 @@ class GlobalsettingseController extends Controller
             $request->invoice_logo->move(public_path('images'), $imageName);
             $timezone->invoice_logo =  $imageName;
         }
-        if (isset($request->signed))
-        {
+        // if (isset($request->signed))
+        // {
 
-            $folderPath = public_path('images/');
+        //     $folderPath = public_path('images/');
 
-            $image = explode(";base64,", $request->signed);
+        //     $image = explode(";base64,", $request->signed);
 
-            $image_type = explode("image/",  $image[0]);
+        //     $image_type = explode("image/",  $image[0]);
 
-            $image_type_png = $image_type[1];
+        //     $image_type_png = $image_type[1];
 
-            $image_base64 = base64_decode($image[1]);
+        //     $image_base64 = base64_decode($image[1]);
 
-            $file = $folderPath . uniqid() . '.'.$image_type_png;
+        //     $file = $folderPath . uniqid() . '.'.$image_type_png;
 
-            file_put_contents($file, $image_base64);
-            $timezone->signed = $image ;
-        }
+        //     file_put_contents($file, $image_base64);
+        //     $timezone->signed = $image ;
+        // }
         $timezone->update();
         return back()->with('info', 'Settings updated successfully');
     }
-    
+
 }

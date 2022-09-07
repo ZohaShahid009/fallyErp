@@ -29,9 +29,7 @@
         {{View::make('frontend.layout.header')}}
         @yield('content')
         {{View::make('frontend.layout.footer')}}
-      
-
-
+    
     </body>
 
     </html>

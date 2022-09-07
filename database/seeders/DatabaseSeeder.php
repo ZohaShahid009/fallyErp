@@ -18,5 +18,22 @@ class DatabaseSeeder extends Seeder
         $this->call([
             SuperAdmin::class,
         ]);
+        $this->call([
+            CountrySeeder::class,
+        ]);
+        $this->call([
+            SeetingSeeder::class,
+        ]);
+        $this->call([
+            StripeconfigSeeder::class,
+        ]);
+        $this->call([
+            SuperAdmin::class,
+        ]);
+
+        $this->call([
+            TimezoneTableSeeder::class,
+        ]);
+
     }
 }

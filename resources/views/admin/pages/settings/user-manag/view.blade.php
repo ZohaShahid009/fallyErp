@@ -104,6 +104,8 @@
                                     </div>
                                     <!--end::Dropdown-->
                                     <!--begin::Button-->
+                                    @if(auth()->user()->User_Type == "Admin")
+
                                     <a href="{{ url('add-user-form')}}" class="btn btn-primary font-weight-bolder">
                                         <span class="svg-icon svg-icon-md">
                                             <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
@@ -121,6 +123,7 @@
                                             <!--end::Svg Icon-->
                                         </span>New Record</a>
                                     <!--end::Button-->
+                                    @endif
                                 </div>
                             </div>
                             <div class="card-body">
@@ -128,7 +131,7 @@
                                 <table class="table table-separate table-head-custom table-checkable" id="kt_datatable">
                                     <thead>
                                         <tr>
-                                           
+
                                     <th>SR#</th>
                                     <th>first Name</th>
                                     <th>Last Name</th>

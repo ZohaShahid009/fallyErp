@@ -46,8 +46,10 @@ class SeetingSeeder extends Seeder
                     'auth_logo'=>'../assets/images/image3.png',
                     'admin_logo'=>'../assets/images/image4.png',
                     'invoice_logo'=>'../assets/images/image5.png',
-                    'signed'=>'../assets/images/image6.png',
+                    // 'signed'=>'../assets/images/image6.png',
+                    'signed'=>'Audi..',
                 ])
+
 
             ],
         ];

@@ -606,15 +606,17 @@
                             {{--  end  --}}
 
                                {{--  rff  --}}
+
                                <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                 <a href="{{ url('/user-list') }}" class="menu-link menu-toggle">
                                     <i class="menu-bullet menu-bullet-line">
                                         <span></span>
                                     </i>
-                                    <span class="menu-text"> User Management</span>
+                                    <span class="menu-text">User Management</span>
                                     <i class="menu-arrow"></i>
                                 </a>
                             </li>
+
                             {{--  end  --}}
 
                             <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">

@@ -42,7 +42,7 @@ use Illuminate\Http\Request;
 |
 */
 // for frontend
-Route::get('show', [IndexController::class, 'show']);
+Route::get('/', [IndexController::class, 'show']);
 Route::get('sale', [IndexController::class, 'sale']);
 Route::get('price', [IndexController::class, 'price']);
 Route::get('apps', [IndexController::class, 'apps']);
@@ -57,7 +57,7 @@ Route::post('custom-login', [AuthController::class, 'login'])->name('login.custo
 Route::get('registration', [AuthController::class, 'registration'])->name('register-user');
 Route::post('custom-registration', [AuthController::class, 'submit_registration'])->name('register.custom');
 Route::get('signout', [AuthController::class, 'signout'])->name('signout');
-Route::get('/', [AuthController::class, 'dashboard'])->middleware('isLogged');
+Route::get('/admin', [AuthController::class, 'dashboard'])->middleware('isLogged');
 
 // Route::get('/', function () {
 //     return view('admin.pages.dashboard.dashboard');
@@ -295,7 +295,6 @@ Route::post('user/detail', [UserManagmentController::class, 'user_detail'])->nam
 // for email themes
 Route::get('/send-email', [ThemeController::class, 'sendEmail']);
 Route::get('theme', [ThemeController::class, 'email_theme']);
-
 Route::post('theme/activation', function(Request $request)
 {
     theme::create([
@@ -304,10 +303,11 @@ Route::post('theme/activation', function(Request $request)
     ]);
     return redirect('/theme-list');
 })->name('theme.activation');
+
 Route::get('theme-list', [ThemeController::class, 'theme']);
-Route::get('hadi-test', function() {
-    return view('admin.email.theme.theme2');
-});
+// Route::get('hadi-test', function() {
+//     return view('admin.email.theme.theme2');
+// });
 // for  theme activation status
 Route::post('/admin/update-banner-status',[ThemeController::class, 'updateStatus']);
 // for send welcome to new users
@@ -315,6 +315,8 @@ Route::post('/admin/update-banner-status',[ThemeController::class, 'updateStatus
 // for notification PLZ Allaha talla hojy ya plz mjh sayyyyyyyyy
 
 Route::get('/test',[ThemeController::class, 'test']);
+
+
 
 
 

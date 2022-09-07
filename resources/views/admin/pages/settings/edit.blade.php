@@ -308,20 +308,29 @@
                                             src="{{ asset('images/' . $settings->invoice_logo) }}">
                                     @endif
                                 </div>
-{{--  rff  --}}
+
+{{--  zoiii  --}}
 <div class="col-lg-6">
+    <label>Email signature</label>
+    <textarea name="signed" id="signed" type="text" class="form-control"
+         />{{ $settings->signed}}
+    </textarea>
+
+</div>
+{{--  rff ejnd  --}}
+{{--  <div class="col-lg-6">
     <label class="" for="">Signature:</label>
     <br/>
     <div id="sig"></div>
     <br><br>
     <button id="clear" class="btn btn-danger">Clear Signature</button>
-    {{--  <button class="btn btn-success">Save</button>  --}}
+
     <textarea id="signature" name="signed" style="display: none"></textarea>
     @if (!empty($settings->signed))
     <img style="width:100px;margin-top:10px;" id="blah"
         src="{{ asset('images/' . $settings->signed) }}">
 @endif
-</div>
+</div>  --}}
 {{--  end  --}}
 
 

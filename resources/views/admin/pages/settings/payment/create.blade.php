@@ -21,17 +21,14 @@
                                         <label class="col-form-label text-right col-lg-3 col-sm-12">Activation</label>
                                         <div class="col-lg-9 col-md-9 col-sm-12">
                                             <input data-switch="true" type="checkbox" checked="checked" data-on-text="ON" data-off-text="Off" data-on-color="primary" />
-
                                         </div>
                                     </div>
                                     {{-- zoha1 --}}
                                     <div class="form-group">
                                         <label>Payment Client ID:</label>
                                         <input type="Client_ID" class="form-control" placeholder="Payment Client ID" />
-
                                     </div>
                                     {{-- zoha2 --}}
-
                                 <div class="form-group">
                                     <label>Payment Client Secret:</label>
                                     <input type="Password" class="form-control" placeholder="Payment Client Secret:">

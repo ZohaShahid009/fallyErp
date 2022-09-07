@@ -106,7 +106,7 @@ class SubscriptionController extends Controller
             // dd('trial');
         }
         $subscriptions = Subscription::where('user_id', auth()->id())->get();
-        // dd($subscriptions );
+        //  dd($subscriptions );
         return view('stripe.subscriptions.index', compact('subscriptions'));
     }
 
