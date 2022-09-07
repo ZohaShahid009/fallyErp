@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\InvoiceMail;
 use App\Models\User;
 use DateTime;
-use DB;
 
 class InvoiceController extends Controller
 {
@@ -42,6 +41,7 @@ class InvoiceController extends Controller
             'private_notes'=> $request->get('notes'),
             'amount'=> $request->get('total_amount'),
             'balance'=> $request->get('total_amount'),
+            'discount'=> $request->get('discount')
         ]);
            $Invoice->save();
         //    rfff
@@ -66,7 +66,7 @@ class InvoiceController extends Controller
         //  dd($invoice);
 
         Mail::to($invoice->email)->send(new InvoiceMail($data));
-        return 'email send' ;
+
 
 
 
@@ -81,10 +81,10 @@ class InvoiceController extends Controller
         //    Notification::send($reciver_id,new InvoiceEmailNotification( $invoice_date,$invoice_number,$amount,$client_id));
 
         //  dd("after email send");
-            'discount'=> $request->get('discount'),
-        ]);
-        $Invoice->send(new InvoiceEmailNotification());
-        dd("after email send");
+
+
+        // $Invoice->send(new InvoiceEmailNotification());
+        // dd("after email send");
         //  $Invoice::notify($Invoice, new InvoiceEmailNotification);
         // send($Invoice,new InvoiceEmailNotification($student,$sender,$taskid));
 
