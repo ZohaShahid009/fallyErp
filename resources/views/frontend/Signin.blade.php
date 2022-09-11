@@ -34,7 +34,7 @@
                     </div>
                   </div>
                   <button class="btn btn-block btn-info text-uppercase mt-lg-4">Sign in</button>
-                  <p class="mt-3 d-flex justify-content-between"><a href="./Signup.html" class="text-info font-weight-bold">Don't have an account?</a><a href="#" class="text-info font-weight-bold">Reset Password</a></p>
+                  <p class="mt-3 d-flex justify-content-between"><a href="signup" class="text-info font-weight-bold">Don't have an account?</a><a href="#" class="text-info font-weight-bold">Reset Password</a></p>
                 </div>
         </div>
     </div>

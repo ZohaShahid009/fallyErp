@@ -5,10 +5,10 @@
 <head>
     <base href="../../../">
     <meta charset="utf-8" />
-    <title>Login Page 2 | Keenthemes</title>
+    <title>Login FallyErp | ERP</title>
     <meta name="description" content="Login page example" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <link rel="canonical" href="https://keenthemes.com/metronic" />
+    <link rel="canonical" href="#" />
     <!--begin::Fonts-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <!--end::Fonts-->
@@ -82,8 +82,8 @@
                                             class="text-primary font-size-h6 font-weight-bolder text-hover-primary pt-5"
                                             id="kt_login_forgot">Forgot Password ?</a>
                                     </div>
-                                    <input
-                                        class="form-control form-control-solid h-auto py-7 px-6 rounded-lg type="password"
+                                    <input type="password"
+                                        class="form-control form-control-solid h-auto py-7 px-6 rounded-lg
                                         placeholder="Password" id="password" class="form-control" name="password"
                                         autocomplete="off">
                                     @if ($errors->has('password'))

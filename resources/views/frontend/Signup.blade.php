@@ -38,9 +38,9 @@
                     </div>
                   </div>
                   <button class="btn btn-block btn-info text-uppercase mt-lg-4">Sign up</button>
-                  <p class="text-right mt-3"><a href="./Signin.html" class="text-info font-weight-bold">I already have an account</a></p>
+                  <p class="text-right mt-3"><a href="/signin" class="text-info font-weight-bold">I already have an account</a></p>
                   <p>We will handle your personal data as described in our <a href="#" class="text-secondary font-weight-bold"> Privacy Policy.</a></p>
-                 
+
                 </div>
         </div>
     </div>

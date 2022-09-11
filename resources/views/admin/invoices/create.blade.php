@@ -91,12 +91,12 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="row clearfix">
+
+                        </div> <div class="row clearfix">
                             <div class="col-12">
                                 <a id="add_row" class="btn btn-primary pull-left">Add Product</a>
                                 <a id='delete_row' class="pull-right btn btn-danger">Remove product</a>
                             </div>
-                        </div>
                         <div class="row clearfix" style="margin-top:20px">
                             <div class="pull-right col-5">
                                 <table class="table table-bordered table-hover" id="tab_logic_total">
