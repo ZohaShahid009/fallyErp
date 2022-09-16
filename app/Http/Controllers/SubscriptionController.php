@@ -127,6 +127,14 @@ class SubscriptionController extends Controller
             return 'subsc is canceled';
         }
     }
+    // public function resumeSubscriptions(Request $request)
+    // {
+    //     $user = auth()->user();
+    //     $subscriptionName = $request->subscriptionName;
+    //     if($subscriptionName){
+    //         $user->subscription($subscriptionName)->resume();
+    //         return 'subsc is resumed';
+    //     }
     public function resumeSubscriptions(Request $request)
     {
         $user = auth()->user();

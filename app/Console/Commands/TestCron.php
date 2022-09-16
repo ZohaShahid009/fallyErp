@@ -37,38 +37,56 @@ class TestCron extends Command
         foreach ($data as $data) {
             if ($data->billing_method == 'week') {
                 $days = $data->interval_count * 7;
-                $PackageEndingDate = date('Y-m-d', strtotime($data->subscribe_date . $days));
-                if ($data('Y-m-d')< $PackageEndingDate) {
-                    // edhr mail send ka code likhna hy
+                strtotime($data->subscribe_date . $days);
+                // dd( date('Y-m-d', strtotime($data->subscribe_date . $days)));
+                //  dd (gettype($data->subscribe_date));
+                // dd($days);
+                $PackageEndingDate = date('Y-m-d', strtotime($data->subscribe_date ." + ". $days." days"));
+                if (date('Y-m-d') < $PackageEndingDate)
+                 {
                     $data = array('data' => 'Cron Testing');
-                    Mail::send('mail', $data, function ($message) {
+                    Mail::send('mail', $data, function ($message)
+                     {
                         $message->to('zohashahid604@gmail.com')
-                            ->subject('Cron jobs testing example');
+                           ->subject('Cron jobs testing example');
                     });
+
                     // mail end
                 }
             }
+            // next1
             if ($data->billing_method == 'month') {
                 $days = $data->interval_count * 30;
-                $PackageEndingDate = date('Y-m-d', strtotime($data->subscribe_date . $days));
-                if ($data('Y-m-d')< $PackageEndingDate) {
-                    // edhr mail send ka code likhna hy
-                }
-            }
-            if ($data->billing_method == 'year') {
-                $days = $data->interval_count * 365;
-                $PackageEndingDate = date('Y-m-d', strtotime($data->subscribe_date . $days));
-                if ($data('Y-m-d')< $PackageEndingDate) {
-                    // edhr mail send ka code likhna hy
-                }
-            }
-        }
+                strtotime($data->subscribe_date . $days);
+                $PackageEndingDate = date('Y-m-d', strtotime($data->subscribe_date ." + ". $days." days"));
+                if (date('Y-m-d') < $PackageEndingDate)
+                 {
+                    $data = array('data' => 'Cron Testing');
+                    Mail::send('mail', $data, function ($message)
+                     {
+                        $message->to('zohashahid604@gmail.com')
+                           ->subject('Cron jobs testing example');
+                    });
 
-        // $data = array('data' => 'Cron Testing');
-        // Mail::send('mail', $data, function ($message) {
-            //     $message->to('zohashahid604@gmail.com')
-            //         ->subject('Cron jobs testing example');
-        // });
-        // Mail::send('admin.email.theme.theme2')->to('Zohashahid604@gmail.co}
+                    // mail end
+                }
+            }
+            // next1 end
+        }
     }
 }
+
+
+
+        // Mail::send('admin.email.theme.theme2')->to('Zohashahid604@gmail.com}
+                //     $email_data = array(
+                //         'name' => $data['name'],
+                //         'email' => $data['email'],
+                //     );
+                //     Mail::send('welcome_email', $email_data, function ($message) use ($email_data) {
+                //         $message->to($email_data['email'], $email_data['name'])
+                //             ->subject('Welcome to MyNotePaper')
+                //             ->from('info@mynotepaper.com', 'MyNotePaper');
+                //     });
+
+

@@ -4,10 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Carbon\Carbon;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
+
+    public function add_product_form()
+    {
+       $levels = Category::get();
+    //    dd($levels);
+      return view('admin.pages.product.create')->with(compact('levels'));
+    }
     public function addproduct(Request $request)
     {
         $request->validate([
@@ -20,6 +28,7 @@ class ProductController extends Controller
             'discrption' => 'required',
             'category_id' => 'required',
         ]);
+
         $product = new Product([
             'tittle' => $request->get('tittle'),
             'cost' => $request->get('cost'),

@@ -67,14 +67,25 @@
                                 </div>
                             </div>
                             {{-- <div class="form-group row"> --}}
-                            <div class="form-group">
+                            {{--  <div class="form-group">
                                 <label>Category id</label>
                                 <select name="category_id" id="parent_id" class="form-control">
                                     <option value="0">Category id</option>
                                     {{-- @foreach ($levels as $val)
                                             <option value="{{ $val->id }}">{{ $val->name }}</option>
                                         @endforeach --}}
+                                {{--  </select>
+                            </div>  --}}
+                            <div class="form-group row">
+                                <div class="form-group">
+                                <label>Category id</label>
+                                <select name="category_id" id="parent_id" class="form-control">
+                                    <option value="0">Parent Category</option>
+                                    @foreach ($levels as $val)
+                                    <option value="{{ $val->id }}">{{ $val->title }}</option>
+                                    @endforeach
                                 </select>
+                            </div>
                             </div>
                             <div class="form-group">
                                 <label for="comment">Discrption:</label>

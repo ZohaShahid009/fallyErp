@@ -188,9 +188,10 @@ Route::post('admin/detail', [AdminFAQController::class, 'admin_detail'])->name('
 
 
 // products
-Route::get('add-product-form', function () {
-    return view('admin.pages.product.create');
-});
+// Route::get('add-product-form', function () {
+//     return view('admin.pages.product.create');
+// });
+Route::get('add-product-form', [ProductController::class, 'add_product_form']);
 Route::get('product-list', [ProductController::class, 'productlist']);
 Route::post('add-product', [ProductController::class, 'addproduct']);
 Route::get('edit-product/{id}', [ProductController::class, 'editproduct']);
