@@ -46,7 +46,8 @@ class ProductController extends Controller
     public function productlist()
     {
         // $product = Product::paginate(1);
-       $product= DB::table('products')->paginate(2);
+        $product = Product::get();
+    //    $product= DB::table('products')->paginate(2);
         return view('admin.pages.product.list', compact('product'));
     }
     public function editproduct(Request $request, $id)

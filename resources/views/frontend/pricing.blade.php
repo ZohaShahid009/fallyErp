@@ -5,7 +5,7 @@
 <body>
     <section class="container-fluid bg_price px-0 pb-3">
 
-      
+
         <h1 class="display-4 font-weight-bold text-white pricing_heading text-center">Fally ERP Pricing</h1>
     </section>
     <section class="container-fluid Pricing_sect pb-5">
@@ -34,28 +34,35 @@
                             <span class="font-weight-light">/user/month</span>
                         </div>
                     </div>
+
                     <h3 class="mt-3">
                         Choose your <span class="font-weight-bold">Apps</span>
                     </h3>
+                    @foreach ($product as $product)
                     <div class="row">
                         <div class="col-lg-4 mt-3 p-2" data-aos="fade-up" data-aos-duration="1000">
                             <div class="bg-white p-2">
+
                                 <div class="row">
                                     <div class="col-3 d-flex">
                                         <span href="#" class="firstIcon p-2 rounded">
                                             <i class="text-white fa-solid fa-handshake fa-2x"></i>
                                         </span>
                                     </div>
+
+                                    {{--  start dynamic  data  --}}
                                     <div class="col-9">
-                                        <span class="font-weight-bold d-block">CRM</span>
-                                        <span class="font-weight-bold"> $8.00 USD</span>
+                                        <span class="font-weight-bold d-block">{{ $product->tittle}}</span>
+                                        <span class="font-weight-bold"> ${{ $product->cost}}</span>
                                         <span class="font-weight-light">/month</span>
                                         <input type="checkbox" name="" id="" class="checkbox-round" />
                                     </div>
+
                                 </div>
+
                             </div>
                         </div>
-                        <div class="col-lg-4 p-2 mt-3" data-aos="fade-up" data-aos-duration="1000">
+                        {{--  <div class="col-lg-4 p-2 mt-3" data-aos="fade-up" data-aos-duration="1000">
                             <div class="bg-white p-2">
                                 <div class="row">
                                     <div class="col-3 d-flex">
@@ -397,16 +404,17 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>  --}}
 
 
                     </div>
-                    <h3 class="mt-3">
+                    @endforeach
+
+                    {{--  <h3 class="mt-3">
                         Extra <span class="font-weight-bold">Integrations</span>
-                    </h3>
-
+                    </h3>  --}}
                     <div class="row">
-                        <div class="col-lg-4 p-2 mt-3" data-aos="fade-up" data-aos-duration="1000">
+                        {{--  <div class="col-lg-4 p-2 mt-3" data-aos="fade-up" data-aos-duration="1000">
                             <div class="bg-white p-2">
                                 <div class="row">
                                     <div class="col-3 d-flex">
@@ -422,144 +430,148 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-4 p-2 mt-3" data-aos="fade-up" data-aos-duration="1000">
-                            <div class="bg-white p-2">
-                                <div class="row">
-                                    <div class="col-3 d-flex">
-                                        <span href="#" class="secondIcon p-2 rounded">
-                                            <i class="fa-solid fa-2x text-white fa-arrow-trend-up"></i>
-                                        </span>
-                                    </div>
-                                    <div class="col-9">
-                                        <span class="font-weight-bold d-block">Sales</span>
-                                        <span class="font-weight-bold"> $8.00 USD</span>
-                                        <span class="font-weight-light">/month</span>
-                                        <input type="checkbox" name="" id="" class="checkbox-round" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mt-3 p-2" data-aos="fade-up" data-aos-duration="1000">
-                            <div class="bg-white p-2">
-                                <div class="row">
-                                    <div class="col-3 d-flex">
-                                        <span href="#" class="firstIcon p-2 rounded">
-                                            <i class="text-white fa-solid fa-handshake fa-2x"></i>
-                                        </span>
-                                    </div>
-                                    <div class="col-9">
-                                        <span class="font-weight-bold d-block">CRM</span>
-                                        <span class="font-weight-bold"> $8.00 USD</span>
-                                        <span class="font-weight-light">/month</span>
-                                        <input type="checkbox" name="" id="" class="checkbox-round" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 p-2 mt-3" data-aos="fade-up" data-aos-duration="1000">
-                            <div class="bg-white p-2">
-                                <div class="row">
-                                    <div class="col-3 d-flex">
-                                        <span href="#" class="thirdIcon py-2 px-3 rounded">
-                                            <i class="text-white fa-solid fa-file-invoice-dollar fa-2x"></i>
-                                        </span>
-                                    </div>
-                                    <div class="col-9">
-                                        <span class="font-weight-bold d-block">Invoicing</span>
-                                        <span class="font-weight-bold"> $8.00 USD</span>
-                                        <span class="font-weight-light">/month</span>
-                                        <input type="checkbox" class="checkbox-round" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 p-2 mt-3" data-aos="fade-up" data-aos-duration="1000">
-                            <div class="bg-white p-2">
-                                <div class="row">
-                                    <div class="col-3 d-flex">
-                                        <span href="#" class="secondIcon p-2 rounded">
-                                            <i class="fa-solid fa-2x text-white fa-arrow-trend-up"></i>
-                                        </span>
-                                    </div>
-                                    <div class="col-9">
-                                        <span class="font-weight-bold d-block">Sales</span>
-                                        <span class="font-weight-bold"> $8.00 USD</span>
-                                        <span class="font-weight-light">/month</span>
-                                        <input type="checkbox" name="" id="" class="checkbox-round" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mt-3 p-2" data-aos="fade-up" data-aos-duration="1000">
-                            <div class="bg-white p-2">
-                                <div class="row">
-                                    <div class="col-3 d-flex">
-                                        <span href="#" class="firstIcon p-2 rounded">
-                                            <i class="text-white fa-solid fa-handshake fa-2x"></i>
-                                        </span>
-                                    </div>
-                                    <div class="col-9">
-                                        <span class="font-weight-bold d-block">CRM</span>
-                                        <span class="font-weight-bold"> $8.00 USD</span>
-                                        <span class="font-weight-light">/month</span>
-                                        <input type="checkbox" name="" id="" class="checkbox-round" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 p-2 mt-3" data-aos="fade-up" data-aos-duration="1000">
-                            <div class="bg-white p-2">
-                                <div class="row">
-                                    <div class="col-3 d-flex">
-                                        <span href="#" class="thirdIcon py-2 px-3 rounded">
-                                            <i class="text-white fa-solid fa-file-invoice-dollar fa-2x"></i>
-                                        </span>
-                                    </div>
-                                    <div class="col-9">
-                                        <span class="font-weight-bold d-block">Invoicing</span>
-                                        <span class="font-weight-bold"> $8.00 USD</span>
-                                        <span class="font-weight-light">/month</span>
-                                        <input type="checkbox" class="checkbox-round" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 p-2 mt-3" data-aos="fade-up" data-aos-duration="1000">
-                            <div class="bg-white p-2">
-                                <div class="row">
-                                    <div class="col-3 d-flex">
-                                        <span href="#" class="secondIcon p-2 rounded">
-                                            <i class="fa-solid fa-2x text-white fa-arrow-trend-up"></i>
-                                        </span>
-                                    </div>
-                                    <div class="col-9">
-                                        <span class="font-weight-bold d-block">Sales</span>
-                                        <span class="font-weight-bold"> $8.00 USD</span>
-                                        <span class="font-weight-light">/month</span>
-                                        <input type="checkbox" class="checkbox-round" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 mt-3 p-2" data-aos="fade-up" data-aos-duration="1000">
-                            <div class="bg-white p-2">
-                                <div class="row">
-                                    <div class="col-3 d-flex">
-                                        <span href="#" class="firstIcon p-2 rounded">
-                                            <i class="text-white fa-solid fa-handshake fa-2x"></i>
-                                        </span>
-                                    </div>
-                                    <div class="col-9">
-                                        <span class="font-weight-bold d-block">CRM</span>
-                                        <span class="font-weight-bold"> $8.00 USD</span>
-                                        <span class="font-weight-light">/month</span>
-                                        <input type="checkbox" name="" id="" class="checkbox-round" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </div>  --}}
 
+                        {{--  zoyy  --}}
+
+                        {{--  <div class="col-lg-4 p-2 mt-3" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="bg-white p-2">
+                                <div class="row">
+                                    <div class="col-3 d-flex">
+                                        <span href="#" class="secondIcon p-2 rounded">
+                                            <i class="fa-solid fa-2x text-white fa-arrow-trend-up"></i>
+                                        </span>
+                                    </div>
+                                    <div class="col-9">
+                                        <span class="font-weight-bold d-block">Sales</span>
+                                        <span class="font-weight-bold"> $8.00 USD</span>
+                                        <span class="font-weight-light">/month</span>
+                                        <input type="checkbox" name="" id="" class="checkbox-round" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mt-3 p-2" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="bg-white p-2">
+                                <div class="row">
+                                    <div class="col-3 d-flex">
+                                        <span href="#" class="firstIcon p-2 rounded">
+                                            <i class="text-white fa-solid fa-handshake fa-2x"></i>
+                                        </span>
+                                    </div>
+                                    <div class="col-9">
+                                        <span class="font-weight-bold d-block">CRM</span>
+                                        <span class="font-weight-bold"> $8.00 USD</span>
+                                        <span class="font-weight-light">/month</span>
+                                        <input type="checkbox" name="" id="" class="checkbox-round" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 p-2 mt-3" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="bg-white p-2">
+                                <div class="row">
+                                    <div class="col-3 d-flex">
+                                        <span href="#" class="thirdIcon py-2 px-3 rounded">
+                                            <i class="text-white fa-solid fa-file-invoice-dollar fa-2x"></i>
+                                        </span>
+                                    </div>
+                                    <div class="col-9">
+                                        <span class="font-weight-bold d-block">Invoicing</span>
+                                        <span class="font-weight-bold"> $8.00 USD</span>
+                                        <span class="font-weight-light">/month</span>
+                                        <input type="checkbox" class="checkbox-round" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 p-2 mt-3" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="bg-white p-2">
+                                <div class="row">
+                                    <div class="col-3 d-flex">
+                                        <span href="#" class="secondIcon p-2 rounded">
+                                            <i class="fa-solid fa-2x text-white fa-arrow-trend-up"></i>
+                                        </span>
+                                    </div>
+                                    <div class="col-9">
+                                        <span class="font-weight-bold d-block">Sales</span>
+                                        <span class="font-weight-bold"> $8.00 USD</span>
+                                        <span class="font-weight-light">/month</span>
+                                        <input type="checkbox" name="" id="" class="checkbox-round" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mt-3 p-2" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="bg-white p-2">
+                                <div class="row">
+                                    <div class="col-3 d-flex">
+                                        <span href="#" class="firstIcon p-2 rounded">
+                                            <i class="text-white fa-solid fa-handshake fa-2x"></i>
+                                        </span>
+                                    </div>
+                                    <div class="col-9">
+                                        <span class="font-weight-bold d-block">CRM</span>
+                                        <span class="font-weight-bold"> $8.00 USD</span>
+                                        <span class="font-weight-light">/month</span>
+                                        <input type="checkbox" name="" id="" class="checkbox-round" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 p-2 mt-3" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="bg-white p-2">
+                                <div class="row">
+                                    <div class="col-3 d-flex">
+                                        <span href="#" class="thirdIcon py-2 px-3 rounded">
+                                            <i class="text-white fa-solid fa-file-invoice-dollar fa-2x"></i>
+                                        </span>
+                                    </div>
+                                    <div class="col-9">
+                                        <span class="font-weight-bold d-block">Invoicing</span>
+                                        <span class="font-weight-bold"> $8.00 USD</span>
+                                        <span class="font-weight-light">/month</span>
+                                        <input type="checkbox" class="checkbox-round" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 p-2 mt-3" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="bg-white p-2">
+                                <div class="row">
+                                    <div class="col-3 d-flex">
+                                        <span href="#" class="secondIcon p-2 rounded">
+                                            <i class="fa-solid fa-2x text-white fa-arrow-trend-up"></i>
+                                        </span>
+                                    </div>
+                                    <div class="col-9">
+                                        <span class="font-weight-bold d-block">Sales</span>
+                                        <span class="font-weight-bold"> $8.00 USD</span>
+                                        <span class="font-weight-light">/month</span>
+                                        <input type="checkbox" class="checkbox-round" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mt-3 p-2" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="bg-white p-2">
+                                <div class="row">
+                                    <div class="col-3 d-flex">
+                                        <span href="#" class="firstIcon p-2 rounded">
+                                            <i class="text-white fa-solid fa-handshake fa-2x"></i>
+                                        </span>
+                                    </div>
+                                    <div class="col-9">
+                                        <span class="font-weight-bold d-block">CRM</span>
+                                        <span class="font-weight-bold"> $8.00 USD</span>
+                                        <span class="font-weight-light">/month</span>
+                                        <input type="checkbox" name="" id="" class="checkbox-round" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>  --}}
+
+<br><br>
                         <h3 class="mt-3">
                             Choose your <span class="font-weight-bold">hosting type</span>
                         </h3>
@@ -606,6 +618,7 @@
                         </div>
                     </div>
                 </div>
+                {{--  @endforeach  --}}
                 <div class="col-lg-3 checkout_order">
                     <div id="main_content">
 
