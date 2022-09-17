@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\FrontendController;
 use App\Models\Product;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class IndexController extends Controller
@@ -19,8 +21,11 @@ class IndexController extends Controller
     public function price()
     {
         $product = Product::get();
-    //  dd( $product);
-        return view('frontend.pricing')->with(compact('product'));
+        // $categories =Category::join('products')get();
+        $categories=DB::table('categories')->join('products','products.category_id','=','categories.id')->select('categories.*','products.tittle','products.cost')->get();
+        // dd($categories);
+
+        return view('frontend.pricing')->with(compact('product' , 'categories'));
     }
 
     public function apps()
