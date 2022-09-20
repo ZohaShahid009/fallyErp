@@ -6,6 +6,180 @@
         <section class="container-fluid bg_price px-0 pb-3">
 
 
+            <!---------------------- Navbar for Mobile View --------------------------->
+
+            <nav class="navbar navbar_mbl navbar-expand-lg bg-dark d-lg-none">
+                <a class="navbar-brand text-white" href="./index.html">Fally ERP</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="text-white"><i class="fa-solid fa-bars"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <div class="bg-info row">
+                            <div class="text-white py-2 px-3">
+                                <span class="font-weight-bold">Finance</span> &nbsp;<span
+                                    class="badge bg-light py-1 px-2 text-dark">Apps</span>
+                            </div>
+                        </div>
+                        <li class="nav-item nav_item_mbl">
+                            <a class="nav-link text-white" href="#">Spreadsheet</a>
+                        </li>
+                        <li class="nav-item nav_item_mbl">
+                            <a href="#" class="nav-link text-white">Accounting</a>
+                        </li>
+                        <li class="nav-item nav_item_mbl">
+                            <a href="#" class="nav-link text-white">Invoicing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white">Expenses</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <div class="bg-info row">
+                            <div class="text-white py-2 px-3">
+                                <span class="font-weight-bold">Sales</span> &nbsp;<span
+                                    class="badge bg-light py-1 px-2 text-dark">Apps</span>
+                            </div>
+                        </div>
+                        <li class="nav-item nav_item_mbl">
+                            <a class="nav-link text-white" href="#">CRM</a>
+                        </li>
+                        <li class="nav-item nav_item_mbl">
+                            <a href="#" class="nav-link text-white">Sales</a>
+                        </li>
+                        <li class="nav-item nav_item_mbl">
+                            <a href="#" class="nav-link text-white">Point of Sales</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white">Subscriptions</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <div class="bg-info row">
+                            <div class="text-white py-2 px-3">
+                                <span class="font-weight-bold">Websites</span> &nbsp;<span
+                                    class="badge bg-light py-1 px-2 text-dark">Apps</span>
+                            </div>
+                        </div>
+                        <li class="nav-item nav_item_mbl">
+                            <a class="nav-link text-white" href="#">Website Builder</a>
+                        </li>
+                        <li class="nav-item nav_item_mbl">
+                            <a href="#" class="nav-link text-white">Ecommerce</a>
+                        </li>
+                        <li class="nav-item nav_item_mbl">
+                            <a href="#" class="nav-link text-white">Blogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white">Forum</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <div class="bg-info row">
+                            <div class="text-white py-2 px-3">
+                                <span class="font-weight-bold">Inventory & MRP</span>
+                                &nbsp;<span class="badge bg-light py-1 px-2 text-dark">Apps</span>
+                            </div>
+                        </div>
+                        <li class="nav-item nav_item_mbl">
+                            <a class="nav-link text-white" href="#">Inventory</a>
+                        </li>
+                        <li class="nav-item nav_item_mbl">
+                            <a href="#" class="nav-link text-white">Manafacturing</a>
+                        </li>
+                        <li class="nav-item nav_item_mbl">
+                            <a href="#" class="nav-link text-white">PLM</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white">Purchase</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <div class="bg-info row">
+                            <div class="text-white py-2 px-3">
+                                <span class="font-weight-bold">Human Resources</span>
+                                &nbsp;<span class="badge bg-light py-1 px-2 text-dark">Apps</span>
+                            </div>
+                        </div>
+                        <li class="nav-item nav_item_mbl">
+                            <a class="nav-link text-white" href="#">Employees</a>
+                        </li>
+                        <li class="nav-item nav_item_mbl">
+                            <a href="#" class="nav-link text-white">Recruitment</a>
+                        </li>
+                        <li class="nav-item nav_item_mbl">
+                            <a href="#" class="nav-link text-white">Time off</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white">Appraisals</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <div class="bg-info row">
+                            <div class="text-white py-2 px-3">
+                                <span class="font-weight-bold">Marketing</span> &nbsp;<span
+                                    class="badge bg-light py-1 px-2 text-dark">Apps</span>
+                            </div>
+                        </div>
+                        <li class="nav-item nav_item_mbl">
+                            <a class="nav-link text-white" href="#">Social Marketing</a>
+                        </li>
+                        <li class="nav-item nav_item_mbl">
+                            <a href="#" class="nav-link text-white">Email Marketing</a>
+                        </li>
+                        <li class="nav-item nav_item_mbl">
+                            <a href="#" class="nav-link text-white">SMS Marketing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white">Events</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <div class="bg-info row">
+                            <div class="text-white py-2 px-3">
+                                <span class="font-weight-bold">Services</span> &nbsp;<span
+                                    class="badge bg-light py-1 px-2 text-dark">Apps</span>
+                            </div>
+                        </div>
+                        <li class="nav-item nav_item_mbl">
+                            <a class="nav-link text-white" href="#">Project</a>
+                        </li>
+                        <li class="nav-item nav_item_mbl">
+                            <a href="#" class="nav-link text-white">Timesheet</a>
+                        </li>
+                        <li class="nav-item nav_item_mbl">
+                            <a href="#" class="nav-link text-white">Field Service</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link text-white">Helpdesk</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <div class="bg-info row">
+                            <div class="text-white py-2 px-3">
+                                <span class="font-weight-bold">Productivity</span> &nbsp;<span
+                                    class="badge bg-light py-1 px-2 text-dark">Apps</span>
+                            </div>
+                        </div>
+                        <li class="nav-item nav_item_mbl">
+                            <a class="nav-link text-white" href="#">Discuss</a>
+                        </li>
+                        <li class="nav-item nav_item_mbl">
+                            <a href="#" class="nav-link text-white">Approvals</a>
+                        </li>
+                        <li class="nav-item nav_item_mbl">
+                            <a href="#" class="nav-link text-white">IoT</a>
+                        </li>
+                        <li class="nav-item nav_item_mbl">
+                            <a href="#" class="nav-link text-white">VoIP</a>
+                        </li>
+                    </ul>
+                    <h6 class="text-center mt-3">
+                        <a href="./pricing.html" class="text-white">Pricing</a>
+                    </h6>
+                </div>
+            </nav>
             <h1 class="display-4 font-weight-bold text-white pricing_heading text-center">Fally ERP Pricing</h1>
         </section>
         <section class="container-fluid Pricing_sect pb-5">
@@ -34,6 +208,8 @@
                                 <span class="font-weight-light">/user/month</span>
                             </div>
                         </div>
+
+                        {{-- parent --}}
                         @php
                             $prant_id = 0;
                         @endphp
@@ -46,109 +222,51 @@
                             @php
                                 $prant_id = $categories->title;
                             @endphp
-                            {{-- zoi rfff --}}
-                            {{-- <div class="row">
-                                <div class="col-lg-4 mt-3 p-2 data-aos="fade-up" data-aos-duration="1000">
-                                    <div class="bg-white p-2">
-                                        <div class="row">
-                                            <div class="col-3 d-flex">
-                                                <span href="#" class="firstIcon p-2 rounded">
-                                                    <i class="text-white fa-solid fa-handshake fa-2x"></i>
-                                                </span>
-                                            </div>
-                                            <div class="col-9">
-                                                <span class="font-weight-bold d-block">{{ $categories->tittle }}</span>
-                                                <span class="font-weight-bold"> ${{ $categories->cost }}</span>
-                                                <span class="font-weight-light">/month</span>
-                                                <input type="checkbox" name="" id=""
-                                                    class="checkbox-round" />
-                                            </div>
-
-                                            {{-- zoii rff end --}}
-
-
-                            {{-- </div>
-                                    </div>
-
-                                </div> --}}
-                            {{-- </div> --}}
-                            {{-- zoi2 --}}
+                            {{-- child --}}
                             <div class="row">
-                                <div class="col-lg-4 mt-3 p-2" data-aos="fade-up" data-aos-duration="1000">
+                                <div class="col-lg-4 p-2 mt-3" data-aos="fade-up" data-aos-duration="1000">
                                     <div class="bg-white p-2">
                                         <div class="row">
                                             <div class="col-3 d-flex">
-                                                <span href="#" class="firstIcon p-2 rounded">
-                                                    <i class="text-white fa-solid fa-handshake fa-2x"></i>
+                                                <span href="#" class="thirdIcon py-2 px-3 rounded">
+                                                    <i class="text-white fa-solid fa-file-invoice-dollar fa-2x"></i>
                                                 </span>
                                             </div>
                                             <div class="col-9">
                                                 <span class="font-weight-bold d-block">{{ $categories->tittle }}</span>
                                                 <span class="font-weight-bold"> ${{ $categories->cost }}</span>
                                                 <span class="font-weight-light">/month</span>
-                                                <input type="checkbox" name="" id=""
-                                                    class="checkbox-round" />
+                                                <input type="checkbox" class="checkbox-round" />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
+
+{{--  rff  --}}
+                                {{--  <div class="col-lg-4 p-2 mt-3" data-aos="fade-up" data-aos-duration="1000">
+                            <div class="bg-white p-2">
+                                <div class="row">
+                                    <div class="col-3 d-flex">
+                                        <span href="#" class="secondIcon p-2 rounded">
+                                            <i class="fa-solid fa-2x text-white fa-arrow-trend-up"></i>
+                                        </span>
+                                    </div>
+                                    <div class="col-9">
+                                        <span class="font-weight-bold d-block">Sales</span>
+                                        <span class="font-weight-bold"> $8.00 USD</span>
+                                        <span class="font-weight-light">/month</span>
+                                        <input type="checkbox" name="" id="" class="checkbox-round" />
+                                    </div>
+                                </div>
                             </div>
-                            {{-- zoi2 end --}}
+                        </div>  --}}
+                    {{--  rff  --}}
+
+                            </div>
                         @endforeach
-
-                        <div class="row">
-
-
-
-                            <br><br>
-                            <h3 class="mt-3">
-                                Choose your <span class="font-weight-bold">hosting type</span>
-                            </h3>
-
-                            <div class="col-lg-12" data-aos="fade-up" data-aos-duration="1000">
-                                <ul class="pl-lg-2">
-                                    <li class="card">
-                                        <label for="1" class="d-flex align-items-center label_radio pt-3">
-                                            <input type="radio" id="1" required name="check">
-                                            Standard Cloud Hosting - Free
-                                        </label>
-                                    </li>
-                                    <li class=" card">
-                                        <label for="2" class="d-flex align-items-center label_radio pt-3">
-                                            <input type="radio" id="2" required name="check">
-                                            Self Hosting - Free
-                                        </label>
-                                    </li>
-                                    <li class="card">
-                                        <label for="3" class=" label_radio pt-3 d-flex align-items-center">
-                                            <input type="radio" required name="check" id="3">
-                                            Fally ERP.sh Cloud Platform (allows custom modules)
-                                    </li>
-                                </ul>
-                            </div>
-                            <h3 class="mt-3">
-                                <span class="font-weight-bold">Implementation</span> Service
-                            </h3>
-                            <div class="col-lg-12" data-aos="fade-up" data-aos-duration="1000">
-                                <ul>
-                                    <li class="card">
-                                        <label for="4" class=" d-flex align-items-center label_radio pt-3">
-                                            <input id="4" type="radio" required name="service">
-                                            Self-service
-                                        </label>
-                                    </li>
-                                    <li class="card">
-                                        <label for="5" class=" label_radio pt-3 d-flex align-items-center">
-                                            <input id="5" type="radio" required name="service">
-                                            With a local partner <br class="d-lg-none"> (recommended for<span
-                                                class="font-weight-bold ml-auto ml-lg-2">>50 users</span>) </label>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
                     </div>
-                    {{-- @endforeach --}}
+
                     <div class="col-lg-3 checkout_order">
                         <div id="main_content">
 
@@ -332,4 +450,6 @@
                 </div>
             </div>
         </section>
-    @endsection
+
+    </body>
+@endsection

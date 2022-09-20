@@ -312,9 +312,6 @@ Route::get('theme-list', [ThemeController::class, 'theme']);
 // for  theme activation status
 Route::post('/admin/update-banner-status',[ThemeController::class, 'updateStatus']);
 // for send welcome to new users
-
-// for notification PLZ Allaha talla hojy ya plz mjh sayyyyyyyyy
-
 Route::get('/test',[ThemeController::class, 'test']);
 
 

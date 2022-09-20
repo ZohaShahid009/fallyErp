@@ -11,5 +11,8 @@ class Category extends Model
     protected $fillable =[
         'image','title',
     ];
-   
+
+    public function category(){
+        return $this->hasmany('App\Models\Category','id');
+    }
 }
