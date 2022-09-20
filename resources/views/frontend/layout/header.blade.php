@@ -37,7 +37,7 @@
 
 
                                 @foreach ($navbars as $key => $item)
-                                
+
                                 @endforeach
                                 {{-- <a href="#" class="text-dark">Invoicing</a>
                 <a href="#" class="text-dark">Expenses</a>

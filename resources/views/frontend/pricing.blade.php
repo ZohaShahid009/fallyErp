@@ -213,17 +213,20 @@
                         @php
                             $prant_id = 0;
                         @endphp
+                        <div class="row">
                         @foreach ($categories as $key => $categories)
                             @if ($categories->title != $prant_id)
+                            <div class="col-lg-12 col-md-12 col-sm-12">
                                 <h3 class="mt-3">
                                     Choose your <span class="font-weight-bold">{{ $categories->title }}</span>
                                 </h3>
+                            </div>
                             @endif
                             @php
                                 $prant_id = $categories->title;
                             @endphp
                             {{-- child --}}
-                            <div class="row">
+                            {{-- <div class="row"> --}}
                                 <div class="col-lg-4 p-2 mt-3" data-aos="fade-up" data-aos-duration="1000">
                                     <div class="bg-white p-2">
                                         <div class="row">
@@ -263,8 +266,9 @@
                         </div>  --}}
                     {{--  rff  --}}
 
-                            </div>
+                            {{-- </div> --}}
                         @endforeach
+                    </div>
                     </div>
 
                     <div class="col-lg-3 checkout_order">
