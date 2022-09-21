@@ -214,70 +214,52 @@
                             $prant_id = 0;
                         @endphp
                         <div class="row">
-                        @foreach ($categories as $category)
-                            {{-- @if ($categories->title != $prant_id) --}}
-                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                <h3 class="mt-3">
-                                    Choose your <span class="font-weight-bold">{{ $category->title }}</span>
-                                </h3>
-                            </div>
-                            {{-- @endif --}}
-                            @php
-                                // $prant_id = $categories->title;
-                            @endphp
-                            {{-- child --}}
-                            {{-- <div class="row"> --}}
+                            @foreach ($categories as $category)
+                                {{-- @if ($categories->title != $prant_id) --}}
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <h3 class="mt-3">
+                                        Choose your <span class="font-weight-bold">{{ $category->title }}</span>
+                                    </h3>
+                                </div>
+                                {{-- @endif --}}
+                                @php
+                                    // $prant_id = $categories->title;
+                                @endphp
+                                {{-- child --}}
+                                {{-- <div class="row"> --}}
                                 @foreach ($product as $products)
-                                @if ($products->category_id == $category->id)
+                                    @if ($products->category_id == $category->id)
+                                        <div class="col-lg-4 p-2 mt-3" data-aos="fade-up" data-aos-duration="1000">
+                                            <div class="bg-white p-2">
+                                                <div class="row">
+                                                    <div class="col-3 d-flex">
+                                                        <span href="#" class="thirdIcon py-2 px-3 rounded">
+                                                            <i
+                                                                class="text-white fa-solid fa-file-invoice-dollar fa-2x"></i>
+                                                        </span>
+                                                    </div>
+                                                    <div class="col-9">
 
 
-                                <div class="col-lg-4 p-2 mt-3" data-aos="fade-up" data-aos-duration="1000">
-                                    <div class="bg-white p-2">
-                                        <div class="row">
-                                            <div class="col-3 d-flex">
-                                                <span href="#" class="thirdIcon py-2 px-3 rounded">
-                                                    <i class="text-white fa-solid fa-file-invoice-dollar fa-2x"></i>
-                                                </span>
-                                            </div>
-                                            <div class="col-9">
 
-
-
-                                                <span class="font-weight-bold d-block">{{ $products->tittle }}</span>
-                                                <span class="font-weight-bold"> ${{ $products->cost }}</span>
-                                                <span class="font-weight-light">/month</span>
-                                                <input type="checkbox" class="checkbox-round" />
+                                                        <span
+                                                            class="font-weight-bold d-block">{{ $products->tittle }}</span>
+                                                        <span class="font-weight-bold"> ${{ $products->cost }}</span>
+                                                        <span class="font-weight-light">/month</span>
+                                                        <input type="checkbox" class="checkbox-round" />
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                @endif
+                                    @endif
                                 @endforeach
 
 
-{{--  rff  --}}
-                                {{--  <div class="col-lg-4 p-2 mt-3" data-aos="fade-up" data-aos-duration="1000">
-                            <div class="bg-white p-2">
-                                <div class="row">
-                                    <div class="col-3 d-flex">
-                                        <span href="#" class="secondIcon p-2 rounded">
-                                            <i class="fa-solid fa-2x text-white fa-arrow-trend-up"></i>
-                                        </span>
-                                    </div>
-                                    <div class="col-9">
-                                        <span class="font-weight-bold d-block">Sales</span>
-                                        <span class="font-weight-bold"> $8.00 USD</span>
-                                        <span class="font-weight-light">/month</span>
-                                        <input type="checkbox" name="" id="" class="checkbox-round" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>  --}}
-                    {{--  rff  --}}
 
-                            {{-- </div> --}}
-                        @endforeach
-                    </div>
+
+                                {{-- </div> --}}
+                            @endforeach
+                        </div>
                     </div>
 
                     <div class="col-lg-3 checkout_order">

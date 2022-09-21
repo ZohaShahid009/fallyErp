@@ -31,13 +31,24 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
-        //  Paginator::useBootstrap();
+        //   Paginator::useBootstrap();
 
         Schema::defaultStringLength(191);
-             $categories =Category::get();
-            $navbars=DB::table('categories')->join('products', 'products.category_id', '=', 'categories.id')->select('categories.*', 'products.tittle', 'products.cost')->get();
-            view()->share('navbars', $navbars);
-
+        $product = Product::get();
+        $record = Category::get();
+        $categories=[];
+        foreach ($record as $category) {
+           $check = $category->products()->first();
+           // dd($check);
+           if (isset($check->tittle)) {
+               $a = $category;
+               array_push($categories, $a);
+        
+           }
+        }
+        view()->share('categories' , $categories );
+        view()->share('product' , $product);
+    //    view()->share('product', $product ,'categories' , $categories);
     }
 
 }

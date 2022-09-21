@@ -10,129 +10,29 @@
             <a class="border-0 btn bg-transparent apps" style="font-size: 13px;">Apps <i
                     class="fa-solid fa-angle-down"></i></a>
             {{-- zoi start --}}
-            {{-- @php
-        $prant_id = 0;
-    @endphp
-    @foreach ($navbars as $key => $item) --}}
-            <div class="mega-menu fadeIn animated">
-                @php
-                    $prant_id = 0;
-                @endphp
-                @foreach ($navbars as $key => $item)
+
+
+                <div class="mega-menu fadeIn animated">
+                    @foreach ($categories as $category)
                     <div class="mm-6column">
                         <span class="categories-list">
-
                             <ul>
-                                @if ($item->title != $prant_id)
-                                    <h5 class="products_heading_1">{{ $item->title }}</h5>
-                                @endif
-                                 <hr class="borderLine" />
-
-                                <a href="#" class="text-dark">{{ $item->tittle }}</a>
-
-                                @php
-                                    $prant_id = $item->title;
-                                @endphp
-
-
-
-                                @foreach ($navbars as $key => $item)
-
-                                @endforeach
-                                {{-- <a href="#" class="text-dark">Invoicing</a>
-                <a href="#" class="text-dark">Expenses</a>
-                <a href="#" class="text-dark">Spreadsheet</a> --}}
+                                <h5 class="products_heading_1">{{ $category->title }}</h5>
+                                <hr class="borderLine" />
+                                @foreach ($product as $products)
+                                    @if ($products->category_id == $category->id)
+                                        <a href="#" class="text-dark">{{ $products->tittle }}</a>
+                                        {{-- <a href="#" class="text-dark">Invoicing</a> --}}
+                                        @endif
+                                        @endforeach
                             </ul>
                         </span>
                     </div>
-                @endforeach
 
-                {{-- <div class="mm-3column">
-            <span class="categories-list">
-              <ul>
-                <h5 class="products_heading_2">SALES</h5>
-                <hr class="borderLine" />
-                <a href="#" class="text-dark">CRM</a>
-                <a href="#" class="text-dark">Sales</a>
-                <a href="#" class="text-dark">Point of Sales</a>
-                <a href="#" class="text-dark">Subscription</a>
-              </ul>
-            </span>
-          </div> --}}
-                {{-- <div class="mm-3column">
-            <span class="categories-list">
-              <ul>
-                <h5 class="products_heading_1">Websites</h5>
-                <hr class="borderLine" />
-                <a href="#" class="text-dark">Website Builder</a>
-                <a href="#" class="text-dark">eCommerce</a>
-                <a href="#" class="text-dark">Blogs</a>
-                <a href="#" class="text-dark">Forum</a>
-              </ul>
-            </span>
-          </div> --}}
-                {{-- <div class="mm-3column">
-            <span class="categories-list">
-              <ul>
-                <h5 class="products_heading_1">Inventory & MRP</h5>
-                <hr class="borderLine" />
-                <a href="#" class="text-dark">Inventory</a>
-                <a href="#" class="text-dark">Manafacturing</a>
-                <a href="#" class="text-dark">PLM</a>
-                <a href="#" class="text-dark">Purchase</a>
-              </ul>
-            </span>
-          </div> --}}
-                {{-- <div class="mm-3column mt-5">
-            <span class="categories-list">
-              <ul>
-                <h5 class="products_heading_1">HUMAN RESOURCES</h5>
-                <hr class="borderLine" />
-                <a href="#" class="text-dark">Employees</a>
-                <a href="#" class="text-dark">Recruitment</a>
-                <a href="#" class="text-dark">Time Off</a>
-                <a href="#" class="text-dark">Appraisals</a>
-              </ul>
-            </span>
-          </div> --}}
-                {{-- <div class="mm-3column mt-5">
-            <span class="categories-list">
-              <ul>
-                <h5 class="products_heading_2">Marketing</h5>
-                <hr class="borderLine" />
-                <a href="#" class="text-dark">Social Marketing</a>
-                <a href="#" class="text-dark">Email Marketing</a>
-                <a href="#" class="text-dark">SMS Marketing</a>
-                <a href="#" class="text-dark">Events</a>
-              </ul>
-            </span>
-          </div> --}}
-                {{-- <div class="mm-3column mt-5">
-            <span class="categories-list">
-              <ul>
-                <h5 class="products_heading_2">Services</h5>
-                <hr class="borderLine" />
-                <a href="#" class="text-dark">Project</a>
-                <a href="#" class="text-dark">Timesheet</a>
-                <a href="#" class="text-dark">Field Service</a>
-                <a href="#" class="text-dark">Helpdesk</a>
-              </ul>
-            </span>
-          </div> --}}
-                {{-- <div class="mm-3column mt-5">
-            <span class="categories-list">
-              <ul>
-                <h5 class="products_heading_1">Productivity</h5>
-                <hr class="borderLine" />
-                <a href="#" class="text-dark">Discuss</a>
-                <a href="#" class="text-dark">Approvals</a>
-                <a href="#" class="text-dark">IoT</a>
-                <a href="#" class="text-dark">VoIP</a>
-              </ul>
-            </span>
-          </div> --}}
-                {{-- @endforeach --}}
+
+            @endforeach
             </div>
+
 
         </li>
         <a href="price" class="apps" style="font-size: 13px;">Pricing</a>
