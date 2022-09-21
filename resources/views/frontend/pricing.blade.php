@@ -208,25 +208,16 @@
                                 <span class="font-weight-light">/user/month</span>
                             </div>
                         </div>
-
                         {{-- parent --}}
-                        @php
-                            $prant_id = 0;
-                        @endphp
                         <div class="row">
                             @foreach ($categories as $category)
-                                {{-- @if ($categories->title != $prant_id) --}}
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <h3 class="mt-3">
                                         Choose your <span class="font-weight-bold">{{ $category->title }}</span>
                                     </h3>
                                 </div>
-                                {{-- @endif --}}
-                                @php
-                                    // $prant_id = $categories->title;
-                                @endphp
-                                {{-- child --}}
                                 {{-- <div class="row"> --}}
+                                    {{--  child  --}}
                                 @foreach ($product as $products)
                                     @if ($products->category_id == $category->id)
                                         <div class="col-lg-4 p-2 mt-3" data-aos="fade-up" data-aos-duration="1000">
@@ -239,9 +230,6 @@
                                                         </span>
                                                     </div>
                                                     <div class="col-9">
-
-
-
                                                         <span
                                                             class="font-weight-bold d-block">{{ $products->tittle }}</span>
                                                         <span class="font-weight-bold"> ${{ $products->cost }}</span>
@@ -253,10 +241,6 @@
                                         </div>
                                     @endif
                                 @endforeach
-
-
-
-
                                 {{-- </div> --}}
                             @endforeach
                         </div>
