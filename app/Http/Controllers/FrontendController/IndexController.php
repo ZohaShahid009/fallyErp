@@ -20,11 +20,7 @@ class IndexController extends Controller
     }
     public function price()
     {
-        $product = Product::get();
-        //  $categories =Category::get();
-        $categories=DB::table('categories')->join('products','products.category_id','=','categories.id')->select('categories.*','products.tittle','products.cost')->get();
-        // dd($categories);
-        return view('frontend.pricing')->with(compact('product' , 'categories'));
+
     }
 
     public function apps()
