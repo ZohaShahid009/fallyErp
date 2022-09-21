@@ -21,9 +21,20 @@ class IndexController extends Controller
     public function price()
     {
         $product = Product::get();
-        //  $categories =Category::get();
-        $categories=DB::table('categories')->join('products','products.category_id','=','categories.id')->select('categories.*','products.tittle','products.cost')->get();
+         $record = Category::get();
+         $categories=[];
+         foreach ($record as $category) {
+            $check = $category->products()->first();
+            // dd($check);
+            if (isset($check->tittle)) {
+                $a = $category;
+                array_push($categories, $a);
+            }
+         }
+
+        // $categories=DB::table('categories')->join('products','products.category_id','=','categories.id')->select('categories.*','products.tittle','products.cost')->get();
         // dd($categories);
+
         return view('frontend.pricing')->with(compact('product' , 'categories'));
     }
 

@@ -214,19 +214,23 @@
                             $prant_id = 0;
                         @endphp
                         <div class="row">
-                        @foreach ($categories as $key => $categories)
-                            @if ($categories->title != $prant_id)
+                        @foreach ($categories as $category)
+                            {{-- @if ($categories->title != $prant_id) --}}
                             <div class="col-lg-12 col-md-12 col-sm-12">
                                 <h3 class="mt-3">
-                                    Choose your <span class="font-weight-bold">{{ $categories->title }}</span>
+                                    Choose your <span class="font-weight-bold">{{ $category->title }}</span>
                                 </h3>
                             </div>
-                            @endif
+                            {{-- @endif --}}
                             @php
-                                $prant_id = $categories->title;
+                                // $prant_id = $categories->title;
                             @endphp
                             {{-- child --}}
                             {{-- <div class="row"> --}}
+                                @foreach ($product as $products)
+                                @if ($products->category_id == $category->id)
+
+
                                 <div class="col-lg-4 p-2 mt-3" data-aos="fade-up" data-aos-duration="1000">
                                     <div class="bg-white p-2">
                                         <div class="row">
@@ -236,14 +240,19 @@
                                                 </span>
                                             </div>
                                             <div class="col-9">
-                                                <span class="font-weight-bold d-block">{{ $categories->tittle }}</span>
-                                                <span class="font-weight-bold"> ${{ $categories->cost }}</span>
+
+
+
+                                                <span class="font-weight-bold d-block">{{ $products->tittle }}</span>
+                                                <span class="font-weight-bold"> ${{ $products->cost }}</span>
                                                 <span class="font-weight-light">/month</span>
                                                 <input type="checkbox" class="checkbox-round" />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                @endif
+                                @endforeach
 
 
 {{--  rff  --}}
