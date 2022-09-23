@@ -39,8 +39,6 @@ class AuthController extends Controller
             'password'=>'required|min:8'
         ]);
 
-
-
          return redirect('dashboard')->withSuccess('Logged In Successfully');
     }
 

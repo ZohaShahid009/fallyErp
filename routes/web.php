@@ -25,6 +25,7 @@ use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\UserManagmentController;
 use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\FrontendController\IndexController;
+use App\Http\Controllers\FrontendController\UserController;
 use App\Models\Plan;
 use App\Models\theme;
 use App\Models\User;
@@ -48,6 +49,9 @@ Route::get('price', [IndexController::class, 'price']);
 Route::get('apps', [IndexController::class, 'apps']);
 Route::get('signin', [IndexController::class, 'signin']);
 Route::get('signup', [IndexController::class, 'signup']);
+// for sigup && signin users
+Route::post('signup', [UserController::class, 'signup_user']);
+
 // end frontend
 
 

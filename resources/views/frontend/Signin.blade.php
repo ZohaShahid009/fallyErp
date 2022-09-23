@@ -17,6 +17,8 @@
       </head>
 
 <body>
+    <form class="form" action="custom-login" method="POST" novalidate="novalidate" id="">
+        @csrf
     <div class="container">
         <div class="row parent_div align-items-center justify-content-center">
             <div class="col-lg-4 card">
@@ -24,11 +26,11 @@
                 <p class="bg-info p-3 text-white">Access and manage your instances from this Fally ERP account.</p>
                 <label class="font-weight-bold">Email</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="email" placeholder="Email" required class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    <input type="email" name="email" placeholder="Email" required class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
                 </div>
                 <label class="font-weight-bold">Password</label>
                 <div class="input-group mb-3">
-                    <input type="password" placeholder="Password" id="pass" required class="form-control">
+                    <input type="password" placeholder="Password" name="password" id="pass" required class="form-control">
                     <div class="input-group-append">
                       <button onclick="password_toggle()" class="btn input-group-text" id="basic-addon2"><i class="fa-solid fa-eye"></i></button>
                     </div>
@@ -38,6 +40,7 @@
                 </div>
         </div>
     </div>
+    </form>
     <footer class="container-fluid footer">
         <div class="container pb-5">
           <div class="row pt-5">

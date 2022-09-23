@@ -18,21 +18,24 @@
       </head>
 
 <body>
+    <form method="POST" action="{{ url('signup') }}" class="form" enctype="multipart/form-data">
+        @csrf
     <div class="container">
         <div class="row parent_div align-items-center justify-content-center">
             <div class="col-lg-4 card">
                 <h3 class="text-center py-3">Fally ERP</h3>
                 <p class="bg-info p-3 text-white">Access and manage your instances from this Fally ERP account.</p>
+
                 <label class="font-weight-bold">Your Email</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="email" required class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    <input type="email" required name="email" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
                 </div>
                 <label class="font-weight-bold">Your Name</label>
                 <div class="input-group input-group-sm mb-3">
-                    <input type="text" required placeholder="e.g. John Doe" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+                    <input type="text" required   name="name" placeholder="e.g. John Doe" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" id="pass" required class="form-control">
+                    <input type="password" id="pass" name="password"  required class="form-control">
                     <div class="input-group-append">
                       <button onclick="password_toggle()" class="btn input-group-text" id="basic-addon2"><i class="fa-solid fa-eye"></i></button>
                     </div>
@@ -40,10 +43,10 @@
                   <button class="btn btn-block btn-info text-uppercase mt-lg-4">Sign up</button>
                   <p class="text-right mt-3"><a href="/signin" class="text-info font-weight-bold">I already have an account</a></p>
                   <p>We will handle your personal data as described in our <a href="#" class="text-secondary font-weight-bold"> Privacy Policy.</a></p>
-
                 </div>
         </div>
     </div>
+    </form>
     <footer class="container-fluid footer">
         <div class="container pb-5">
           <div class="row pt-5">
