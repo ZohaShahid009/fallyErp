@@ -83,7 +83,7 @@ public function EditClient(Request $request, $id)
 
     // return $task;
     $task ->save();
-    return redirect('/add-task-form')->with('message', 'Task has been added');
+    return redirect('/task-list')->with('message', 'Task has been added');
 }
 
 public function TaskList()

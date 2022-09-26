@@ -25,6 +25,7 @@ use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\UserManagmentController;
 use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TaskController;
 use App\Http\Controllers\FrontendController\IndexController;
 use App\Http\Controllers\FrontendController\UserController;
 use App\Models\Plan;
@@ -256,6 +257,7 @@ Route::get('edit-client/{id}', [ClientController::class, 'EditClient']);
 Route::post('/updateclient/{id}', [ClientController::class, 'UpdateClient']);
 Route::delete('client/{id}', [ClientController::class, 'delete'])->name('delete-client');
  Route::post('client/detail', [ClientController::class, 'client_detail'])->name('client.detail');
+
 //  for task
 Route::get('add-task-form', function () {
     return view('admin.pages.invoice.task.add');
@@ -323,7 +325,7 @@ Route::get('/test',[ThemeController::class, 'test']);
 
 
 
-// route of admin FAQ
+// route of project
 Route::get('add-project-form', function () {
     return view('admin.pages.Projects.add');
 });
@@ -337,5 +339,7 @@ Route::delete('project/{id}', [ProjectController::class, 'deleteproject'])->name
 
 Route::post('project/detail', [ProjectController::class, 'project_detail'])->name('project_detail');
 // END OF // route of projects
+
+
 
 
