@@ -24,6 +24,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\UserManagmentController;
 use App\Http\Controllers\ThemeController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\FrontendController\IndexController;
 use App\Http\Controllers\FrontendController\UserController;
 use App\Models\Plan;
@@ -318,7 +319,23 @@ Route::post('/admin/update-banner-status',[ThemeController::class, 'updateStatus
 // for send welcome to new users
 Route::get('/test',[ThemeController::class, 'test']);
 
+// for add projects
 
 
+
+// route of admin FAQ
+Route::get('add-project-form', function () {
+    return view('admin.pages.Projects.add');
+});
+Route::get('project-list', [ProjectController::class, 'productlist']);
+Route::post('add-project', [ProjectController::class, 'addproject']);
+Route::get('edit-project/{id}', [ProjectController::class, 'editproject']);
+Route::post('/updateproject/{id}', [ProjectController::class, 'updateproject']);
+Route::delete('project/{id}', [ProjectController::class, 'deleteproject'])->name('delete-project');
+
+
+
+Route::post('project/detail', [ProjectController::class, 'project_detail'])->name('project_detail');
+// END OF // route of projects
 
 
